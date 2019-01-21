@@ -29,5 +29,67 @@ namespace WebService
             }
             return composite;
         }
+
+
+
+        public List<accounts> GetAccounts()
+        {
+            try
+            {
+                MSSQL400028DataContext dc = new MSSQL400028DataContext();
+                List<accounts> results = new List<accounts>();
+                foreach (Account cust in dc.Accounts)
+                {
+                    results.Add(new accounts()
+                    {
+                        //Database colummen /proerties 
+                        ID = cust.ID,
+                        Username = cust.Username,
+                        Password = cust.Password,
+                        Class = cust.Class,
+                        isAdmin = cust.isAdmin
+                    });
+                }
+                return results;
+            }
+            catch (Exception ex)
+            {
+                //  Return any exception messages back to the Response header
+                OutgoingWebResponseContext response = WebOperationContext.Current.OutgoingResponse;
+                response.StatusCode = System.Net.HttpStatusCode.InternalServerError;
+                response.StatusDescription = ex.Message.Replace("\r\n", "");
+                return null;
+            }
+        }
+
+
+        public List<info> Getinfo()
+        {
+            try
+            {
+                MSSQL400028DataContext dc = new MSSQL400028DataContext();
+                List<info> results = new List<info>();
+                foreach (Info cust in dc.Infos)
+                {
+                    results.Add(new info()
+                    {
+                        //Database colummen /proerties 
+                        ID = cust.ID,
+                        Studentname = cust.Studentname,
+                        Atime = cust.ATime,
+                        Date = cust.Date
+                    });
+                }
+                return results;
+            }
+            catch (Exception ex)
+            {
+                //  Return any exception messages back to the Response header
+                OutgoingWebResponseContext response = WebOperationContext.Current.OutgoingResponse;
+                response.StatusCode = System.Net.HttpStatusCode.InternalServerError;
+                response.StatusDescription = ex.Message.Replace("\r\n", "");
+                return null;
+            }
+        }
     }
 }
