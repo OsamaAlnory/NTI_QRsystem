@@ -11,7 +11,7 @@ namespace NTI_QRsystem
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new Pages.LoginPage();
         }
 
         protected override void OnStart()
