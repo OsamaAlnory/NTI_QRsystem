@@ -3,6 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NTI_QRsystem.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Style x:Key="CustomButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Red"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NTI_QRsystem.Pages.LoginPage">
+    <ContentPage>
+        
+    </ContentPage>
+    <ContentPage>
+        <StackLayout>
+            <Label Text="Inloggning"/>
+            <Entry Text="Namn" HorizontalOptions="FillAndExpand"/>
+            <Entry Text="Lösenord"/>
+            <Button Style="{StaticResource CustomButton}" Text="Logga in"
+                    HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </ContentPage>
+</CarouselPage>
