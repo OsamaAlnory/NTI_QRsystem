@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fuck="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             x:Class="NTI_QRsystem.QR_Generator">
+    <ContentPage.Content>
+        <StackLayout x:Name="stkqr">
+            <fuck:ZXingBarcodeImageView x:Name="b" AutomationId="Elevens Data" HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand" BarcodeFormat="QR_CODE"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
