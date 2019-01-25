@@ -18,5 +18,7 @@ namespace DataAccess
         public string AdminID { get; set; }
         public string Class { get; set; }
         public System.TimeSpan LecTime { get; set; }
+        public string DeviceID { get; set; }
+        public string Extra { get; set; }
     }
 }

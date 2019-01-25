@@ -64,6 +64,8 @@ namespace WebApplication1.Controllers
                 entity.AdminID = lec.AdminID;
                 entity.Class = lec.Class;
                 entity.LecTime = lec.LecTime;
+                entity.DeviceID = lec.DeviceID;
+                entity.Extra = lec.Extra;
                 entities.SaveChanges();
             }
         }

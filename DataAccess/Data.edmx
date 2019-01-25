@@ -33,6 +33,8 @@
           <Property Name="AdminID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Class" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="LecTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="DeviceID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Extra" Type="char" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityContainer Name="MSSQL400028ModelStoreContainer">
           <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
@@ -76,6 +78,8 @@
           <Property Name="AdminID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Class" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="LecTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="DeviceID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Extra" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -108,6 +112,8 @@
           <EntitySetMapping Name="Lec">
             <EntityTypeMapping TypeName="MSSQL400028Model.Lec">
               <MappingFragment StoreEntitySet="Lec">
+                <ScalarProperty Name="Extra" ColumnName="Extra" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
                 <ScalarProperty Name="LecTime" ColumnName="LecTime" />
                 <ScalarProperty Name="Class" ColumnName="Class" />
                 <ScalarProperty Name="AdminID" ColumnName="AdminID" />
