@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,6 +9,9 @@ namespace NTI_QRsystem
 {
     public partial class App : Application
     {
+
+        public static Dictionary<string, ImageSource> images = new Dictionary<string, ImageSource>();
+
         public App()
         {
             InitializeComponent();
@@ -19,6 +24,17 @@ namespace NTI_QRsystem
         private async void Load()
         {
             await DBK.DB.LoadAccounts();
+        }
+
+        public static ImageSource getImage(string key)
+        {
+            return images.ContainsKey(key) ? images[key] : loadImage("no-image.png");
+        }
+
+        public static ImageSource loadImage(string path)
+        {
+            return ImageSource.FromResource("NTI_QRsystem.images." + path,
+             Assembly.GetExecutingAssembly());
         }
 
         protected override void OnStart()

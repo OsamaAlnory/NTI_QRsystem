@@ -7,6 +7,10 @@ namespace NTI_QRsystem
 {
     public class IEntry : Entry
     {
-
+        public IEntry()
+        {
+            BackgroundColor = Color.White;
+            
+        }
     }
 }
