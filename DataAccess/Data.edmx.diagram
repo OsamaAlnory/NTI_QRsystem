@@ -7,7 +7,7 @@
       <Diagram DiagramId="ce944328471f4b46b4ce1953a4b002b1" Name="Diagram1">
         <EntityTypeShape EntityType="MSSQL400028Model.Accounts" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MSSQL400028Model.Info" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MSSQL400028Model.Lec" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MSSQL400028Model.Lec" Width="1.5" PointX="4.5" PointY="1.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:obj="clr-namespace:NTI_QRsystem"
+             x:Class="NTI_QRsystem.StartSidan" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Button Style="{StaticResource CustomButton}" Text="Skanna" BackgroundColor="Purple"
+                    Clicked="Button_Clicked"></Button>
+            <Button Text="Om appen" Style="{StaticResource CustomButton}"
+                    BackgroundColor="Purple" Clicked="OpenAbout"/>
+            <Label Text="" x:Name="mycode" TextColor="Red" HorizontalOptions="Center"></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

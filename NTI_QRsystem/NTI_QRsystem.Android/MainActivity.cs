@@ -23,6 +23,7 @@ namespace NTI_QRsystem.Droid
 
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            
             LoadApplication(new App());
         }
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NTI_QRsystem.DBK;
+using NTI_QRsystem.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,11 +28,25 @@ namespace NTI_QRsystem
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                   await Navigation.PopAsync();
-                    mycode.Text = result.Text;
+                    await Navigation.PopAsync();
+                    Recognize(result.Text);
                 });
             };
+        }
+
+        private void Recognize(string code)
+        {
+            for(int x = 0; x < DB.lectures.Capacity; x++)
+            {
+                Lecture lecture = DB.lectures[x];
+
+            }
+        }
+
+        private void OpenAbout(object s, EventArgs e)
+        {
 
         }
+
     }
 }

@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:obj="clr-namespace:NTI_QRsystem"
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
-             x:Class="NTI_QRsystem.Pages.LoginPage">
-    <ContentPage IsVisible="False">
+             x:Class="NTI_QRsystem.Pages.LoginPage" NavigationPage.HasNavigationBar="False">
+    <ContentPage BackgroundColor="Red">
         <StackLayout>
             <Label Text="Alwelcome"/>
             <forms:AnimationView x:Name="animation" Animation="qr_scan.json" IsVisible="True"
-             Loop="true" AutoPlay="true" HeightRequest="10" WidthRequest="10"/>
+             Loop="true" AutoPlay="true" HeightRequest="100" WidthRequest="100"/>
         </StackLayout>
     </ContentPage>
     <ContentPage>
@@ -25,11 +25,11 @@
                 </Frame>
                 <Frame Padding="0" CornerRadius="20">
                     <obj:IEntry Placeholder="Lösenord" HorizontalOptions="FillAndExpand"
-                                HorizontalTextAlignment="Center" x:Name="password"/>
+                     HorizontalTextAlignment="Center" x:Name="password" IsPassword="True"/>
                 </Frame>
                 <Button Style="{StaticResource CustomButton}" Text="Logga in"
                     HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"
-                        FontAttributes="Bold" Clicked="Button_Clicked"/>
+                        FontAttributes="Bold" Clicked="Button_Clicked" BackgroundColor="Red"/>
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage>

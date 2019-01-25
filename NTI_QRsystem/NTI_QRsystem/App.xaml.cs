@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Reflection;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,16 +16,27 @@ namespace NTI_QRsystem
         public App()
         {
             InitializeComponent();
-            Load();
             images.Add("background", loadImage("background.png"));
               //MainPage = new NavigationPage(  new StartSidan());
-            MainPage = new NavigationPage(new Pages.LoginPage());
+            MainPage = new NavigationPage(new Pages.LoadingPage());
            //MainPage = new QR_Generator();
         }
 
-        private async void Load()
+        public static bool CheckInternetConnection()
         {
-            await DBK.DB.LoadAccounts();
+            string CheckUrl = "http://google.com";
+            try
+            {
+                HttpWebRequest iNetRequest = (HttpWebRequest)WebRequest.Create(CheckUrl);
+                iNetRequest.Timeout = 8000;
+                WebResponse iNetResponse = iNetRequest.GetResponse();
+                iNetResponse.Close();
+                return true;
+            }
+            catch (WebException ex)
+            {
+                return false;
+            }
         }
 
         public static ImageSource getImage(string key)

@@ -35,7 +35,8 @@ namespace NTI_QRsystem.Pages
                     if (acc.Username == t1 && acc.Password == t2)
                     {
                         App.Current.Properties["LoggedIn"] = acc.Username;
-                        Navigation.PushAsync(new StartSidan());
+                        App.Current.SavePropertiesAsync();
+                        LoadingPage.p.OpenPage();
                         Navigation.RemovePage(this);
                     }
                     else if (t2 != acc.Password)
@@ -46,9 +47,9 @@ namespace NTI_QRsystem.Pages
                     {
                         DisplayAlert("Fel", "Fel Användernamn", "Avbryt");
                     }
-
                 }
             }
         }
+
     }
 }
