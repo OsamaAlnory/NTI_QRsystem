@@ -15,10 +15,15 @@ namespace NTI_QRsystem
         public App()
         {
             InitializeComponent();
-            //  MainPage = new NavigationPage(  new StartSidan());
-            images.Add("background", loadImage("background.png"));
-            MainPage = new Pages.LoginPage();
-            //MainPage = new QR_Generator();
+            Load();
+              MainPage = new NavigationPage(  new StartSidan());
+            //MainPage = new Pages.LoginPage();
+           // MainPage = new QR_Generator();
+        }
+
+        private async void Load()
+        {
+            await DBK.DB.LoadAccounts();
         }
 
         public static ImageSource getImage(string key)

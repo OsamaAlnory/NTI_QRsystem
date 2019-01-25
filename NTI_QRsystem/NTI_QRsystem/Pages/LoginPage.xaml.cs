@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NTI_QRsystem.DBK;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
