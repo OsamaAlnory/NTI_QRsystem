@@ -20,9 +20,10 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LecId" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="Studentname" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="ATime" Type="time" Precision="0" />
-          <Property Name="Date" Type="date" />
+          <Property Name="ATime" Type="time" Precision="0" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Lec">
           <Key>
@@ -58,8 +59,9 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Studentname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ATime" Type="Time" Precision="0" />
-          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="ATime" Type="Time" Precision="0" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="LecId" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityContainer Name="MSSQL400028Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounts" EntityType="Self.Accounts" />
@@ -95,6 +97,7 @@
           <EntitySetMapping Name="Info">
             <EntityTypeMapping TypeName="MSSQL400028Model.Info">
               <MappingFragment StoreEntitySet="Info">
+                <ScalarProperty Name="LecId" ColumnName="LecId" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Studentname" ColumnName="Studentname" />
                 <ScalarProperty Name="ATime" ColumnName="ATime" />

@@ -16,7 +16,8 @@ namespace DataAccess
     {
         public int ID { get; set; }
         public string Studentname { get; set; }
-        public Nullable<System.TimeSpan> ATime { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
+        public System.TimeSpan ATime { get; set; }
+        public System.DateTime Date { get; set; }
+        public string LecId { get; set; }
     }
 }
