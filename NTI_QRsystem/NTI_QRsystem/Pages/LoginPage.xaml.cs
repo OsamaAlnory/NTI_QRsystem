@@ -21,13 +21,30 @@ namespace NTI_QRsystem.Pages
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            string a1 = username.Text, a2 = password.Text;
-            if(a1 == null || a2 == null)
+            string t1 = username.Text, t2 = password.Text;
+            if (t1 == "" || t2 == "")
             {
-                DisplayAlert("Fel","WTF","Avbryt");
-            } else
+                DisplayAlert("Error!", "Fyll i fälten!", "Avbryt");
+            }
+            else
             {
+                for (int x = 0; x < DB.accounts.Count; x++)
+                {
+                    Account acc = DB.accounts[x];
+                    if (acc.Username == t1 && acc.Password == t2)
+                    {
+                        DisplayAlert("Rätt", "Rätt ya 5ra", "kk");
+                    }
+                    else if (t2 != acc.Password)
+                    {
+                        DisplayAlert("Fel Lösenfuck", "Fel ya 5ra", "Avbryt");
+                    }
+                    else if (t1 != acc.Username)
+                    {
+                        DisplayAlert("Fel Användernamn", "Fel ya 5ra", "Avbryt");
+                    }
 
+                }
             }
         }
     }
