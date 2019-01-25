@@ -18,7 +18,7 @@ namespace NTI_QRsystem
             Load();
             images.Add("background", loadImage("background.png"));
               //MainPage = new NavigationPage(  new StartSidan());
-            MainPage = new Pages.LoginPage();
+            MainPage = new NavigationPage(new Pages.LoginPage());
            //MainPage = new QR_Generator();
         }
 

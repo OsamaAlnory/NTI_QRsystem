@@ -13,6 +13,7 @@ namespace NTI_QRsystem.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : CarouselPage
 	{
+
 		public LoginPage ()
 		{
 			InitializeComponent ();
@@ -33,15 +34,17 @@ namespace NTI_QRsystem.Pages
                     Account acc = DB.accounts[x];
                     if (acc.Username == t1 && acc.Password == t2)
                     {
-                        DisplayAlert("Rätt", "Rätt ya 5ra", "kk");
+                        App.Current.Properties["LoggedIn"] = acc.Username;
+                        Navigation.PushAsync(new StartSidan());
+                        Navigation.RemovePage(this);
                     }
                     else if (t2 != acc.Password)
                     {
-                        DisplayAlert("Fel Lösenfuck", "Fel ya 5ra", "Avbryt");
+                        DisplayAlert("Fel", "Fel Lösenord", "Avbryt");
                     }
                     else if (t1 != acc.Username)
                     {
-                        DisplayAlert("Fel Användernamn", "Fel ya 5ra", "Avbryt");
+                        DisplayAlert("Fel", "Fel Användernamn", "Avbryt");
                     }
 
                 }

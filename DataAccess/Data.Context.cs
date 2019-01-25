@@ -27,5 +27,6 @@ namespace DataAccess
     
         public virtual DbSet<Accounts> Accounts { get; set; }
         public virtual DbSet<Info> Info { get; set; }
+        public virtual DbSet<Lec> Lec { get; set; }
     }
 }
