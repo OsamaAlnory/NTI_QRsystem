@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NTI_QRsystem.DBK;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,10 @@ namespace NTI_QRsystem.Pages
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+           
+        }
+    }
 }

@@ -9,9 +9,9 @@
     <ContentPage>
         <StackLayout Padding="10" Spacing="7">
             <Label Text="Inloggning" HorizontalOptions="CenterAndExpand"/>
-            <obj:IEntry Text="Namn" HorizontalOptions="FillAndExpand"/>
-            <obj:IEntry Text="Lösenord" HorizontalOptions="FillAndExpand"/>
-            <Button Style="{StaticResource CustomButton}" Text="Logga in"
+            <obj:IEntry x:Name="username" Text="Username"  HorizontalOptions="FillAndExpand"/>
+            <obj:IEntry x:Name="password" Text="Lösenord" HorizontalOptions="FillAndExpand"/>
+            <Button Style="{StaticResource CustomButton}" Text="Logga in" Clicked="Button_Clicked"
                     HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"/>
         </StackLayout>
     </ContentPage>

@@ -10,10 +10,15 @@ namespace NTI_QRsystem
         public App()
         {
             InitializeComponent();
+            Load();
+              MainPage = new NavigationPage(  new StartSidan());
+            //MainPage = new Pages.LoginPage();
+           // MainPage = new QR_Generator();
+        }
 
-            //  MainPage = new NavigationPage(  new StartSidan());
-            MainPage = new Pages.LoginPage();
-            //MainPage = new QR_Generator();
+        private async void Load()
+        {
+            await DBK.DB.LoadAccounts();
         }
 
         protected override void OnStart()
