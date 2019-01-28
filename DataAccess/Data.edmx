@@ -12,8 +12,10 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Username" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Pnumber" Type="varchar" MaxLength="20" />
           <Property Name="Class" Type="varchar" MaxLength="20" />
-          <Property Name="isAdmin" Type="bit" Nullable="false" />
+          <Property Name="isAdmin" Type="bit" />
+          <Property Name="isLogged" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Info">
           <Key>
@@ -53,7 +55,9 @@
           <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Class" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="isAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="isAdmin" Type="Boolean" />
+          <Property Name="Pnumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="isLogged" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Info">
           <Key>
@@ -90,6 +94,8 @@
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="MSSQL400028Model.Accounts">
               <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="isLogged" ColumnName="isLogged" />
+                <ScalarProperty Name="Pnumber" ColumnName="Pnumber" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />

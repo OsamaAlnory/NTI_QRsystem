@@ -64,6 +64,8 @@ namespace WebApplication1.Controllers
                 entity.Password = accounts.Password;
                 entity.Class = accounts.Class;
                 entity.isAdmin = accounts.isAdmin;
+                entity.isLogged = accounts.isLogged;
+                entity.Pnumber = accounts.Pnumber;
                 entities.SaveChanges();
             }
         }
