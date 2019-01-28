@@ -33,21 +33,34 @@ namespace NTI_QRsystem.Pages
         private async void load()
         {
             await DB.LoadAccounts();
+            await DB.LoadLectures();
+            await DB.LoadInfos();
             if (App.Current.Properties.ContainsKey("LoggedIn"))
             {
-                OpenPage();
-            } else
-            {
-                Navigation.PushAsync(new LoginPage());
+                var nm = App.Current.Properties["LoggedIn"] as string;
+                Account acc = DB.getAccountByName(nm);
+                //if(acc != null && acc.isLogged)
+                {
+                    OpenPage();
+                    return;
+                }
             }
+            Navigation.PushAsync(new LoginPage());
         }
 
         public void OpenPage()
         {
-            _a = DB.getAccountByName(App.Current.Properties["LoggedIn"] as string);
+            var lg = App.Current.Properties["LoggedIn"] as string;
+            _a = DB.getAccountByName(lg);
             if (_a.isAdmin)
             {
+                if (DB.IsDevice(_a))
+                {
+                    Navigation.PushAsync(new QRScreen());
+                } else
+                {
 
+                }
             }
             else
             {

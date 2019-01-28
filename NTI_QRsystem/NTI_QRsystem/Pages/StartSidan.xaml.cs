@@ -36,10 +36,31 @@ namespace NTI_QRsystem
 
         private void Recognize(string code)
         {
+            var s = LoadingPage._a;
+            var c1 = code.Split(' ')[0];
+            TimeSpan d = TimeSpan.Parse(App.GetTime(DateTime.Now.TimeOfDay));
             for(int x = 0; x < DB.lectures.Capacity; x++)
             {
                 Lecture lecture = DB.lectures[x];
-
+                if(lecture.Rid == c1)
+                {
+                    if(lecture.Class == s.Class)
+                    {
+                        TimeSpan clsstime = TimeSpan.Parse(lecture.Extra.Split(' ')[0]);
+                        if (App.GetTotalSeconds(d.Subtract(clsstime)) < 10)
+                        {
+                            // Success
+                            DisplayAlert("Success", "You've just!", "Ok");
+                        } else
+                        {
+                            // Show Error / Try again
+                        }
+                    } else
+                    {
+                        // Not his class, kick his ass :'(
+                        DisplayAlert("Fel", "Detta är inte din klass!", "Avbryt");
+                    }
+                }
             }
         }
 

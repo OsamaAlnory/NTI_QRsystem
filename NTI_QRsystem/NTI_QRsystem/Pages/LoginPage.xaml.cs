@@ -38,16 +38,10 @@ namespace NTI_QRsystem.Pages
                         App.Current.SavePropertiesAsync();
                         LoadingPage.p.OpenPage();
                         Navigation.RemovePage(this);
-                    }
-                    else if (t2 != acc.Password)
-                    {
-                        DisplayAlert("Fel", "Fel Lösenord", "Avbryt");
-                    }
-                    else if (t1 != acc.Username)
-                    {
-                        DisplayAlert("Fel", "Fel Användernamn", "Avbryt");
+                        return;
                     }
                 }
+                DisplayAlert("Fel","Fel användarnamn eller lösenord!","Avbryt");
             }
         }
 

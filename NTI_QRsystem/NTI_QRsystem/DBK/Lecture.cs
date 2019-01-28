@@ -10,5 +10,7 @@ namespace NTI_QRsystem.DBK
         public string AdminID { get; set; }
         public string Class { get; set; }
         public DateTime LecTime { get; set; }
+        public string DeviceID { get; set; }
+        public string Extra { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NTI_QRsystem.DBK;
+using NTI_QRsystem.Pages;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Reflection;
@@ -12,14 +14,18 @@ namespace NTI_QRsystem
     {
 
         public static Dictionary<string, ImageSource> images = new Dictionary<string, ImageSource>();
+        public const int QR_SIZE = 300;
+        private const string PATH = "NTI_QRsystem";
 
         public App()
         {
             InitializeComponent();
             images.Add("background", loadImage("background.png"));
-              //MainPage = new NavigationPage(  new StartSidan());
+            //DB.AddLecture(new Lecture { AdminID="Osama", Class="2_TEK", DeviceID="EK",
+            //Rid="EB12L",LecTime=DateTime.Now,Extra="test"});
+            //App.Current.Properties.Remove("LoggedIn");
+            //App.Current.SavePropertiesAsync();
             MainPage = new NavigationPage(new Pages.LoadingPage());
-           //MainPage = new QR_Generator();
         }
 
         public static bool CheckInternetConnection()
@@ -46,8 +52,18 @@ namespace NTI_QRsystem
 
         public static ImageSource loadImage(string path)
         {
-            return ImageSource.FromResource("NTI_QRsystem.images." + path,
+            return ImageSource.FromResource(PATH+".images." + path,
              Assembly.GetExecutingAssembly());
+        }
+
+        public static string GetTime(TimeSpan t)
+        {
+            return t.Hours + ":" + t.Minutes + ":" + t.Seconds;
+        }
+
+        public static int GetTotalSeconds(TimeSpan t)
+        {
+            return Math.Abs(t.Hours * 3600 + t.Minutes * 60 + t.Seconds);
         }
 
         protected override void OnStart()
