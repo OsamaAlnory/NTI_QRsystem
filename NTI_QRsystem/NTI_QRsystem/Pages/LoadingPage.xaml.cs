@@ -39,7 +39,7 @@ namespace NTI_QRsystem.Pages
             {
                 var nm = App.Current.Properties["LoggedIn"] as string;
                 Account acc = DB.getAccountByName(nm);
-                //if(acc != null && acc.isLogged)
+                if(acc != null && acc.isLogged)
                 {
                     OpenPage();
                     return;

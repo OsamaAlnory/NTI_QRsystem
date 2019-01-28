@@ -20,7 +20,7 @@ namespace NTI_QRsystem.Pages
             background.Source = App.getImage("background");
 		}
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
             string t1 = username.Text, t2 = password.Text;
             if (t1 == "" || t2 == "")
@@ -35,7 +35,9 @@ namespace NTI_QRsystem.Pages
                     if (acc.Username == t1 && acc.Password == t2)
                     {
                         App.Current.Properties["LoggedIn"] = acc.Username;
-                        App.Current.SavePropertiesAsync();
+                        await App.Current.SavePropertiesAsync();
+                        acc.isLogged = true;
+                        await DB.EditAccount(acc);
                         LoadingPage.p.OpenPage();
                         Navigation.RemovePage(this);
                         return;

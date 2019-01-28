@@ -29,7 +29,13 @@ namespace NTI_QRsystem
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Navigation.PopAsync();
-                    Recognize(result.Text);
+                    try
+                    {
+                        Recognize(result.Text);
+                    } catch(Exception ex)
+                    {
+                        DisplayAlert("dwa", ""+ex.Message, "Avbr");
+                    }
                 });
             };
         }
@@ -37,22 +43,27 @@ namespace NTI_QRsystem
         private void Recognize(string code)
         {
             var s = LoadingPage._a;
-            var c1 = code.Split(' ')[0];
+            var f = code.Split(' ');
+            var c1 = f[0];
             TimeSpan d = TimeSpan.Parse(App.GetTime(DateTime.Now.TimeOfDay));
-            for(int x = 0; x < DB.lectures.Capacity; x++)
+            for(int x = 0; x < DB.lectures.Count; x++)
             {
                 Lecture lecture = DB.lectures[x];
                 if(lecture.Rid == c1)
                 {
                     if(lecture.Class == s.Class)
                     {
-                        TimeSpan clsstime = TimeSpan.Parse(lecture.Extra.Split(' ')[0]);
-                        if (App.GetTotalSeconds(d.Subtract(clsstime)) < 10)
+                        //TimeSpan clsstime = TimeSpan.Parse(lecture.Extra.Split(' ')[0]);
+                        TimeSpan clsstime = TimeSpan.Parse(f[1]);
+                        var tt = App.GetTotalSeconds(d.Subtract(clsstime));
+                        if (tt < 10)
                         {
                             // Success
                             DisplayAlert("Success", "You've just!", "Ok");
                         } else
                         {
+                            DisplayAlert("Error", "Fel "+tt+" "+d+" "+clsstime
+                                +" "+d.Subtract(clsstime), "Avbryt");
                             // Show Error / Try again
                         }
                     } else

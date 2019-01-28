@@ -69,7 +69,16 @@ namespace NTI_QRsystem.Pages
             var json = JsonConvert.SerializeObject(lec);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             HttpClient client = new HttpClient();
-            var responce = await client.PutAsync(L + LE + "Lec/" + lec.Rid, content);
+            var responce = await client.PutAsync(L + LE + "/" + lec.Rid, content);
+            return responce;
+        }
+
+        public static async Task<HttpResponseMessage> EditAccount(Account account)
+        {
+            var json = JsonConvert.SerializeObject(account);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpClient client = new HttpClient();
+            var responce = await client.PutAsync(L + AC + "/" + account.ID, content);
             return responce;
         }
 

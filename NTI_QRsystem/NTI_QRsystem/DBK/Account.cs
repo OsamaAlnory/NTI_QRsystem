@@ -12,5 +12,6 @@ namespace NTI_QRsystem.DBK
         public string Class { get; set; }
         public bool isAdmin { get; set; }
         public bool isLogged { get; set; }
+        public string Pnumber { get; set; }
     }
 }
