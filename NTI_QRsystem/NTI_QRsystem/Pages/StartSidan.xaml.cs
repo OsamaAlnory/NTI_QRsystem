@@ -20,24 +20,45 @@ namespace NTI_QRsystem
 			InitializeComponent ();
 		}
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
-            var scan = new ZXingScannerPage();
-            await Navigation.PushAsync(scan);
-            scan.OnScanResult += (result) =>
-            {
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await Navigation.PopAsync();
-                    try
-                    {
-                        Recognize(result.Text);
-                    } catch(Exception ex)
-                    {
-                        DisplayAlert("dwa", ""+ex.Message, "Avbr");
-                    }
+            Scanner();
+
+            //Old code!!
+            //var scan = new ZXingScannerPage();
+            //await Navigation.PushAsync(scan);
+            //scan.OnScanResult += (result) =>
+            //{
+            //    Device.BeginInvokeOnMainThread(async () =>
+            //    {
+            //        await Navigation.PopAsync();
+            //        try
+            //        {
+            //            Recognize(result.Text);
+            //        } catch(Exception ex)
+            //        {
+            //            DisplayAlert("dwa", ""+ex.Message, "Avbr");
+            //        }
+            //    });
+            //};
+        }
+        public async void Scanner()
+        {
+            var ScannerPage = new ZXingScannerPage();
+
+            ScannerPage.OnScanResult += (result) => {
+            ScannerPage.IsScanning = false;
+
+              
+                Device.BeginInvokeOnMainThread(() => {
+                     Navigation.PopAsync();
+                    Recognize(result.Text);
+                     
                 });
             };
+
+
+            await Navigation.PushAsync(ScannerPage);
         }
 
         private void Recognize(string code)
