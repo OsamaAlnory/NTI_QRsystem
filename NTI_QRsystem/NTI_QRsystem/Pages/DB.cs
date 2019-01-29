@@ -141,5 +141,17 @@ namespace NTI_QRsystem.Pages
             return null;
         }
 
+        public static bool CheckStudent(Account account)
+        {
+            for(int x = 0; x < infos.Count; x++)
+            {
+                if(infos[x].Studentname == account.Username)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }

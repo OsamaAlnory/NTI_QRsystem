@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:fuck="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:qrc="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              x:Class="NTI_QRsystem.Pages.QRScreen" NavigationPage.HasNavigationBar="False">
     <AbsoluteLayout>
         <StackLayout IsVisible="True" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
@@ -13,8 +13,8 @@
             <Label Text="No Lection Found!" FontSize="30"/>
         </StackLayout>
         <StackLayout x:Name="stk_qr" IsVisible="False" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
-            <fuck:ZXingBarcodeImageView x:Name="b" AutomationId="Elevens Data" HorizontalOptions="FillAndExpand"
-              VerticalOptions="FillAndExpand" BarcodeFormat="QR_CODE"/>
+            <qrc:ZXingBarcodeImageView x:Name="b" AutomationId="Elevens Data" HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand" BarcodeFormat="QR_CODE" BackgroundColor="Blue"/>
         </StackLayout>
     </AbsoluteLayout>
 </ContentPage>

@@ -1,4 +1,5 @@
-﻿using NTI_QRsystem.DBK;
+﻿using NTI_QRsystem.Components;
+using NTI_QRsystem.DBK;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,9 @@ namespace NTI_QRsystem.Pages
         private async void Button_Clicked(object sender, EventArgs e)
         {
             string t1 = username.Text, t2 = password.Text;
-            if (t1 == "" || t2 == "")
+            if (t1 == null || t2 == null)
             {
-                DisplayAlert("Error!", "Fyll i fälten!", "Avbryt");
+                new Popup(new ErrorMessage("Fyll i alla fälten!"), this, PopupType.ERROR).Show();
             }
             else
             {
@@ -43,7 +44,7 @@ namespace NTI_QRsystem.Pages
                         return;
                     }
                 }
-                DisplayAlert("Fel","Fel användarnamn eller lösenord!","Avbryt");
+                new Popup(new ErrorMessage("Fel användarnamn eller lösenord!"), this, PopupType.ERROR).Show();
             }
         }
 

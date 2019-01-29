@@ -21,7 +21,7 @@ namespace NTI_QRsystem.Droid
 
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
 
-
+            Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             
             LoadApplication(new App());

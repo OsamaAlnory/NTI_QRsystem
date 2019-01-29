@@ -23,24 +23,6 @@ namespace NTI_QRsystem
         private void Button_Clicked(object sender, EventArgs e)
         {
             Scanner();
-
-            //Old code!!
-            //var scan = new ZXingScannerPage();
-            //await Navigation.PushAsync(scan);
-            //scan.OnScanResult += (result) =>
-            //{
-            //    Device.BeginInvokeOnMainThread(async () =>
-            //    {
-            //        await Navigation.PopAsync();
-            //        try
-            //        {
-            //            Recognize(result.Text);
-            //        } catch(Exception ex)
-            //        {
-            //            DisplayAlert("dwa", ""+ex.Message, "Avbr");
-            //        }
-            //    });
-            //};
         }
         public async void Scanner()
         {
@@ -78,8 +60,14 @@ namespace NTI_QRsystem
                         var tt = App.GetTotalSeconds(d.Subtract(clsstime));
                         if (tt < App.REFRESH_TIME*2)
                         {
-                            // Success
-                            DisplayAlert("Success", "You've just!", "Ok");
+                            if (!DB.CheckStudent(s))
+                            {
+                                // Success
+                                DisplayAlert("Success", "You've just!", "Ok");
+                            } else
+                            {
+                                DisplayAlert("Fel", "Du har redan anmält dig!", "Avbryt");
+                            }
                         } else
                         {
                             DisplayAlert("Error", "Fel "+tt+" "+d+" "+clsstime

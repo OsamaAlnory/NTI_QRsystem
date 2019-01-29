@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NTI_QRsystem.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,7 @@ namespace NTI_QRsystem.Pages
             Load();
             Device.StartTimer(TimeSpan.FromMilliseconds(App.FAKE_REFRESH_TIME), () => {
                 b.BarcodeValue = code+" "+random.Next(99);
-                l.Text = b.BarcodeValue+"\n"+LoadingPage._a.Username;
+                l.Text = b.BarcodeValue;
                 return true;
             });
             Device.StartTimer(TimeSpan.FromSeconds(App.REFRESH_TIME), () => {
