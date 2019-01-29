@@ -53,10 +53,9 @@ namespace NTI_QRsystem
                 {
                     if(lecture.Class == s.Class)
                     {
-                        //TimeSpan clsstime = TimeSpan.Parse(lecture.Extra.Split(' ')[0]);
                         TimeSpan clsstime = TimeSpan.Parse(f[1]);
                         var tt = App.GetTotalSeconds(d.Subtract(clsstime));
-                        if (tt < 10)
+                        if (tt < App.REFRESH_TIME*2)
                         {
                             // Success
                             DisplayAlert("Success", "You've just!", "Ok");

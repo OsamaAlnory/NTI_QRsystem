@@ -16,6 +16,8 @@ namespace NTI_QRsystem
         public static Dictionary<string, ImageSource> images = new Dictionary<string, ImageSource>();
         public const int QR_SIZE = 300;
         private const string PATH = "NTI_QRsystem";
+        public const int REFRESH_TIME = 5;
+        public const int FAKE_REFRESH_TIME = 800;
 
         public App()
         {

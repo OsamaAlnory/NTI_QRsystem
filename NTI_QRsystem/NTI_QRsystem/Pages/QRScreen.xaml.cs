@@ -14,8 +14,6 @@ namespace NTI_QRsystem.Pages
 	public partial class QRScreen : ContentPage
 	{
         public Random random = new Random();
-        public const int TIMER = 1;
-        public const int TIMER_T = 7;
         private string code = "none";
 
 		public QRScreen ()
@@ -25,12 +23,12 @@ namespace NTI_QRsystem.Pages
             b.BarcodeOptions.Height = App.QR_SIZE;
             b.BarcodeValue = code;
             Load();
-            Device.StartTimer(TimeSpan.FromSeconds(TIMER), () => {
+            Device.StartTimer(TimeSpan.FromMilliseconds(App.FAKE_REFRESH_TIME), () => {
                 b.BarcodeValue = code+" "+random.Next(99);
                 l.Text = b.BarcodeValue+"\n"+LoadingPage._a.Username;
                 return true;
             });
-            Device.StartTimer(TimeSpan.FromSeconds(TIMER_T), () => {
+            Device.StartTimer(TimeSpan.FromSeconds(App.REFRESH_TIME), () => {
                 A();
                 return true;
             });
