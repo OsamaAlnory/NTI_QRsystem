@@ -4,16 +4,91 @@
              xmlns:obj="clr-namespace:NTI_QRsystem"
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="NTI_QRsystem.Pages.LoginPage" NavigationPage.HasNavigationBar="False">
-    <ContentPage BackgroundColor="Red">
-        <StackLayout>
-            <forms:AnimationView x:Name="animation" Animation="qr_scan.json" IsVisible="True"
-             Loop="true" AutoPlay="true" HeightRequest="500" WidthRequest="500"
-                                 VerticalOptions="CenterAndExpand"/>
-        </StackLayout>
-    </ContentPage>
+    
+    <!-- Animation-->
     <ContentPage>
         <AbsoluteLayout>
-            <Image x:Name="background" Aspect="Fill" AbsoluteLayout.LayoutFlags="All"
+            <Image x:Name="background1" Aspect="Fill" AbsoluteLayout.LayoutFlags="All"
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+            <StackLayout AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0,0,1,1" Padding="20" Spacing="12">
+
+                <Label Text="Välkommen till NTI QR!" HorizontalOptions="Center" VerticalOptions="Center"
+                       TextColor="White" FontSize="30" FontAttributes="Bold"/>
+                
+                <forms:AnimationView x:Name="animation" Animation="qr_scan.json" 
+                    IsVisible="True" Loop="true" AutoPlay="true" 
+                    HeightRequest="500" WidthRequest="500" 
+                    VerticalOptions="CenterAndExpand" 
+
+            />
+
+              
+
+                <Button Style="{StaticResource CustomButton}" Text="Nästa"
+                    HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"
+                        FontAttributes="Bold" TextColor="Black"   BackgroundColor="White" Margin="20,20,20,20"/>
+        </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage>
+   
+    <!--- Instruktioner site-->
+      <ContentPage BackgroundColor="Purple">
+             <ScrollView>
+            <Grid> 
+                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image x:Name="background2" Aspect="AspectFill" HorizontalOptions="FillAndExpand" 
+                       VerticalOptions="StartAndExpand" Grid.Row="0"
+                   />
+                 
+
+                <Frame CornerRadius="10" BackgroundColor="White" Grid.RowSpan="2"
+                    Margin="20,150,20,20">
+
+
+                    <Grid RowSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+
+                        <BoxView Grid.Row="2" HorizontalOptions="FillAndExpand" 
+                            HeightRequest="1" BackgroundColor="White"/>
+
+                        <Label Text="Instruktioner" FontSize="Medium" Grid.Row="2" 
+                            FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black"/>
+
+                        <BoxView Grid.Row="3" HorizontalOptions="FillAndExpand" HeightRequest="1" 
+                            BackgroundColor="Silver"/>
+
+                        <Grid Grid.Row="4">
+                            <Label Text="KÄRA ELEV ditt enda uppgift är att logga in för att skanna qr-koden som finns 
+                                         på Ipaden vid din Lektion sal för att ditt närvaro ska registeras automatiskt!" FontSize="Large" VerticalOptions="CenterAndExpand"
+                                 HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextColor="Black"/>
+                        </Grid>
+
+                        <Button Style="{StaticResource CustomButton}" Text="Komma igång"
+                        HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"
+                        FontAttributes="Bold" BackgroundColor="Purple" TextColor="White" Grid.Row="6"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </ScrollView>
+       
+    </ContentPage>
+    
+    <!--Inloggning sidan-->
+    <ContentPage>
+        <AbsoluteLayout>
+            <Image x:Name="background3" Aspect="Fill" AbsoluteLayout.LayoutFlags="All"
                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>
             <StackLayout AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0,0,1,1" Padding="20" Spacing="12">
@@ -29,8 +104,10 @@
                 </Frame>
                 <Button Style="{StaticResource CustomButton}" Text="Logga in"
                     HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"
-                        FontAttributes="Bold" Clicked="Button_Clicked" BackgroundColor="Red"/>
+                        FontAttributes="Bold" Clicked="Button_Clicked" BackgroundColor="White" TextColor="Black"/>
             </StackLayout>
+          
         </AbsoluteLayout>
     </ContentPage>
+    
 </CarouselPage>

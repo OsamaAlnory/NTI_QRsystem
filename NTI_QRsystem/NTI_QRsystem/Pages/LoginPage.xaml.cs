@@ -18,8 +18,11 @@ namespace NTI_QRsystem.Pages
 		public LoginPage ()
 		{
 			InitializeComponent ();
-            background.Source = App.getImage("background");
-		}
+            background1.Source = App.getImage("bg");
+            background2.Source = App.getImage("bg2");
+            background3.Source = App.getImage("bg");
+           // background5.Source = App.getImage("bg");
+        }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {

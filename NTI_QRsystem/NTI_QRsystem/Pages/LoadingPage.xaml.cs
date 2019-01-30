@@ -20,6 +20,7 @@ namespace NTI_QRsystem.Pages
 		{
             p = this;
 			InitializeComponent ();
+            backgrounds1.Source = App.getImage("bg");
             if (App.CheckInternetConnection())
             {
                 an.Play();
