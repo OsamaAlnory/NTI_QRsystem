@@ -24,6 +24,8 @@ namespace NTI_QRsystem
         {
             InitializeComponent();
             images.Add("background", loadImage("background.png"));
+            images.Add("bg", loadImage("bg.png"));
+            images.Add("bg2", loadImage("bg2.JPG"));
             //DB.AddLecture(new Lecture { AdminID="Osama", Class="2_TEK", DeviceID="EK",
             //Rid="EB12L",LecTime=DateTime.Now,Extra="test"});
             //App.Current.Properties.Remove("LoggedIn");

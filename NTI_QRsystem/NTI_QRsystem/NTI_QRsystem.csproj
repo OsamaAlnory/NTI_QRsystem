@@ -11,11 +11,15 @@
 
   <ItemGroup>
     <None Remove="images\background.png" />
+    <None Remove="images\bg.png" />
+    <None Remove="images\bg2.JPG" />
     <None Remove="images\no-image.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="images\background.png" />
+    <EmbeddedResource Include="images\bg.png" />
+    <EmbeddedResource Include="images\bg2.JPG" />
     <EmbeddedResource Include="images\no-image.png" />
   </ItemGroup>
 
@@ -54,6 +58,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\StartSidan.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\TeacherPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="NTI_QRsystem.Pages.LoadingPage" NavigationPage.HasNavigationBar="False">
-    <AbsoluteLayout BackgroundColor="Red">
-        <Image/>
+    <AbsoluteLayout>
+        <Image x:Name="backgrounds1" Aspect="Fill" AbsoluteLayout.LayoutFlags="All"
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"/>
         <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
                 <Label Text="Hämtar data" HorizontalOptions="CenterAndExpand"
