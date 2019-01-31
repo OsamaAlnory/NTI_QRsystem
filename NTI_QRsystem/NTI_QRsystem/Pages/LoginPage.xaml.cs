@@ -45,7 +45,7 @@ namespace NTI_QRsystem.Pages
                         LoadingPage.p.OpenPage();
                         Navigation.RemovePage(this);
                         return;
-                    }
+                    } 
                 }
                 new Popup(new ErrorMessage("Fel användarnamn eller lösenord!"), this, PopupType.ERROR).Show();
             }
