@@ -1,4 +1,5 @@
-﻿using NTI_QRsystem.DBK;
+﻿using NTI_QRsystem.Components;
+using NTI_QRsystem.DBK;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace NTI_QRsystem.Pages
                 load();
             } else
             {
-                DisplayAlert("Fel", "No internet connection!", "Avbryt");
+                new Popup(new ErrorMessage("Se till att din mobil är ansluten till internet."), this, PopupType.ERROR).Show();
             }
 		}
 
