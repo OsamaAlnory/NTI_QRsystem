@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:obj="clr-namespace:NTI_QRsystem"
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
-             x:Class="NTI_QRsystem.Pages.LoginPage" NavigationPage.HasNavigationBar="False">
+             x:Class="NTI_QRsystem.Pages.LoginPage" NavigationPage.HasNavigationBar="False" >
     
     <!-- Animation-->
     <ContentPage>

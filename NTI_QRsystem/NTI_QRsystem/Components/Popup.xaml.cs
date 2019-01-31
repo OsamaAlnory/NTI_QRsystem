@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 
 namespace NTI_QRsystem.Components
 {
-    public enum PopupType { ERROR, }
+    public enum PopupType { ERROR,SUCCESS }
     public partial class Popup : PopupPage
     {
         public PopupType type;

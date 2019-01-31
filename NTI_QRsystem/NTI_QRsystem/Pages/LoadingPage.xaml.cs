@@ -66,7 +66,8 @@ namespace NTI_QRsystem.Pages
             }
             else
             {
-                Navigation.PushAsync(new StartSidan());
+                 
+               Navigation.PushAsync(new StartSidan());
             }
         }
 

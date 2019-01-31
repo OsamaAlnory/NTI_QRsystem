@@ -98,6 +98,12 @@ namespace NTI_QRsystem.Pages
             return await client.PostAsync(L + IN, c);
         }
 
+        public static async Task<HttpResponseMessage> FullyAddInfo(Info info)
+        {
+            infos.Add(info);
+             return await AddInfo(info);
+        }
+
         public static Account getAccountByName(string name)
         {
             for(int x = 0; x < accounts.Count; x++)

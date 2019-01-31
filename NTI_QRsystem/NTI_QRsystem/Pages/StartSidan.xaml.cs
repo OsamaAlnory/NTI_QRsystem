@@ -1,4 +1,5 @@
-﻿using NTI_QRsystem.DBK;
+﻿using NTI_QRsystem.Components;
+using NTI_QRsystem.DBK;
 using NTI_QRsystem.Pages;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,13 @@ namespace NTI_QRsystem
 		public StartSidan ()
 		{
 			InitializeComponent ();
-		}
+            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+            {
+                Scanner();
+                return false;
+            }
+            );
+        }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
@@ -43,7 +50,7 @@ namespace NTI_QRsystem
             await Navigation.PushAsync(ScannerPage);
         }
 
-        private void Recognize(string code)
+        private async void Recognize(string code)
         {
             var s = LoadingPage._a;
             var f = code.Split(' ');
@@ -60,24 +67,29 @@ namespace NTI_QRsystem
                         var tt = App.GetTotalSeconds(d.Subtract(clsstime));
                         if (tt < App.REFRESH_TIME*2)
                         {
+                             await DB.LoadInfos();
                             if (!DB.CheckStudent(s))
                             {
-                                // Success
-                                DisplayAlert("Success", "You've just!", "Ok");
+                                TimeSpan difference = d.Subtract(lecture.LecTime);
+                                await DB.FullyAddInfo(new Info {LecId = lecture.Rid, Studentname = s.Username,
+                                ATime=difference});
+                                new Popup(new SuccessMessage("Du har registererat klart din närvaro!"), this, PopupType.SUCCESS).Show();
                             } else
                             {
-                                DisplayAlert("Fel", "Du har redan anmält dig!", "Avbryt");
+                                new Popup(new ErrorMessage("Du har redan registererat din närvaro!"), this, PopupType.ERROR).Show();
                             }
                         } else
                         {
-                            DisplayAlert("Error", "Fel "+tt+" "+d+" "+clsstime
-                                +" "+d.Subtract(clsstime), "Avbryt");
-                            // Show Error / Try again
+                            
+
+                            // Show Error / Try again //Fuskare
+                            new Popup(new ErrorMessage("Du Befinner inte dig på skolan, Försök inte att Fuska!"), this, PopupType.ERROR).Show();
                         }
                     } else
                     {
                         // Not his class, kick his ass :'(
-                        DisplayAlert("Fel", "Detta är inte din klass!", "Avbryt");
+                        
+                        new Popup(new ErrorMessage("Det här är inte din klass."), this, PopupType.ERROR).Show();
                     }
                 }
             }
