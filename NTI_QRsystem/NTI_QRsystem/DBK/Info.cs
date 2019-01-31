@@ -9,7 +9,11 @@ namespace NTI_QRsystem.DBK
         public int ID { get; set; }
         public string LecId { get; set; }
         public string Studentname { get; set; }
-        public DateTime ATime { get; set; }
-        public DateTime Date { get; set; }
+        public TimeSpan ATime { get; set; }
+
+
+
+        
+ 
     }
 }

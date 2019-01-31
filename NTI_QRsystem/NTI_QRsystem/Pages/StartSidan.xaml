@@ -7,9 +7,6 @@
         <StackLayout Padding="20">
             <Button Style="{StaticResource CustomButton}" Text="Skanna" BackgroundColor="Purple"
                     Clicked="Button_Clicked"></Button>
-            <Button Text="Om appen" Style="{StaticResource CustomButton}"
-                    BackgroundColor="Purple" Clicked="OpenAbout"/>
-            <Label Text="" x:Name="mycode" TextColor="Red" HorizontalOptions="Center"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
