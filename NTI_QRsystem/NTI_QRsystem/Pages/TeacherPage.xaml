@@ -6,33 +6,45 @@
         <Image x:Name="background5" Aspect="Fill" AbsoluteLayout.LayoutFlags="All"
                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>
         <StackLayout AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0,0,1,1" Padding="20" Spacing="12">
-
+                AbsoluteLayout.LayoutBounds="0,0,1,1" Padding="20" Spacing="20">
 
             <Button Style="{StaticResource CustomButton}" Text="Skapa Lektioner"
-                    HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
+                    HorizontalOptions="FillAndExpand"
                         FontAttributes="Bold" Clicked="Button_Clicked" BackgroundColor="White" TextColor="Black"/>
+            <Frame Padding="10" OutlineColor="Silver" BackgroundColor="White" CornerRadius="30">
+                <Label Text="Elever" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
+                   TextColor="Black" FontSize="27"/>
+            </Frame>
+            <Frame Padding="10" BackgroundColor="White" CornerRadius="10" OutlineColor="Silver">
+                <AbsoluteLayout>
+                    <StackLayout IsVisible="True" x:Name="no" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+                        <Label Text="Inga Elever!" HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="30"
+                               TextColor="Black"/>
+                    </StackLayout>
+                        <ListView IsVisible="False" x:Name="elever" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid BackgroundColor="{Binding color}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                                            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
 
-            <ListView x:Name="elever">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                                    <ColumnDefinition Width="0.2*"></ColumnDefinition>
-                                    <ColumnDefinition Width="0.3*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding Studentname}" FontAttributes="Bold"/>
+                                        <Label Text="{Binding ATime}" Grid.Column="1"/>
 
-                                <Label Text="{Binding Studentname}" FontAttributes="Bold"/>
-                                <Label Text="{Binding LecId}" Grid.Column="1"/>
-                                <Label Text="{Binding ATime}" Grid.Column="2"/>
-
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </AbsoluteLayout>
+                
+            </Frame>
+            
         </StackLayout>
     </AbsoluteLayout>
 </ContentPage>

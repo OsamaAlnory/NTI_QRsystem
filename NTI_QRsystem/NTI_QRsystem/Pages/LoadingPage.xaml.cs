@@ -43,12 +43,12 @@ namespace NTI_QRsystem.Pages
                 Account acc = DB.getAccountByName(nm);
                 if(acc != null && acc.isLogged)
                 {
-                    OpenPage();
-                    return;
+                   // OpenPage();
+                   // return;
                 }
             }
             
-            Navigation.PushAsync(new LoginPage());
+            Navigation.PushAsync(new TeacherPage());
         }
 
         public void OpenPage()

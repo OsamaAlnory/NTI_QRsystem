@@ -159,5 +159,17 @@ namespace NTI_QRsystem.Pages
             return false;
         }
 
+        public static Info CheckStudent(Account account, Lecture lec)
+        {
+            for (int i = 0; i < infos.Count; i++)
+            {
+                if(infos[i].LecId == lec.Rid && infos[i].Studentname == account.Username)
+                {
+                    return infos[i];
+                }
+            }
+            return null;
+        }
+
     }
 }

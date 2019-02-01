@@ -52,6 +52,7 @@ namespace NTI_QRsystem
 
         public static ImageSource getImage(string key)
         {
+             
             return images.ContainsKey(key) ? images[key] : loadImage("no-image.png");
         }
 
