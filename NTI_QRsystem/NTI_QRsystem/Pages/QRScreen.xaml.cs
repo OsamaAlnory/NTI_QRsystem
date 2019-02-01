@@ -49,12 +49,15 @@ namespace NTI_QRsystem.Pages
             {
                 lec.Extra = App.GetTime(DateTime.Now.TimeOfDay);
                 code = lec.Rid.Trim()+" "+lec.Extra.Split(' ')[0];
+                info.Text = lec.Class;
                 stk_qr.IsVisible = true;
+                stk_qr1.IsVisible = true;
                 stk.IsVisible = false;
                 await DB.EditLec(lec);
             } else
             {
                 stk_qr.IsVisible = false;
+                stk_qr1.IsVisible = false;
                 stk.IsVisible = true;
             }
         }

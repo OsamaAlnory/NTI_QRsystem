@@ -11,15 +11,15 @@
             <Image x:Name="background1" Aspect="Fill" AbsoluteLayout.LayoutFlags="All"
                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>
             <StackLayout AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0,0,1,1" Padding="20" Spacing="12">
+                AbsoluteLayout.LayoutBounds="0,0,1,1" Padding="20">
 
-                <Label Text="Välkommen till NTI QR!" HorizontalOptions="Center" VerticalOptions="Center"
-                       TextColor="White" FontSize="30" FontAttributes="Bold"/>
+                <Label Text="Välkommen till NTI QR!" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                       TextColor="White" FontSize="27" FontAttributes="Bold" Margin="0,20,0,0"/>
                 
                 <forms:AnimationView x:Name="animation" Animation="qr_scan.json" 
-                    IsVisible="True" Loop="true" AutoPlay="true" 
+                    IsVisible="True" Loop="true" AutoPlay="true" VerticalOptions="Start"
+                    HorizontalOptions="Start" BackgroundColor="Red"
                     HeightRequest="500" WidthRequest="500" 
-                    VerticalOptions="CenterAndExpand" 
 
             />
 

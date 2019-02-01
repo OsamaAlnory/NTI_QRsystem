@@ -47,6 +47,7 @@ namespace NTI_QRsystem.Pages
                     return;
                 }
             }
+            
             Navigation.PushAsync(new LoginPage());
         }
 
