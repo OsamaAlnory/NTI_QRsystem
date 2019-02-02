@@ -7,4 +7,6 @@
         <Label x:Name="lbl" HorizontalOptions="CenterAndExpand" FontSize="16"/>
     <Button Style="{StaticResource CustomButton}" BackgroundColor="Red"
             VerticalOptions="EndAndExpand" Text="Avbryt" Clicked="Button_Clicked"/>
+    
+    
 </StackLayout>
