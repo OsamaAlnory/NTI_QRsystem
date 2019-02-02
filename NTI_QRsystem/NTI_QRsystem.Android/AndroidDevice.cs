@@ -20,7 +20,7 @@ namespace NTI_QRsystem.Droid
         public string GetIdentifier()
         {
             // return  Settings.Secure.GetString(Forms.Context.ContentResolver, Settings.Secure.AndroidId);
-            
+            return null;
         }
     }
 }
