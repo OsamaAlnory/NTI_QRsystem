@@ -66,6 +66,7 @@ namespace WebApplication1.Controllers
                 entity.isAdmin = accounts.isAdmin;
                 entity.isLogged = accounts.isLogged;
                 entity.Pnumber = accounts.Pnumber;
+                entity.MobileID = accounts.MobileID;
                 entities.SaveChanges();
             }
         }

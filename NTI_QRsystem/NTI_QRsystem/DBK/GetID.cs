@@ -45,6 +45,7 @@ namespace NTI_QRsystem.DBK
 
            id = Android.OS.Build.Serial;
 
+
 #endif
 
             return id;
