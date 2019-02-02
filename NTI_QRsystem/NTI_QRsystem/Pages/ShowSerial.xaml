@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NTI_QRsystem.Pages.ShowSerial">
     <StackLayout VerticalOptions="Center">
-        <Label Text="Mobilen Unique ID:" VerticalOptions="Center" HorizontalOptions="Center"  FontAttributes="Bold" FontSize="Medium"/>
+        <Label Text="Mobilen Unique ID:" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium"/>
 
         <Label x:Name="idnmr" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Red" TextColor="Black"/>
     </StackLayout>
