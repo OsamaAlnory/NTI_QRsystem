@@ -29,7 +29,7 @@ namespace NTI_QRsystem.Pages
             string t1 = username.Text, t2 = password.Text;
             if (t1 == null || t2 == null)
             {
-                new Popup(new ErrorMessage("Fyll i alla fälten!"), this, PopupType.ERROR).Show();
+                new Popup(new ErrorMessage("Fyll i alla fälten!"), this).Show();
             }
             else
             {
@@ -47,7 +47,7 @@ namespace NTI_QRsystem.Pages
                         return;
                     } 
                 }
-                new Popup(new ErrorMessage("Fel användarnamn eller lösenord!"), this, PopupType.ERROR).Show();
+                new Popup(new ErrorMessage("Fel användarnamn eller lösenord!"), this).Show();
             }
         }
 

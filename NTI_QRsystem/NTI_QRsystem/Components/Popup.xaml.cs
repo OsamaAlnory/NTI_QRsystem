@@ -11,21 +11,32 @@ using Xamarin.Forms.Xaml;
 
 namespace NTI_QRsystem.Components
 {
-    public enum PopupType { ERROR,SUCCESS }
+    public enum PopupType { INFO,INPUT }
     public partial class Popup : PopupPage
     {
         public PopupType type;
 
-        public Popup(View content, Page page, PopupType type)
+        public Popup(View content, Page page)
         {
-            this.type = type;
             InitializeComponent();
-            if(type == PopupType.ERROR)
+            if(content is PopupComponent)
             {
-                AbsoluteLayout.SetLayoutBounds(frame, new Rectangle(0.5, 0.5, 0.8, 0.3));
+                type = ((PopupComponent)content).GetPopupType();
             } else
             {
-                AbsoluteLayout.SetLayoutBounds(frame, new Rectangle(0.5, 0.3, 0.8, 0.5));
+                type = PopupType.INFO;
+            }
+            if(type == PopupType.INFO)
+            {
+                AbsoluteLayout.SetLayoutBounds(frame, new Rectangle(0.5, 0.5, 0.8, 0.3));
+            } else if(type == PopupType.INPUT)
+            {
+                AbsoluteLayout.SetLayoutBounds(frame, new Rectangle(0.5, 0.3, 0.8, 0.6));
+            }
+            if(content is CustomPopup)
+            {
+                ((CustomPopup)content).ChangeFrame(frame);
+                ((CustomPopup)content).ChangeAnimation(an);
             }
             pop.Children.Add(content);
             TapGestureRecognizer tap = new TapGestureRecognizer();

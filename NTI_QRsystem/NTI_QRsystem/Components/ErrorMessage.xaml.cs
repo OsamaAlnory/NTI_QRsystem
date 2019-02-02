@@ -11,13 +11,18 @@ using Xamarin.Forms.Xaml;
 namespace NTI_QRsystem.Components
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ErrorMessage : StackLayout
+	public partial class ErrorMessage : StackLayout, PopupComponent
 	{
 		public ErrorMessage (string message)
 		{
 			InitializeComponent ();
             lbl.Text = message;
 		}
+
+        public PopupType GetPopupType()
+        {
+            return PopupType.INFO;
+        }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {

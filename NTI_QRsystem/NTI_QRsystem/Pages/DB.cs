@@ -64,6 +64,23 @@ namespace NTI_QRsystem.Pages
             return await client.DeleteAsync(L + AC +"/" + account.ID);
         }
 
+        public static async Task<HttpResponseMessage> RemoveLecture(Lecture lecture)
+        {
+            HttpClient client = new HttpClient();
+            return await client.DeleteAsync(L + LE + "/" + lecture.Rid);
+        }
+
+        public static async Task<HttpResponseMessage> FullyRemoveLecture(Lecture lecture)
+        {
+            var b = GetLectureById(lecture.Rid);
+            if(b != null)
+            {
+                lectures.Remove(b);
+                return await RemoveLecture(b);
+            }
+            return null;
+        }
+
         public static async Task<HttpResponseMessage> EditLec(Lecture lec)
         {
             var json = JsonConvert.SerializeObject(lec);
@@ -101,7 +118,25 @@ namespace NTI_QRsystem.Pages
         public static async Task<HttpResponseMessage> FullyAddInfo(Info info)
         {
             infos.Add(info);
-             return await AddInfo(info);
+            return await AddInfo(info);
+        }
+
+        public static async Task<HttpResponseMessage> FullyAddLecture(Lecture lec)
+        {
+            lectures.Add(lec);
+            return await AddLecture(lec);
+        }
+
+        public static Lecture CheckLecture(string room)
+        {
+            for(int x = 0; x < lectures.Count; x++)
+            {
+                if(lectures[x].DeviceID == room)
+                {
+                    return lectures[x];
+                }
+            }
+            return null;
         }
 
         public static Account getAccountByName(string name)
@@ -111,6 +146,29 @@ namespace NTI_QRsystem.Pages
                 if(accounts[x].Username == name)
                 {
                     return accounts[x];
+                }
+            }
+            return null;
+        }
+
+        public static Lecture GetLectureByTeacher(Account teacher)
+        {
+            for(int x = 0; x < lectures.Count; x++)
+            {
+                if (lectures[x].AdminID == teacher.Username)
+                {
+                    return lectures[x];
+                }
+            }
+            return null;
+        }
+
+        public static Lecture GetLectureById(string rid) {
+            for(int x = 0; x < lectures.Count; x++)
+            {
+                if(lectures[x].Rid == rid)
+                {
+                    return lectures[x];
                 }
             }
             return null;

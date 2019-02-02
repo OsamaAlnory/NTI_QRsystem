@@ -9,7 +9,8 @@
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation PositionIn="Center" PositionOut="Center"
          ScaleIn="1.2" ScaleOut="0.8" DurationIn="400" DurationOut="300"
-         EasingIn="SinOut" EasingOut="SinIn" HasBackgroundAnimation="True"/>
+         EasingIn="SinOut" EasingOut="SinIn" HasBackgroundAnimation="True"
+                                   x:Name="an"/>
     </pages:PopupPage.Animation>
 
     <AbsoluteLayout x:Name="abs">

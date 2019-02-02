@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NTI_QRsystem.Pages.TeacherPage">
+             x:Class="NTI_QRsystem.Pages.TeacherPage" NavigationPage.HasNavigationBar="False">
     <AbsoluteLayout>
         <Image x:Name="background5" Aspect="Fill" AbsoluteLayout.LayoutFlags="All"
                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>
@@ -10,7 +10,7 @@
 
             <Button Style="{StaticResource CustomButton}" Text="Skapa Lektioner"
                     HorizontalOptions="FillAndExpand"
-                        FontAttributes="Bold" Clicked="Button_Clicked" BackgroundColor="White" TextColor="Black"/>
+                        FontAttributes="Bold" Clicked="Button_Clicked" BackgroundColor="White" TextColor="Purple"/>
             <Frame Padding="10" OutlineColor="Silver" BackgroundColor="White" CornerRadius="30">
                 <Label Text="Elever" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
                    TextColor="Black" FontSize="27"/>
@@ -44,7 +44,9 @@
                 </AbsoluteLayout>
                 
             </Frame>
-            
+            <Button VerticalOptions="EndAndExpand" Style="{StaticResource CustomButton}"
+                    Text="Avsluta lektionen" FontAttributes="Bold" BackgroundColor="Red"
+                    TextColor="White" IsEnabled="False" x:Name="del_button" Clicked="del_button_Clicked"/>
         </StackLayout>
     </AbsoluteLayout>
 </ContentPage>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ci="clr-namespace:NTI_QRsystem"
+             x:Class="NTI_QRsystem.Components.LectionCreator" HorizontalOptions="FillAndExpand"
+             VerticalOptions="FillAndExpand" Spacing="10">
+    <Label Text="Skapa lektion" HorizontalOptions="CenterAndExpand" TextColor="Black"
+           FontSize="26"/>
+    <Frame Padding="5" OutlineColor="Orange" CornerRadius="10">
+        <Picker x:Name="clss" HorizontalOptions="CenterAndExpand"/>
+    </Frame>
+    <Frame Padding="5" OutlineColor="Orange" CornerRadius="10">
+        <Picker x:Name="sals" HorizontalOptions="CenterAndExpand"/>
+    </Frame>
+    <Frame Padding="5" OutlineColor="Orange" CornerRadius="10">
+        <TimePicker x:Name="time" HorizontalOptions="CenterAndExpand"/>
+    </Frame>
+    <Button Text="Skapa" Style="{StaticResource CustomButton}" VerticalOptions="EndAndExpand"
+            BackgroundColor="Purple" FontAttributes="Bold" Clicked="Button_Clicked"/>
+</StackLayout>

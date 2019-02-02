@@ -13,5 +13,6 @@ namespace NTI_QRsystem.DBK
         public bool isAdmin { get; set; }
         public bool isLogged { get; set; }
         public string Pnumber { get; set; }
+        public string MobileID { get; set; }
     }
 }

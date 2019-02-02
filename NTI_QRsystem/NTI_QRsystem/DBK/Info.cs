@@ -10,10 +10,5 @@ namespace NTI_QRsystem.DBK
         public string LecId { get; set; }
         public string Studentname { get; set; }
         public TimeSpan ATime { get; set; }
-
-
-
-        
- 
     }
 }

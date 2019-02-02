@@ -14,13 +14,16 @@ namespace NTI_QRsystem.Pages
     public partial class TeacherPage : ContentPage
     {
 
-        private Lecture lec;
+        public static Lecture lec;
+        public static TeacherPage tp;
 
-        public  TeacherPage()
+        public TeacherPage()
         {
+            tp = this;
             InitializeComponent();
             background5.Source = App.getImage("bg");
             lec = DB.lectures[0];
+            //lec = DB.GetLectureByTeacher(LoadingPage._a);
             Update();
             Timer();
         }
@@ -36,11 +39,13 @@ namespace NTI_QRsystem.Pages
 
        private async void Update()
         {
-            await DB.LoadInfos();
             if(lec == null)
             {
+                del_button.IsEnabled = false;
                 return;
             }
+            await DB.LoadInfos();
+            del_button.IsEnabled = true;
             var _s = new List<Studentinfo>();
             for (int i = 0; i < DB.accounts.Count; i++)
             {
@@ -68,12 +73,14 @@ namespace NTI_QRsystem.Pages
             }
         }
 
-
-
         private void Button_Clicked(object sender, EventArgs e)
         {
-            //Skapa Lektioner
-            new Popup(new ErrorMessage("Fel din jävel!!"), this, PopupType.ERROR).Show();
+            new Popup(new LectionCreator(), this).Show();
+        }
+
+        private void del_button_Clicked(object sender, EventArgs e)
+        {
+            new Popup(new ConfirmationMessage("Är du säker på att avsluta denna lektion?"), this).Show();
         }
     }
 }

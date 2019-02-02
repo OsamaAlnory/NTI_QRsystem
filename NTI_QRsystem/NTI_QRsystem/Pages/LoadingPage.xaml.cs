@@ -30,7 +30,7 @@ namespace NTI_QRsystem.Pages
                 load();
             } else
             {
-                new Popup(new ErrorMessage("Se till att din mobil är ansluten till internet."), this, PopupType.ERROR).Show();
+                new Popup(new ErrorMessage("Se till att din mobil är ansluten till internet."), this).Show();
             }
 		}
 
@@ -46,7 +46,7 @@ namespace NTI_QRsystem.Pages
                 if(acc != null && acc.isLogged)
                 {
                     //OpenPage();
-                   // return;
+                    //return;
                 }
             }
             

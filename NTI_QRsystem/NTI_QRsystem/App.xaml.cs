@@ -26,11 +26,9 @@ namespace NTI_QRsystem
             images.Add("background", loadImage("background.png"));
             images.Add("bg", loadImage("bg.png"));
             images.Add("bg2", loadImage("bg2.JPG"));
-            //DB.AddLecture(new Lecture { AdminID="Osama", Class="2_TEK", DeviceID="EK",
-            //Rid="EB12L",LecTime=DateTime.Now,Extra="test"});
             //App.Current.Properties.Remove("LoggedIn");
             //App.Current.SavePropertiesAsync();
-            MainPage = new NavigationPage(new Pages.ShowSerial());
+            MainPage = new NavigationPage(new LoadingPage());
         }
 
         public static bool CheckInternetConnection()
@@ -64,7 +62,10 @@ namespace NTI_QRsystem
 
         public static string GetTime(TimeSpan t)
         {
-            return t.Hours + ":" + t.Minutes + ":" + t.Seconds;
+            var h = t.Hours > 9 ? "" + t.Hours : "0" + t.Hours;
+            var m = t.Minutes > 9 ? "" + t.Minutes : "0" + t.Minutes;
+            var s = t.Seconds > 9 ? "" + t.Seconds : "0" + t.Seconds;
+            return h + ":" + m + ":" + s;
         }
 
         public static int GetTotalSeconds(TimeSpan t)

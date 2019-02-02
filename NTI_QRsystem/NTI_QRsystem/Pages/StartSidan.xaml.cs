@@ -73,23 +73,28 @@ namespace NTI_QRsystem
                                 TimeSpan difference = d.Subtract(lecture.LecTime);
                                 await DB.FullyAddInfo(new Info {LecId = lecture.Rid, Studentname = s.Username,
                                 ATime=difference});
-                                new Popup(new SuccessMessage("Du har registererat klart din närvaro!"), this, PopupType.SUCCESS).Show();
+                                string l = "";
+                                if(App.GetTotalSeconds(difference) >= 60)
+                                {
+                                    l = "\nDu är "+App.GetTime(difference)+" sen!";
+                                }
+                                new Popup(new SuccessMessage("Du har registererat klart din närvaro!"+l), this).Show();
                             } else
                             {
-                                new Popup(new ErrorMessage("Du har redan registererat din närvaro!"), this, PopupType.ERROR).Show();
+                                new Popup(new ErrorMessage("Du har redan registererat din närvaro!"), this).Show();
                             }
                         } else
                         {
                             
 
                             // Show Error / Try again //Fuskare
-                            new Popup(new ErrorMessage("Du Befinner inte dig på skolan, Försök inte att Fuska!"), this, PopupType.ERROR).Show();
+                            new Popup(new ErrorMessage("Du befinner inte dig på skolan, försök inte att fuska!"), this).Show();
                         }
                     } else
                     {
                         // Not his class, kick his ass :'(
                         
-                        new Popup(new ErrorMessage("Det här är inte din klass."), this, PopupType.ERROR).Show();
+                        new Popup(new ErrorMessage("Det här är inte din klass!"), this).Show();
                     }
                 }
             }
