@@ -59,7 +59,6 @@ namespace WebApplication1.Controllers
                 entity.Studentname = info.Studentname;
                 entity.LecId = info.LecId;
                 entity.ATime = info.ATime;
-                entity.Date = info.Date;
                 entities.SaveChanges();
             }
         }

@@ -21,5 +21,6 @@ namespace DataAccess
         public Nullable<bool> isAdmin { get; set; }
         public string Pnumber { get; set; }
         public bool isLogged { get; set; }
+        public string MobileID { get; set; }
     }
 }

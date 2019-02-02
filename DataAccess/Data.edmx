@@ -16,6 +16,7 @@
           <Property Name="Class" Type="varchar" MaxLength="20" />
           <Property Name="isAdmin" Type="bit" />
           <Property Name="isLogged" Type="bit" Nullable="false" />
+          <Property Name="MobileID" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="Info">
           <Key>
@@ -25,7 +26,6 @@
           <Property Name="LecId" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="Studentname" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="ATime" Type="time" Precision="0" Nullable="false" />
-          <Property Name="Date" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Lec">
           <Key>
@@ -58,6 +58,7 @@
           <Property Name="isAdmin" Type="Boolean" />
           <Property Name="Pnumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="isLogged" Type="Boolean" Nullable="false" />
+          <Property Name="MobileID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Info">
           <Key>
@@ -66,7 +67,6 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Studentname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ATime" Type="Time" Precision="0" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Precision="0" Nullable="false" />
           <Property Name="LecId" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityContainer Name="MSSQL400028Entities1" annotation:LazyLoadingEnabled="true">
@@ -94,6 +94,7 @@
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="MSSQL400028Model.Accounts">
               <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="MobileID" ColumnName="MobileID" />
                 <ScalarProperty Name="isLogged" ColumnName="isLogged" />
                 <ScalarProperty Name="Pnumber" ColumnName="Pnumber" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -111,7 +112,6 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Studentname" ColumnName="Studentname" />
                 <ScalarProperty Name="ATime" ColumnName="ATime" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
