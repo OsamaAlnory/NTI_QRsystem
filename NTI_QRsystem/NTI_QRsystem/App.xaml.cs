@@ -30,7 +30,7 @@ namespace NTI_QRsystem
             //Rid="EB12L",LecTime=DateTime.Now,Extra="test"});
             //App.Current.Properties.Remove("LoggedIn");
             //App.Current.SavePropertiesAsync();
-            MainPage = new NavigationPage(new Pages.LoadingPage());
+            MainPage = new NavigationPage(new Pages.ShowSerial());
         }
 
         public static bool CheckInternetConnection()

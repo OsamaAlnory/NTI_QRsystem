@@ -5,9 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+ 
+using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Forms.Internals;
 
 namespace NTI_QRsystem.Pages
 {
@@ -69,6 +71,7 @@ namespace NTI_QRsystem.Pages
             {
                  
                Navigation.PushAsync(new StartSidan());
+               
             }
         }
 

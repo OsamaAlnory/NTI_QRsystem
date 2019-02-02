@@ -7,6 +7,6 @@
     <Label Text="Godkännt" HorizontalOptions="CenterAndExpand" FontSize="24" TextColor="Black"/>
     <Label x:Name="lbl" HorizontalOptions="CenterAndExpand" FontSize="16"/>
 
-    <Button Style="{StaticResource CustomButton}" BackgroundColor="Purple" TextColor="White"
-            VerticalOptions="EndAndExpand" Text="Okej" Clicked="Button_Clicked"/>
+  <Button Style="{StaticResource CustomButton}" BackgroundColor="Purple" TextColor="White"
+            VerticalOptions="EndAndExpand" Text="Okej" Clicked="Button_Clicked"  />
 </StackLayout>

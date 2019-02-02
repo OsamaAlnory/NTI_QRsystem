@@ -21,7 +21,7 @@ namespace NTI_QRsystem.Components
 
 		}
 
-        private async Task Button_Clicked (object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopPopupAsync();
         }
