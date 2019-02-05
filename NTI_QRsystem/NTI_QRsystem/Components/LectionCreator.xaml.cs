@@ -58,33 +58,53 @@ namespace NTI_QRsystem.Components
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            if (clicked)
+            try
             {
-                return;
-            }
-            if(sals.SelectedIndex > 0 && clss.SelectedIndex > 0)
-            {
-                if(TeacherPage.lec == null)
+                if (clicked)
                 {
-                    clicked = true;
-                    var l = DB.CheckLecture(sals.SelectedItem.ToString());
-                    if (l == null)
-                    {
-                        await DB.FullyAddLecture(new DBK.Lecture { AdminID=LoadingPage._a.Username,
-                        Class=clss.SelectedItem.ToString(),DeviceID=sals.SelectedItem.ToString(),
-                        LecTime=time.Time,Rid=GenerateRandomId()});
-                    } else
-                    {
-                        new Popup(new ErrorMessage("Det finns redan en lektion skapad i denna sal av "+l.AdminID+"!"), TeacherPage.tp).Show();
-                    }
-                } else
-                {
-                    new Popup(new ErrorMessage("Du har redan skapat en lektion i denna sal!"), TeacherPage.tp).Show();
+                    return;
                 }
-            } else
-            {
-                new Popup(new ErrorMessage("Fyll i alla fälten."), TeacherPage.tp).Show();
+                if (sals.SelectedIndex > 0 && clss.SelectedIndex > 0)
+                {
+                    if (TeacherPage.lec == null)
+                    {
+                        clicked = true;
+                        var l = DB.CheckLecture(sals.SelectedItem.ToString());
+                        if (l == null)
+                        {
+                           
+                            await DB.FullyAddLecture(new DBK.Lecture
+                            {
+                                AdminID = LoadingPage._a.Username,
+                                Class = clss.SelectedItem.ToString(),
+                                DeviceID = sals.SelectedItem.ToString(),
+                                LecTime = time.Time,
+                                Rid = GenerateRandomId()
+                            });
+                        }
+                        else
+                        {
+                          //  new Popup(new ErrorMessage("Det finns redan en lektion skapad i denna sal av " + l.AdminID + "!"), TeacherPage.tp).Show();
+                        }
+                    }
+                    else
+                    {
+                       // new Popup(new ErrorMessage("Du har redan skapat en lektion i denna sal!"), TeacherPage.tp).Show();
+                    }
+                }
+                else
+                {
+                    //new Popup(new ErrorMessage("Fyll i alla fälten."), TeacherPage.tp).Show();
+                }
             }
+            catch (Exception ex)
+            {
+
+                new Popup(new ErrorMessage("Felet är "+ ex.Message), TeacherPage.tp).Show(); 
+            }
+
+
+            
         }
 
         private static string GenerateRandomId()
