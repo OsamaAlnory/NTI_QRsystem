@@ -22,8 +22,8 @@ namespace NTI_QRsystem.Pages
             tp = this;
             InitializeComponent();
             background5.Source = App.getImage("bg");
-            lec = DB.lectures[0];
-            //lec = DB.GetLectureByTeacher(LoadingPage._a);
+            //lec = DB.lectures[0];
+            lec = DB.GetLectureByTeacher(LoadingPage._a);
             Update();
             Timer();
         }
@@ -37,9 +37,14 @@ namespace NTI_QRsystem.Pages
             });
         }
 
-       private async void Update()
+        public void Update()
         {
-            if(lec == null)
+            Update(false);
+        }
+
+       public async void Update(bool force)
+        {
+            if(lec == null && !force)
             {
                 del_button.IsEnabled = false;
                 return;

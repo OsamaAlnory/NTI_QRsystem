@@ -50,7 +50,7 @@ namespace NTI_QRsystem.Pages
                 }
             }
             
-            Navigation.PushAsync(new TeacherPage());
+            Navigation.PushAsync(new LoginPage());
         }
 
         public void OpenPage()
@@ -64,7 +64,7 @@ namespace NTI_QRsystem.Pages
                     Navigation.PushAsync(new QRScreen());
                 } else
                 {
-
+                    Navigation.PushAsync(new TeacherPage());
                 }
             }
             else

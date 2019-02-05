@@ -13,6 +13,7 @@ namespace NTI_QRsystem.Components
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ErrorMessage : StackLayout, PopupComponent
 	{
+
 		public ErrorMessage (string message)
 		{
 			InitializeComponent ();
