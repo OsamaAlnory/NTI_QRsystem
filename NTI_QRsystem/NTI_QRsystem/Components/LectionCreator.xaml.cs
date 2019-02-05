@@ -1,4 +1,5 @@
-﻿using NTI_QRsystem.Pages;
+﻿using NTI_QRsystem.DBK;
+using NTI_QRsystem.Pages;
 using Rg.Plugins.Popup.Animations;
 using System;
 using System.Collections.Generic;
@@ -41,7 +42,7 @@ namespace NTI_QRsystem.Components
                 for (int x = 0; x < DB.accounts.Count; x++)
                 {
                     var a = DB.accounts[x];
-                    if (a.Class != "Device" && !lst.Contains(a.Class))
+                    if (!a.isAdmin && !lst.Contains(a.Class))
                     {
                         lst.Add(a.Class);
                     }
@@ -70,9 +71,18 @@ namespace NTI_QRsystem.Components
                     var l = DB.CheckLecture(sals.SelectedItem.ToString());
                     if (l == null)
                     {
-                        await DB.FullyAddLecture(new DBK.Lecture { AdminID=LoadingPage._a.Username,
-                        Class=clss.SelectedItem.ToString(),DeviceID=sals.SelectedItem.ToString(),
-                        LecTime=time.Time,Rid=GenerateRandomId()});
+                        Lecture lec = new Lecture
+                        {
+                            AdminID = LoadingPage._a.Username,
+                            Class = clss.SelectedItem.ToString(),
+                            DeviceID = sals.SelectedItem.ToString(),
+                            LecTime = time.Time,
+                            Rid = GenerateRandomId()
+                        };
+                        await DB.FullyAddLecture(lec);
+                        TeacherPage.lec = lec;
+                        new Popup(new SuccessMessage("Du har just skapat en lektion i sal "
+                            +sals.SelectedItem.ToString()+"!"), TeacherPage.tp).Show();
                     } else
                     {
                         new Popup(new ErrorMessage("Det finns redan en lektion skapad i denna sal av "+l.AdminID+"!"), TeacherPage.tp).Show();
@@ -94,11 +104,11 @@ namespace NTI_QRsystem.Components
             {
                 a += chrs.ElementAt(r.Next(chrs.Length));
             }
-            for(int x = 0; x < 5; x++)
+            for(int x = 0; x < 3; x++)
             {
                 a += r.Next(10);
             }
-            for(int x = 0; x < 3; x++)
+            for(int x = 0; x < 2; x++)
             {
                 a += chrs.ElementAt(r.Next(chrs.Length));
             }

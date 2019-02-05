@@ -4,11 +4,11 @@
              x:Class="NTI_QRsystem.Components.ConfirmationMessage">
 
     <Label x:Name="lbl" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"
-           FontSize="27" TextColor="Black" HorizontalTextAlignment="Center"/>
+           FontSize="24" TextColor="Black" HorizontalTextAlignment="Center"/>
     <StackLayout Orientation="Horizontal">
         <Button Text="Nej" Style="{StaticResource CustomButton}" BackgroundColor="Red"
-                Clicked="Button_Clicked"/>
+         Clicked="Button_Clicked" HorizontalOptions="StartAndExpand" FontAttributes="Bold"/>
         <Button Text="Ja" Style="{StaticResource CustomButton}" BackgroundColor="LimeGreen"
-                Clicked="Button_Clicked_1"/>
+         Clicked="Button_Clicked_1" HorizontalOptions="EndAndExpand" FontAttributes="Bold"/>
     </StackLayout>
 </StackLayout>

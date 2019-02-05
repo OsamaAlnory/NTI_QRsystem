@@ -15,6 +15,7 @@ namespace NTI_QRsystem.Components
 	public partial class ConfirmationMessage : StackLayout, PopupComponent
 	{
         bool clicked;
+
 		public ConfirmationMessage (string msg)
 		{
 			InitializeComponent ();
@@ -44,6 +45,8 @@ namespace NTI_QRsystem.Components
                 TeacherPage.lec = null;
                 await Navigation.PopPopupAsync();
                 new Popup(new SuccessMessage("Lektionen har avslutats!"), TeacherPage.tp).Show();
+                TeacherPage.lec = null;
+                TeacherPage.tp.Update(true);
             }
         }
     }

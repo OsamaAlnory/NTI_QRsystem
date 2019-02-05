@@ -18,8 +18,7 @@
                 
                 <forms:AnimationView x:Name="animation" Animation="qr_scan.json" 
                     IsVisible="True" Loop="true" AutoPlay="true" VerticalOptions="Start"
-                    HorizontalOptions="Start" BackgroundColor="Red"
-                    HeightRequest="500" WidthRequest="500" 
+                    HorizontalOptions="Start" HeightRequest="500" WidthRequest="500" 
 
             />
 

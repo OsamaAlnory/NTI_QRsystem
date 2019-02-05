@@ -122,14 +122,6 @@ namespace NTI_QRsystem.Components
         {
             // Open a PopupPage
             await Navigation.PushPopupAsync(this);
-            // Close the last PopupPage int the PopupStack
-            //await Navigation.PopPopupAsync();
-
-            // Close all PopupPages in the PopupStack
-            //await Navigation.PopAllPopupAsync();
-
-            // Close an one PopupPage in the PopupStack even if the page is not the last
-            //await Navigation.RemovePopupPageAsync(page);
         }
 
     }
