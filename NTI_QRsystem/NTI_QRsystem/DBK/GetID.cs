@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 
@@ -39,14 +40,19 @@ namespace NTI_QRsystem.DBK
             var id = default(string);
 #if __IOS__
             id = UIKit.UIDevice.CurrentDevice.IdentifierForVendor.AsString();
+
+            
+         
 #elif WINDOWS_PHONE
             id = Windows.Phone.System.Analytics.HostInformation.PublisherHostId;
 #else
 
-           id = Android.OS.Build.Serial;
+            // id = Android.OS.Build.Serial;
 
-
+          id= UIDevice.CurrentDevice.IdentifierForVendor.ToString();
 #endif
+
+
 
             return id;
         }

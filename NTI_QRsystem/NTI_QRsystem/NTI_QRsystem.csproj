@@ -49,6 +49,9 @@
     <Reference Include="Telerik.XamarinForms.Primitives">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Progress\Telerik UI for Xamarin R1 2019\Binaries\Portable\Telerik.XamarinForms.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.iOS">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Xamarin.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

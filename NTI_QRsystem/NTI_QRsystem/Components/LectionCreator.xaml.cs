@@ -95,11 +95,9 @@ namespace NTI_QRsystem.Components
                     //new Popup(new ErrorMessage("Fyll i alla fälten."), TeacherPage.tp).Show();
                 }
             }
-            catch (Exception ex)
-            {
+            
 
-            //    new Popup(new ErrorMessage("Felet är " + ex.Message), TeacherPage.tp).Show();
-            //}
+            
 
 
 

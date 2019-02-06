@@ -33,9 +33,9 @@ namespace NTI_QRsystem
             //App.Current.Properties.Remove("LoggedIn");
             //App.Current.SavePropertiesAsync();
 
-            MainPage = new NavigationPage(new LoadingPage());
+          //  MainPage = new NavigationPage(new LoadingPage());
 
-            //MainPage = new Pages.RectorPage();
+            MainPage = new Pages.RectorPage();
         }
 
         public static bool CheckInternetConnection()
