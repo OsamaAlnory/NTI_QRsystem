@@ -56,11 +56,13 @@ namespace NTI_QRsystem
             var f = code.Split(' ');
             var c1 = f[0];
             TimeSpan d = TimeSpan.Parse(App.GetTime(DateTime.Now.TimeOfDay));
+            bool found = false;
             for(int x = 0; x < DB.lectures.Count; x++)
             {
                 Lecture lecture = DB.lectures[x];
                 if(lecture.Rid == c1)
                 {
+                    found = true;
                     if(lecture.Class == s.Class)
                     {
                         TimeSpan clsstime = TimeSpan.Parse(f[1]);
@@ -97,6 +99,10 @@ namespace NTI_QRsystem
                         new Popup(new ErrorMessage("Det här är inte din klass!"), this).Show();
                     }
                 }
+            }
+            if (!found)
+            {
+                new Popup(new ErrorMessage("Ogiltig kod!"), TeacherPage.tp).Show();
             }
         }
 

@@ -14,6 +14,7 @@
     <None Remove="images\bg.png" />
     <None Remove="images\bg2.JPG" />
     <None Remove="images\no-image.png" />
+    <None Remove="sounds\scan_success.wav" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +22,7 @@
     <EmbeddedResource Include="images\bg.png" />
     <EmbeddedResource Include="images\bg2.JPG" />
     <EmbeddedResource Include="images\no-image.png" />
+    <EmbeddedResource Include="sounds\scan_success.wav" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +30,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="Rg.Plugins.Popup" Version="1.1.4.168" />
     <PackageReference Include="Xam.Plugin.DeviceInfo" Version="4.1.1" />
+    <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.1.0" />
     <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
     <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
     <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />

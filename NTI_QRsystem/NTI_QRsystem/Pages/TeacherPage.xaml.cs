@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace NTI_QRsystem.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TeacherPage : ContentPage
+    public partial class TeacherPage : TabbedPage
     {
 
         public static Lecture lec;
@@ -22,7 +22,6 @@ namespace NTI_QRsystem.Pages
             tp = this;
             InitializeComponent();
             background5.Source = App.getImage("bg");
-            //lec = DB.lectures[0];
             lec = DB.GetLectureByTeacher(LoadingPage._a);
             Update();
             Timer();
@@ -52,17 +51,24 @@ namespace NTI_QRsystem.Pages
             await DB.LoadInfos();
             del_button.IsEnabled = true;
             var _s = new List<Studentinfo>();
-            for (int i = 0; i < DB.accounts.Count; i++)
+            if(lec != null)
             {
-                var ac = DB.accounts[i];
-                if (!ac.isAdmin)
+                for (int i = 0; i < DB.accounts.Count; i++)
                 {
-                    if(ac.Class == lec.Class)
+                    var ac = DB.accounts[i];
+                    if (!ac.isAdmin)
                     {
-                        var b = DB.CheckStudent(ac, lec);
-                        string str = b != null ? b.ATime.ToString() : "Frånvarande";
-                        _s.Add(new Studentinfo { Studentname = ac.Username, ATime = str,
-                            color = b != null ? Color.Green: Color.Red });
+                        if (ac.Class == lec.Class)
+                        {
+                            var b = DB.CheckStudent(ac, lec);
+                            string str = b != null ? b.ATime.ToString() : "Frånvarande";
+                            _s.Add(new Studentinfo
+                            {
+                                Studentname = ac.Username,
+                                ATime = str,
+                                color = b != null ? Color.Green : Color.Red
+                            });
+                        }
                     }
                 }
             }
@@ -86,6 +92,11 @@ namespace NTI_QRsystem.Pages
         private void del_button_Clicked(object sender, EventArgs e)
         {
             new Popup(new ConfirmationMessage("Är du säker på att avsluta denna lektion?"), this).Show();
+        }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            App.PlaySound("success");
         }
     }
 }

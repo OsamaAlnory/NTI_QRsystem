@@ -24,14 +24,20 @@ namespace NTI_QRsystem.Pages
             p = this;
 			InitializeComponent ();
             backgrounds1.Source = App.getImage("bg");
-            if (App.CheckInternetConnection())
-            {
+            Device.StartTimer(TimeSpan.FromSeconds(1), () => {
                 an.Play();
-                load();
-            } else
-            {
-                new Popup(new ErrorMessage("Se till att din mobil är ansluten till internet."), this).Show();
-            }
+                if (App.CheckInternetConnection())
+                {
+                    load();
+                }
+                else
+                {
+                    an.Pause();
+                    an.IsVisible = false;
+                    new Popup(new ErrorMessage("Se till att din mobil är ansluten till internet."), this).Show();
+                }
+                return false;
+            });
 		}
 
         private async void load()
@@ -45,8 +51,8 @@ namespace NTI_QRsystem.Pages
                 Account acc = DB.getAccountByName(nm);
                 if(acc != null && acc.isLogged)
                 {
-                    //OpenPage();
-                    //return;
+                    OpenPage();
+                    return;
                 }
             }
             
