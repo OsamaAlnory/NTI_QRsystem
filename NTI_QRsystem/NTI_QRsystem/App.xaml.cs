@@ -1,7 +1,9 @@
 ﻿using NTI_QRsystem.DBK;
 using NTI_QRsystem.Pages;
+using Plugin.SimpleAudioPlayer;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Reflection;
 using Xamarin.Forms;
@@ -15,6 +17,7 @@ namespace NTI_QRsystem
 
         public static Dictionary<string, ImageSource> images = new Dictionary<string, ImageSource>();
         public static Dictionary<string, string> strings = new Dictionary<string, string>();
+        public static Dictionary<string, ISimpleAudioPlayer> sounds = new Dictionary<string, ISimpleAudioPlayer>();
         public const int QR_SIZE = 1000;
         private const string PATH = "NTI_QRsystem";
         public const int REFRESH_TIME = 3;
@@ -26,6 +29,7 @@ namespace NTI_QRsystem
             images.Add("background", loadImage("background.png"));
             images.Add("bg", loadImage("bg.png"));
             images.Add("bg2", loadImage("bg2.JPG"));
+            RegisterSound("success", "scan_success.wav");
             //App.Current.Properties.Remove("LoggedIn");
             //App.Current.SavePropertiesAsync();
             MainPage = new NavigationPage(new LoadingPage());
@@ -46,6 +50,21 @@ namespace NTI_QRsystem
             {
                 return false;
             }
+        }
+
+        public static void PlaySound(string key)
+        {
+            sounds[key].Play();
+        }
+
+        private static void RegisterSound(string key, string path)
+        {
+            var assembly = typeof(App).GetTypeInfo().Assembly;
+            Stream audioStream = assembly.
+               GetManifestResourceStream(PATH + ".sounds." + path);
+            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player.Load(audioStream);
+            sounds.Add(key, player);
         }
 
         public static ImageSource getImage(string key)

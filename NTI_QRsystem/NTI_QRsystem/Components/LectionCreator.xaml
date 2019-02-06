@@ -7,10 +7,10 @@
     <Label Text="Skapa lektion" HorizontalOptions="CenterAndExpand" TextColor="Black"
            FontSize="26"/>
     <Frame Padding="5" OutlineColor="Orange" CornerRadius="10">
-        <Picker x:Name="clss" HorizontalOptions="CenterAndExpand"/>
+        <ci:IPicker x:Name="clss" HorizontalOptions="CenterAndExpand"/>
     </Frame>
     <Frame Padding="5" OutlineColor="Orange" CornerRadius="10">
-        <Picker x:Name="sals" HorizontalOptions="CenterAndExpand"/>
+        <ci:IPicker x:Name="sals" HorizontalOptions="CenterAndExpand"/>
     </Frame>
     <Frame Padding="5" OutlineColor="Orange" CornerRadius="10">
         <TimePicker x:Name="time" HorizontalOptions="CenterAndExpand"/>

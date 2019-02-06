@@ -1,52 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NTI_QRsystem.Pages.TeacherPage" NavigationPage.HasNavigationBar="False">
-    <AbsoluteLayout>
-        <Image x:Name="background5" Aspect="Fill" AbsoluteLayout.LayoutFlags="All"
+    <ContentPage Title="Skapa lektion">
+        <AbsoluteLayout>
+            <Image x:Name="background5" Aspect="Fill" AbsoluteLayout.LayoutFlags="All"
                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>
-        <StackLayout AbsoluteLayout.LayoutFlags="All"
+            <StackLayout AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0,0,1,1" Padding="20" Spacing="20">
 
-            <Button Style="{StaticResource CustomButton}" Text="Skapa Lektioner"
+                <Button Style="{StaticResource CustomButton}" Text="Skapa Lektioner"
                     HorizontalOptions="FillAndExpand"
                         FontAttributes="Bold" Clicked="Button_Clicked" BackgroundColor="White" TextColor="Purple"/>
-            <Frame Padding="10" OutlineColor="Silver" BackgroundColor="White" CornerRadius="30">
-                <Label Text="Elever" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
-                   TextColor="Black" FontSize="27"/>
-            </Frame>
-            <Frame Padding="10" BackgroundColor="White" CornerRadius="10" OutlineColor="Silver">
-                <AbsoluteLayout>
-                    <StackLayout IsVisible="True" x:Name="no" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
-                        <Label Text="Inga Elever!" HorizontalOptions="CenterAndExpand"
+                <Frame Padding="10" BackgroundColor="White" CornerRadius="10" OutlineColor="Silver">
+                    <AbsoluteLayout>
+                        <StackLayout IsVisible="True" x:Name="no" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+                            <Label Text="Inga Elever!" HorizontalOptions="CenterAndExpand"
                                VerticalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="30"
                                TextColor="Black"/>
-                    </StackLayout>
+                        </StackLayout>
                         <ListView IsVisible="False" x:Name="elever" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Grid BackgroundColor="{Binding color}">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
-                                            <ColumnDefinition Width="0.3*"></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid BackgroundColor="{Binding color}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                                                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
 
-                                        <Label Text="{Binding Studentname}" FontAttributes="Bold"/>
-                                        <Label Text="{Binding ATime}" Grid.Column="1"/>
+                                            <Label Text="{Binding Studentname}" FontAttributes="Bold"/>
+                                            <Label Text="{Binding ATime}" Grid.Column="1"/>
 
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </AbsoluteLayout>
-                
-            </Frame>
-            <Button VerticalOptions="EndAndExpand" Style="{StaticResource CustomButton}"
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </AbsoluteLayout>
+
+                </Frame>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Button VerticalOptions="EndAndExpand" Style="{StaticResource CustomButton}"
                     Text="Avsluta lektionen" FontAttributes="Bold" BackgroundColor="Red"
-                    TextColor="White" IsEnabled="False" x:Name="del_button" Clicked="del_button_Clicked"/>
-        </StackLayout>
-    </AbsoluteLayout>
-</ContentPage>
+                    TextColor="White" IsEnabled="False" x:Name="del_button" Clicked="del_button_Clicked"
+                        HorizontalOptions="FillAndExpand"/>
+                    <Button VerticalOptions="EndAndExpand" Style="{StaticResource CustomButton}"
+                        Text="Skapa/Redigera shemat" TextColor="Black" FontAttributes="Bold"
+                        BackgroundColor="White" FontSize="9" HorizontalOptions="FillAndExpand"
+                        Clicked="Button_Clicked_1"/>
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage>
+</TabbedPage>

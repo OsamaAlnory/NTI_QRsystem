@@ -51,5 +51,9 @@ namespace NTI_QRsystem.Pages
             }
         }
 
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            CurrentPage = this.Children[1];
+        }
     }
 }

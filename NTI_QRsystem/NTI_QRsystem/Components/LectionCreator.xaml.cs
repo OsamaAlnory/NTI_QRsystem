@@ -1,6 +1,7 @@
 ﻿using NTI_QRsystem.DBK;
 using NTI_QRsystem.Pages;
 using Rg.Plugins.Popup.Animations;
+using Rg.Plugins.Popup.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,6 +82,7 @@ namespace NTI_QRsystem.Components
                         };
                         await DB.FullyAddLecture(lec);
                         TeacherPage.lec = lec;
+                        await Navigation.PopPopupAsync();
                         new Popup(new SuccessMessage("Du har just skapat en lektion i sal "
                             +sals.SelectedItem.ToString()+"!"), TeacherPage.tp).Show();
                     } else
