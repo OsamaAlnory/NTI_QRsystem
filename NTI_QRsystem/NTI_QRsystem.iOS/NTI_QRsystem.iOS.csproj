@@ -91,11 +91,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CustomPicker.cs" />
+    <Compile Include="IEntryRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\error.json" />
+    <BundleResource Include="Resources\loading.json" />
+    <BundleResource Include="Resources\qr_scan.json" />
+    <BundleResource Include="Resources\success.json" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
