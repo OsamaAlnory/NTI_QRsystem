@@ -58,6 +58,7 @@ namespace NTI_QRsystem.Components
             
         }
 
+
         private async void Button_Clicked(object sender, EventArgs e)
         {
             if (clicked)
