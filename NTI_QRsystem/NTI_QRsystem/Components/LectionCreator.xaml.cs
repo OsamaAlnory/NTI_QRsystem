@@ -87,16 +87,22 @@ namespace NTI_QRsystem.Components
                             +sals.SelectedItem.ToString()+"!"), TeacherPage.tp).Show();
                     } else
                     {
-                        new Popup(new ErrorMessage("Det finns redan en lektion skapad i denna sal av "+l.AdminID+"!"), TeacherPage.tp).Show();
+                       // new Popup(new ErrorMessage("Du har redan skapat en lektion i denna sal!"), TeacherPage.tp).Show();
                     }
-                } else
-                {
-                    new Popup(new ErrorMessage("Du har redan skapat en lektion i denna sal!"), TeacherPage.tp).Show();
                 }
-            } else
-            {
-                new Popup(new ErrorMessage("Fyll i alla fälten."), TeacherPage.tp).Show();
+                else
+                {
+                    //new Popup(new ErrorMessage("Fyll i alla fälten."), TeacherPage.tp).Show();
+                }
             }
+            catch (Exception ex)
+            {
+
+                new Popup(new ErrorMessage("Felet är "+ ex.Message), TeacherPage.tp).Show(); 
+            }
+
+
+            
         }
 
         private static string GenerateRandomId()

@@ -36,7 +36,7 @@
           <Property Name="Class" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="LecTime" Type="time" Precision="7" Nullable="false" />
           <Property Name="DeviceID" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="Extra" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="Extra" Type="char" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="MSSQL400028ModelStoreContainer">
           <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
@@ -83,7 +83,7 @@
           <Property Name="Class" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="LecTime" Type="Time" Nullable="false" Precision="7" />
           <Property Name="DeviceID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Extra" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="Extra" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
