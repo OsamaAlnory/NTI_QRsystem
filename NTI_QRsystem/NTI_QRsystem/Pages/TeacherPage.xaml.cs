@@ -13,7 +13,7 @@ namespace NTI_QRsystem.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TeacherPage : TabbedPage
     {
-
+        Random r = new Random();
         public static Lecture lec;
         public static TeacherPage tp;
 

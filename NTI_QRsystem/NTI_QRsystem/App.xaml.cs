@@ -30,6 +30,7 @@ namespace NTI_QRsystem
             images.Add("bg", loadImage("bg.png"));
             images.Add("bg2", loadImage("bg2.JPG"));
             RegisterSound("success", "scan_success.wav");
+            RegisterSound("s","s.wav");
             //App.Current.Properties.Remove("LoggedIn");
             //App.Current.SavePropertiesAsync();
 

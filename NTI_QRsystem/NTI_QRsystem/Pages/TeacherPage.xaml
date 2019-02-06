@@ -54,4 +54,25 @@
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage>
+    <ContentPage Title="Mitt schema">
+        <StackLayout>
+            <Button Text="Lägg till" Style="{StaticResource CustomButton}"
+                    HorizontalOptions="FillAndExpand" BackgroundColor="Purple"
+                    FontAttributes="Bold" FontSize="25"/>
+            <ListView x:Name="sch" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Redigera" IsEnabled="False" Style="{StaticResource CustomButton}"
+                    HorizontalOptions="FillAndExpand" BackgroundColor="White"
+                    FontAttributes="Bold" FontSize="25" VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </ContentPage>
 </TabbedPage>
