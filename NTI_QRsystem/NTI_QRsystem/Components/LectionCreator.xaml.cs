@@ -98,11 +98,11 @@ namespace NTI_QRsystem.Components
             catch (Exception ex)
             {
 
-                new Popup(new ErrorMessage("Felet är "+ ex.Message), TeacherPage.tp).Show(); 
-            }
+            //    new Popup(new ErrorMessage("Felet är " + ex.Message), TeacherPage.tp).Show();
+            //}
 
 
-            
+
         }
 
         private static string GenerateRandomId()

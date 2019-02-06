@@ -32,7 +32,10 @@ namespace NTI_QRsystem
             RegisterSound("success", "scan_success.wav");
             //App.Current.Properties.Remove("LoggedIn");
             //App.Current.SavePropertiesAsync();
-            MainPage = new NavigationPage(new LoadingPage());
+
+            // MainPage = new NavigationPage(new RectorPage());
+
+            MainPage = new Pages.RectorPage();
         }
 
         public static bool CheckInternetConnection()
