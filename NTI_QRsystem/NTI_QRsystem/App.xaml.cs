@@ -36,7 +36,7 @@ namespace NTI_QRsystem
 
             MainPage = new NavigationPage(new LoadingPage());
 
-            //MainPage = new Pages.RectorPage();
+            MainPage = new Pages.RectorPage();
         }
 
         public static bool CheckInternetConnection()
