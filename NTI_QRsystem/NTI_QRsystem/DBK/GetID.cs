@@ -47,7 +47,7 @@ namespace NTI_QRsystem.DBK
             id = Windows.Phone.System.Analytics.HostInformation.PublisherHostId;
 #else
 
-            // id = Android.OS.Build.Serial;
+             //id = Android.OS.Build.Serial;
 
           id= UIDevice.CurrentDevice.IdentifierForVendor.ToString();
 #endif
