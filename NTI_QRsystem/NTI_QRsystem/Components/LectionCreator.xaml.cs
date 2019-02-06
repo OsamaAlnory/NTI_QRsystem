@@ -59,48 +59,49 @@ namespace NTI_QRsystem.Components
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            if (clicked)
-            {
-                return;
-            }
-            if(sals.SelectedIndex > 0 && clss.SelectedIndex > 0)
-            {
-                if(TeacherPage.lec == null)
-                {
-                    clicked = true;
-                    var l = DB.CheckLecture(sals.SelectedItem.ToString());
-                    if (l == null)
-                    {
-                        Lecture lec = new Lecture
-                        {
-                            AdminID = LoadingPage._a.Username,
-                            Class = clss.SelectedItem.ToString(),
-                            DeviceID = sals.SelectedItem.ToString(),
-                            LecTime = time.Time,
-                            Rid = GenerateRandomId()
-                        };
-                        await DB.FullyAddLecture(lec);
-                        TeacherPage.lec = lec;
-                        new Popup(new SuccessMessage("Du har just skapat en lektion i sal "
-                            +sals.SelectedItem.ToString()+"!"), TeacherPage.tp).Show();
-                    } else
-                    {
-                       // new Popup(new ErrorMessage("Du har redan skapat en lektion i denna sal!"), TeacherPage.tp).Show();
-                    }
-                }
-                else
-                {
-                    //new Popup(new ErrorMessage("Fyll i alla fälten."), TeacherPage.tp).Show();
-                }
-            }
-            catch (Exception ex)
-            {
+            //if (clicked)
+            //{
+            //    return;
+            //}
+            //if (sals.SelectedIndex > 0 && clss.SelectedIndex > 0)
+            //{
+            //    if (TeacherPage.lec == null)
+            //    {
+            //        clicked = true;
+            //        var l = DB.CheckLecture(sals.SelectedItem.ToString());
+            //        if (l == null)
+            //        {
+            //            Lecture lec = new Lecture
+            //            {
+            //                AdminID = LoadingPage._a.Username,
+            //                Class = clss.SelectedItem.ToString(),
+            //                DeviceID = sals.SelectedItem.ToString(),
+            //                LecTime = time.Time,
+            //                Rid = GenerateRandomId()
+            //            };
+            //            await DB.FullyAddLecture(lec);
+            //            TeacherPage.lec = lec;
+            //            new Popup(new SuccessMessage("Du har just skapat en lektion i sal "
+            //                + sals.SelectedItem.ToString() + "!"), TeacherPage.tp).Show();
+            //        }
+            //        else
+            //        {
+            //            // new Popup(new ErrorMessage("Du har redan skapat en lektion i denna sal!"), TeacherPage.tp).Show();
+            //        }
+            //    }
+            //    else
+            //    {
+            //        //new Popup(new ErrorMessage("Fyll i alla fälten."), TeacherPage.tp).Show();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
 
-                new Popup(new ErrorMessage("Felet är "+ ex.Message), TeacherPage.tp).Show(); 
-            }
+            //    new Popup(new ErrorMessage("Felet är " + ex.Message), TeacherPage.tp).Show();
+            //}
 
 
-            
+
         }
 
         private static string GenerateRandomId()

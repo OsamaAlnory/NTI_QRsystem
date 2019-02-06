@@ -28,7 +28,10 @@ namespace NTI_QRsystem
             images.Add("bg2", loadImage("bg2.JPG"));
             //App.Current.Properties.Remove("LoggedIn");
             //App.Current.SavePropertiesAsync();
-            MainPage = new NavigationPage(new LoadingPage());
+
+            // MainPage = new NavigationPage(new RectorPage());
+
+            MainPage = new Pages.RectorPage();
         }
 
         public static bool CheckInternetConnection()
