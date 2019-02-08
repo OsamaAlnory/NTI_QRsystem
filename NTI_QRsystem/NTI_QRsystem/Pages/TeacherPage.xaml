@@ -2,7 +2,7 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NTI_QRsystem.Pages.TeacherPage" NavigationPage.HasNavigationBar="False">
-    <ContentPage Title="Skapa lektion">
+    <ContentPage Title="Lektion">
         <AbsoluteLayout>
             <Image x:Name="background5" Aspect="Fill" AbsoluteLayout.LayoutFlags="All"
                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>
@@ -55,24 +55,48 @@
         </AbsoluteLayout>
     </ContentPage>
     <ContentPage Title="Mitt schema">
-        <StackLayout>
-            <Button Text="Lägg till" Style="{StaticResource CustomButton}"
+        <AbsoluteLayout>
+            <Image x:Name="bkg" Aspect="Fill" AbsoluteLayout.LayoutFlags="All"
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <Button Text="Lägg till" Style="{StaticResource CustomButton}"
                     HorizontalOptions="FillAndExpand" BackgroundColor="Purple"
-                    FontAttributes="Bold" FontSize="25"/>
-            <ListView x:Name="sch" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
-                                
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Button Text="Redigera" IsEnabled="False" Style="{StaticResource CustomButton}"
-                    HorizontalOptions="FillAndExpand" BackgroundColor="White"
-                    FontAttributes="Bold" FontSize="25" VerticalOptions="EndAndExpand"/>
-        </StackLayout>
+                    FontAttributes="Bold" FontSize="25" Clicked="Button_Clicked_2"/>
+                <ListView x:Name="sch" HorizontalOptions="FillAndExpand" HasUnevenRows="True"
+                      VerticalOptions="FillAndExpand" ItemTapped="sch_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="0" CornerRadius="20" Margin="5,5,5,5">
+                                    <StackLayout BackgroundColor="{Binding ItemColor}">
+                                        <StackLayout VerticalOptions="CenterAndExpand"
+                                                     Spacing="0">
+                                            <Label Text="{Binding LecDay}"
+                                           HorizontalOptions="CenterAndExpand"
+                                           FontSize="26" TextColor="White"
+                                           VerticalOptions="CenterAndExpand"/>
+                                            <Label Text="{Binding LecTime}" FontSize="20"
+                                               HorizontalOptions="CenterAndExpand" TextColor="White"
+                                               VerticalOptions="CenterAndExpand"/>
+                                            <StackLayout Orientation="Horizontal" Spacing="7"
+                                              HorizontalOptions="CenterAndExpand">
+                                                <Label Text="{Binding Class}" FontSize="16"
+                                               TextColor="White" VerticalOptions="CenterAndExpand"/>
+                                                <Label Text="{Binding Room}" FontSize="16"
+                                               TextColor="White" VerticalOptions="CenterAndExpand"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Text="Redigera" IsEnabled="False" Style="{StaticResource CustomButton}"
+                    BackgroundColor="White" x:Name="btn_r"
+                    FontAttributes="Bold" FontSize="25" VerticalOptions="EndAndExpand"
+                        TextColor="Purple" Clicked="btn_r_Clicked"/>
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage>
 </TabbedPage>

@@ -8,8 +8,9 @@
                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>
         <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
-                <Label Text="Hämtar data" HorizontalOptions="CenterAndExpand"
-                       TextColor="White" FontSize="26" FontAttributes="Bold"/>
+                <Label x:Name="val" Text="Hämtar data" HorizontalOptions="CenterAndExpand"
+                       TextColor="White" FontSize="26" FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"/>
                 <forms:AnimationView x:Name="an" AutoPlay="False" Loop="True" Animation="loading.json"
                  HeightRequest="80" WidthRequest="80" Margin="0,14,0,0"/>
             </StackLayout>

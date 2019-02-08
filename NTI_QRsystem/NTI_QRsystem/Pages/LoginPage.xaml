@@ -17,8 +17,8 @@
                        TextColor="White" FontSize="27" FontAttributes="Bold" Margin="0,20,0,0"/>
                 
                 <forms:AnimationView x:Name="animation" Animation="qr_scan.json" 
-                    IsVisible="True" Loop="true" AutoPlay="true" VerticalOptions="Start"
-                    HorizontalOptions="Start" HeightRequest="300" WidthRequest="300" 
+                    IsVisible="True" Loop="true" AutoPlay="true" VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand" HeightRequest="200" WidthRequest="200" 
 
             />
 
@@ -102,6 +102,8 @@
                     <obj:IEntry Placeholder="Lösenord" HorizontalOptions="FillAndExpand"
                      HorizontalTextAlignment="Center" x:Name="password" IsPassword="True"/>
                 </Frame>
+                <Label x:Name="lbl_time" HorizontalOptions="CenterAndExpand"
+                       TextColor="Red" IsVisible="False" HorizontalTextAlignment="Center"/>
                 <Button Style="{StaticResource CustomButton}" Text="Logga in"
                     HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"
                         FontAttributes="Bold" Clicked="Button_Clicked" BackgroundColor="White" TextColor="Black"/>

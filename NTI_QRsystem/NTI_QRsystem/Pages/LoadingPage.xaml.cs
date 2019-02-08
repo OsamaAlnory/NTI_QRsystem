@@ -42,43 +42,89 @@ namespace NTI_QRsystem.Pages
 
         private async void load()
         {
-            await DBK.LoadAccounts();
-            await DBK.LoadLectures();
-            await DBK.LoadInfos();
+            if(App.Current.Properties.ContainsKey("Schema"))
+            {
+                var _zx = (App.Current.Properties["Schema"] as string).Split(';');
+                for(int x = 0; x < _zx.Length; x++)
+                {
+                    var _ab = _zx[x].Split(',');
+                    if(_ab.Length == 4)
+                    {
+                        TeacherPage.list.Add(new ListItem
+                        {
+                            LecDay = _ab[0],
+                            LecTime = _ab[1],
+                            Class = _ab[2],
+                            Room = _ab[3], ItemColor=App.UNCLICKED
+                        });
+                    }
+                }
+            }
+            await DB.LoadAccounts();
+            await DB.LoadLectures();
+            await DB.LoadInfos();
+            var id = GetID.Default.DeviceId;
             if (App.Current.Properties.ContainsKey("LoggedIn"))
             {
                 var nm = App.Current.Properties["LoggedIn"] as string;
                 Account acc = DBK.getAccountByName(nm);
                 if(acc != null && acc.isLogged)
                 {
-                   // OpenPage();
-                    //return;
+                    OpenPage();
+                    return;
+                }
+            } else
+            {
+                var D = DB.CheckMobileID(id);
+                if (D != null)
+                {
+                    App.Current.Properties["LoggedIn"] = D.Username;
+                    await App.Current.SavePropertiesAsync();
+                    if (!D.isLogged) {
+                        D.isLogged = true;
+                        await DB.EditAccount(D);
+                    }
+                    OpenPage();
+                } else
+                {
+                    Navigation.PushAsync(new LoginPage());
                 }
             }
-            
-            Navigation.PushAsync(new LoginPage());
         }
 
         public void OpenPage()
         {
             var lg = App.Current.Properties["LoggedIn"] as string;
-            _a = DBK.getAccountByName(lg);
-            if (_a.isAdmin)
-            {
-                if (DBK.IsDevice(_a))
+            val.Text = "Välkommen tillbaka\n" + lg + "!";
+            an.Pause();
+            an.Animation = "success.json";
+            an.Loop = false;
+            an.Play();
+            WaitAndOpen(lg);
+        }
+
+        private void WaitAndOpen(string lg)
+        {
+            Device.StartTimer(TimeSpan.FromSeconds(2), () => {
+                _a = DB.getAccountByName(lg);
+                if (_a.isAdmin)
                 {
-                    Navigation.PushAsync(new QRScreen());
-                } else
-                {
-                    Navigation.PushAsync(new TeacherPage());
+                    if (DB.IsDevice(_a))
+                    {
+                        Navigation.PushAsync(new QRScreen());
+                    }
+                    else
+                    {
+                        Navigation.PushAsync(new TeacherPage());
+                    }
                 }
-            }
-            else
-            {
-                 
-               Navigation.PushAsync(new StartSidan());
-               
-            }
+                else
+                {
+                    Navigation.PushAsync(new StartSidan());
+                }
+                Navigation.RemovePage(this);
+                return false;
+            });
         }
 
     }

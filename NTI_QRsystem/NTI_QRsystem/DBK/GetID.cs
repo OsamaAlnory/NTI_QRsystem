@@ -39,25 +39,17 @@ namespace NTI_QRsystem.DB
         public string GetDeviceIdInternal()
         {
             var id = default(string);
-
-#if __IOS__
-            id = UIKit.UIDevice.CurrentDevice.IdentifierForVendor.AsString();
-
-            
-         
-#elif WINDOWS_PHONE
-            id = Windows.Phone.System.Analytics.HostInformation.PublisherHostId;
-#else
-
-            id = Android.OS.Build.Serial;
-
-             //id= UIDevice.CurrentDevice.IdentifierForVendor.ToString();
-            
-#endif
-
-
-
-            return id;
+            var a = Device.OS;
+            return Build.Serial;
+            if(a == TargetPlatform.iOS)
+            {
+                //id = UIDevice.CurrentDevice.IdentifierForVendor.ToString();
+            } else if(a == TargetPlatform.Android)
+            {
+                //id = Android.OS.Build.Serial;
+                
+            }
+            //return id;
         }
     }
 }

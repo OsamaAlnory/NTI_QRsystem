@@ -51,6 +51,25 @@ namespace NTI_QRsystem.Components
                 clss.ItemsSource = lst;
                 clss.SelectedIndex = 0;
             }
+            if(TeacherPage.list.Count > 0)
+            {
+                DateTime _date = DateTime.Now;
+                var _day = _date.DayOfWeek;
+                var _time = TimeSpan.Parse(App.GetTime(_date.TimeOfDay));
+                for (int x = 0; x < TeacherPage.list.Count; x++)
+                {
+                    var _item = TeacherPage.list[x];
+                    if (IDay.GetDayByTranslatedDay(_item.LecDay) == _day
+                        && App.GetTotalSeconds(TimeSpan.Parse(_item.LecTime).Subtract(_time))
+                        <= 60*5)
+                    {
+                        clss.SelectedItem = _item.Class;
+                        sals.SelectedItem = _item.Room;
+                        time.Time = TimeSpan.Parse(_item.LecTime);
+                        break;
+                    }
+                }
+            }
         }
 
         public void ChangeFrame(Frame frame)
@@ -89,13 +108,16 @@ namespace NTI_QRsystem.Components
                         TeacherPage.tp.Update(true);
                     } else
                     {
-                         new Popup(new ErrorMessage("Du har redan skapat en lektion i denna sal!"), TeacherPage.tp).Show();
+                        new Popup(new ErrorMessage("Det finns redan en lektion skapad i denna sal!"), TeacherPage.tp).Show();
                     }
                 }
                 else
                 {
-                    new Popup(new ErrorMessage("Fyll i alla fälten."), TeacherPage.tp).Show();
+                    new Popup(new ErrorMessage("Du har redan skapat en lektion i denna sal!"), TeacherPage.tp).Show();
                 }
+            } else
+            {
+                new Popup(new ErrorMessage("Fyll i alla fälten."), TeacherPage.tp).Show();
             }
         }
 

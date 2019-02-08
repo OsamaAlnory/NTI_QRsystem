@@ -6,7 +6,8 @@
              VerticalOptions="FillAndExpand">
     <an:AnimationView Animation="success.json" AutoPlay="True" HeightRequest="50"
                       WidthRequest="50"/>
-    <Label x:Name="lbl" HorizontalOptions="CenterAndExpand" FontSize="16"/>
+    <Label x:Name="lbl" HorizontalOptions="CenterAndExpand" FontSize="16"
+           HorizontalTextAlignment="Center"/>
 
   <Button Style="{StaticResource CustomButton}" BackgroundColor="Purple" TextColor="White"
             VerticalOptions="EndAndExpand" Text="Okej" Clicked="Button_Clicked"  />

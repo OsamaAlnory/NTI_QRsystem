@@ -22,6 +22,7 @@ namespace NTI_QRsystem
         private const string PATH = "NTI_QRsystem";
         public const int REFRESH_TIME = 3;
         public const int FAKE_REFRESH_TIME = 800;
+        public static Color UNCLICKED = Color.Green;
 
         public App()
         {
@@ -30,13 +31,7 @@ namespace NTI_QRsystem
             images.Add("bg", loadImage("bg.png"));
             images.Add("bg2", loadImage("bg2.JPG"));
             RegisterSound("success", "scan_success.wav");
-            RegisterSound("s","s.wav");
-            //App.Current.Properties.Remove("LoggedIn");
-            //App.Current.SavePropertiesAsync();
-
-            //MainPage = new NavigationPage(new LoadingPage());
-            
-            MainPage = new Pages.RectorPage();
+            MainPage = new NavigationPage(new LoadingPage());
         }
 
         public static bool CheckInternetConnection()
@@ -71,6 +66,20 @@ namespace NTI_QRsystem
             sounds.Add(key, player);
         }
 
+        public static int CountMinutes(int seconds)
+        {
+            int count = 0;
+            if(seconds > 0)
+            {
+                while(seconds > 0)
+                {
+                    seconds -= 60;
+                    count++;
+                }
+            }
+            return count;
+        }
+
         public static ImageSource getImage(string key)
         {
              
@@ -85,10 +94,15 @@ namespace NTI_QRsystem
 
         public static string GetTime(TimeSpan t)
         {
+            return GetTime(t, true);
+        }
+
+        public static string GetTime(TimeSpan t, bool sec)
+        {
             var h = t.Hours > 9 ? "" + t.Hours : "0" + t.Hours;
             var m = t.Minutes > 9 ? "" + t.Minutes : "0" + t.Minutes;
             var s = t.Seconds > 9 ? "" + t.Seconds : "0" + t.Seconds;
-            return h + ":" + m + ":" + s;
+            return sec ? h + ":" + m + ":" + s : h + ":" + m;
         }
 
         public static int GetTotalSeconds(TimeSpan t)
