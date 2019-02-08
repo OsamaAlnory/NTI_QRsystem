@@ -6,7 +6,12 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using static Android.Media.Audiofx.BassBoost;
+using Xamarin.Forms;
+using NTI_QRsystem.Droid;
+ 
 
+ 
 namespace NTI_QRsystem.Droid
 {
     [Activity(Label = "NTI_QRsystem", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -33,4 +38,6 @@ namespace NTI_QRsystem.Droid
             global::ZXing.Net.Mobile.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
+
+    
 }

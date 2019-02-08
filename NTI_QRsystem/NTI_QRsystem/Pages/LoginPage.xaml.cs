@@ -1,5 +1,5 @@
 ﻿using NTI_QRsystem.Components;
-using NTI_QRsystem.DBK;
+using NTI_QRsystem.DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,15 +33,15 @@ namespace NTI_QRsystem.Pages
             }
             else
             {
-                for (int x = 0; x < DB.accounts.Count; x++)
+                for (int x = 0; x < DBK.accounts.Count; x++)
                 {
-                    Account acc = DB.accounts[x];
+                    Account acc = DBK.accounts[x];
                     if (acc.Username == t1 && acc.Password == t2)
                     {
                         App.Current.Properties["LoggedIn"] = acc.Username;
                         await App.Current.SavePropertiesAsync();
                         acc.isLogged = true;
-                        await DB.EditAccount(acc);
+                        await DBK.EditAccount(acc);
                         LoadingPage.p.OpenPage();
                         Navigation.RemovePage(this);
                         return;

@@ -1,5 +1,5 @@
 ﻿using NTI_QRsystem.Components;
-using NTI_QRsystem.DBK;
+using NTI_QRsystem.DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,13 +42,13 @@ namespace NTI_QRsystem.Pages
 
         private async void load()
         {
-            await DB.LoadAccounts();
-            await DB.LoadLectures();
-            await DB.LoadInfos();
+            await DBK.LoadAccounts();
+            await DBK.LoadLectures();
+            await DBK.LoadInfos();
             if (App.Current.Properties.ContainsKey("LoggedIn"))
             {
                 var nm = App.Current.Properties["LoggedIn"] as string;
-                Account acc = DB.getAccountByName(nm);
+                Account acc = DBK.getAccountByName(nm);
                 if(acc != null && acc.isLogged)
                 {
                    // OpenPage();
@@ -62,10 +62,10 @@ namespace NTI_QRsystem.Pages
         public void OpenPage()
         {
             var lg = App.Current.Properties["LoggedIn"] as string;
-            _a = DB.getAccountByName(lg);
+            _a = DBK.getAccountByName(lg);
             if (_a.isAdmin)
             {
-                if (DB.IsDevice(_a))
+                if (DBK.IsDevice(_a))
                 {
                     Navigation.PushAsync(new QRScreen());
                 } else

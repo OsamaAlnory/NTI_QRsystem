@@ -23,17 +23,19 @@ namespace NTI_QRsystem.Pages
             menuList = new List<MasterPageItems>();
 
             // Adding menu items to menuList and you can define title ,page and icon
-            menuList.Add(new MasterPageItems() { Title = "Add Teachers", Icon = "setting.png", TargetType = typeof(AddTeachers) });
-            menuList.Add(new MasterPageItems() { Title = "Add Students", Icon = "home.png", TargetType = typeof(AddStudents) });
-            menuList.Add(new MasterPageItems() { Title = "Edit Accounts", Icon = "help.png", TargetType = typeof(EditAccounts) });
-            menuList.Add(new MasterPageItems() { Title = "LogOut", Icon = "logout.png" , TargetType = typeof(Logout) });
+            menuList.Add(new MasterPageItems() { Title = "Lägga till Lärare", Icon = "setting.png", TargetType = typeof(AddTeachers) });
+            menuList.Add(new MasterPageItems() { Title = "Lägga till Elerver", Icon = "home.png", TargetType = typeof(AddStudents) });
+            menuList.Add(new MasterPageItems() { Title = "Redigera Konton", Icon = "help.png", TargetType = typeof(EditAccounts) });
+            menuList.Add(new MasterPageItems() { Title = "Logga Ut", Icon = "logout.png" , TargetType = typeof(Logout) });
      
 
-            // Setting our list to be ItemSource for ListView in MainPage.xaml
+            // Setting our list to be ItemSource for ListView in RectorPage.xaml
             NavigationList.ItemsSource = menuList;
 
             // Initial navigation, this can be used for our home page
             Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(Views.AddTeachers)));
+
+            
         }
        
         

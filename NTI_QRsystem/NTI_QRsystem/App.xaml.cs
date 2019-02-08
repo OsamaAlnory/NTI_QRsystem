@@ -1,4 +1,4 @@
-﻿using NTI_QRsystem.DBK;
+﻿using NTI_QRsystem.DB;
 using NTI_QRsystem.Pages;
 using Plugin.SimpleAudioPlayer;
 using System;
@@ -34,9 +34,9 @@ namespace NTI_QRsystem
             //App.Current.Properties.Remove("LoggedIn");
             //App.Current.SavePropertiesAsync();
 
-            MainPage = new NavigationPage(new LoadingPage());
-
-            //MainPage = new Pages.RectorPage();
+            //MainPage = new NavigationPage(new LoadingPage());
+            
+            MainPage = new Pages.RectorPage();
         }
 
         public static bool CheckInternetConnection()

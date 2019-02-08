@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NTI_QRsystem.Components;
-using NTI_QRsystem.DBK;
+using NTI_QRsystem.DB;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,7 +22,7 @@ namespace NTI_QRsystem.Pages
             tp = this;
             InitializeComponent();
             background5.Source = App.getImage("bg");
-            lec = DB.GetLectureByTeacher(LoadingPage._a);
+            lec = DBK.GetLectureByTeacher(LoadingPage._a);
             Update();
             Timer();
         }
@@ -48,19 +48,19 @@ namespace NTI_QRsystem.Pages
                 del_button.IsEnabled = false;
                 return;
             }
-            await DB.LoadInfos();
+            await DBK.LoadInfos();
             del_button.IsEnabled = true;
             var _s = new List<Studentinfo>();
             if(lec != null)
             {
-                for (int i = 0; i < DB.accounts.Count; i++)
+                for (int i = 0; i < DBK.accounts.Count; i++)
                 {
-                    var ac = DB.accounts[i];
+                    var ac = DBK.accounts[i];
                     if (!ac.isAdmin)
                     {
                         if (ac.Class == lec.Class)
                         {
-                            var b = DB.CheckStudent(ac, lec);
+                            var b = DBK.CheckStudent(ac, lec);
                             string str = b != null ? b.ATime.ToString() : "Frånvarande";
                             _s.Add(new Studentinfo
                             {

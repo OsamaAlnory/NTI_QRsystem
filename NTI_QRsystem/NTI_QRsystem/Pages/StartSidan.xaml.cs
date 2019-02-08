@@ -1,5 +1,5 @@
 ﻿using NTI_QRsystem.Components;
-using NTI_QRsystem.DBK;
+using NTI_QRsystem.DB;
 using NTI_QRsystem.Pages;
 using System;
 using System.Collections.Generic;
@@ -57,9 +57,9 @@ namespace NTI_QRsystem
             var c1 = f[0];
             TimeSpan d = TimeSpan.Parse(App.GetTime(DateTime.Now.TimeOfDay));
             bool found = false;
-            for(int x = 0; x < DB.lectures.Count; x++)
+            for(int x = 0; x < Pages.DBK.lectures.Count; x++)
             {
-                Lecture lecture = DB.lectures[x];
+                Lecture lecture = Pages.DBK.lectures[x];
                 if(lecture.Rid == c1)
                 {
                     found = true;
@@ -69,18 +69,21 @@ namespace NTI_QRsystem
                         var tt = App.GetTotalSeconds(d.Subtract(clsstime));
                         if (tt < App.REFRESH_TIME*2)
                         {
-                             await DB.LoadInfos();
-                            if (!DB.CheckStudent(s))
+                             await Pages.DBK.LoadInfos();
+                            if (!Pages.DBK.CheckStudent(s))
                             {
                                 TimeSpan difference = d.Subtract(lecture.LecTime);
-                                await DB.FullyAddInfo(new Info {LecId = lecture.Rid, Studentname = s.Username,
-                                ATime=difference});
+                                await Pages.DBK.FullyAddInfo(new Info
+                                {
+                                    LecId = lecture.Rid, Studentname = s.Username,
+                                ATime= difference
+                                });
                                 string l = "";
                                 if(App.GetTotalSeconds(difference) >= 60)
                                 {
-                                    l = "\nDu är "+App.GetTime(difference)+" sen!";
+                                    l = "\nDu är "+ App.GetTime(difference) +" sen!";
                                 }
-                                new Popup(new SuccessMessage("Du har registererat klart din närvaro!"+l), this).Show();
+                                new Popup(new SuccessMessage("Du har registererat klart din närvaro!" + l), this).Show();
                             } else
                             {
                                 new Popup(new ErrorMessage("Du har redan registererat din närvaro!"), this).Show();

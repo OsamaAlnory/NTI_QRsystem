@@ -42,9 +42,9 @@ namespace NTI_QRsystem.Pages
 
         private async Task A()
         {
-            await DB.LoadInfos();
-            await DB.LoadLectures();
-            var lec = DB.GetLecByDevice(LoadingPage._a);
+            await DBK.LoadInfos();
+            await DBK.LoadLectures();
+            var lec = DBK.GetLecByDevice(LoadingPage._a);
             if(lec != null)
             {
                 lec.Extra = App.GetTime(DateTime.Now.TimeOfDay);
@@ -53,7 +53,7 @@ namespace NTI_QRsystem.Pages
                 stk_qr.IsVisible = true;
                 stk_qr1.IsVisible = true;
                 stk.IsVisible = false;
-                await DB.EditLec(lec);
+                await DBK.EditLec(lec);
             } else
             {
                 stk_qr.IsVisible = false;
