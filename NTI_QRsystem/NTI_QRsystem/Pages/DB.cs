@@ -90,6 +90,18 @@ namespace NTI_QRsystem.Pages
             return responce;
         }
 
+        public static Account CheckMobileID(string id)
+        {
+            for(int x = 0; x < accounts.Count; x++)
+            {
+                if(accounts[x].MobileID != null && accounts[x].MobileID == id)
+                {
+                    return accounts[x];
+                }
+            }
+            return null;
+        }
+
         public static async Task<HttpResponseMessage> EditAccount(Account account)
         {
             var json = JsonConvert.SerializeObject(account);

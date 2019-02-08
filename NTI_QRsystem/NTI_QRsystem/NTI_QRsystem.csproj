@@ -14,7 +14,6 @@
     <None Remove="images\bg.png" />
     <None Remove="images\bg2.JPG" />
     <None Remove="images\no-image.png" />
-    <None Remove="sounds\s.wav" />
     <None Remove="sounds\scan_success.wav" />
   </ItemGroup>
 
@@ -23,7 +22,6 @@
     <EmbeddedResource Include="images\bg.png" />
     <EmbeddedResource Include="images\bg2.JPG" />
     <EmbeddedResource Include="images\no-image.png" />
-    <EmbeddedResource Include="sounds\s.wav" />
     <EmbeddedResource Include="sounds\scan_success.wav" />
   </ItemGroup>
 
@@ -74,6 +72,9 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Components\Popup.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Components\SchematicPanel.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Components\SuccessMessage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:div="clr-namespace:NTI_QRsystem"
+             x:Class="NTI_QRsystem.Components.SchematicPanel" HorizontalOptions="FillAndExpand"
+             VerticalOptions="FillAndExpand">
+    <Label Text="Lägg till schemat" x:Name="lbl_main" HorizontalOptions="CenterAndExpand"
+           FontSize="24" TextColor="Black" FontAttributes="Bold"/>
+    <Frame Padding="5" OutlineColor="Orange" CornerRadius="10">
+        <div:IPicker x:Name="iday" HorizontalOptions="CenterAndExpand"/>
+    </Frame>
+    <Frame Padding="5" OutlineColor="Orange" CornerRadius="10">
+        <TimePicker x:Name="itime" HorizontalOptions="CenterAndExpand"/>
+    </Frame>
+    <Frame Padding="5" OutlineColor="Orange" CornerRadius="10">
+        <div:IPicker x:Name="iclass" HorizontalOptions="CenterAndExpand"/>
+    </Frame>
+    <Frame Padding="5" OutlineColor="Orange" CornerRadius="10">
+        <div:IPicker x:Name="iroom" HorizontalOptions="CenterAndExpand"/>
+    </Frame>
+    <StackLayout VerticalOptions="EndAndExpand">
+        <Button Text="Ta bort" IsVisible="False" x:Name="btn_1"
+                        Style="{StaticResource CustomButton}" BackgroundColor="Red"
+                        FontAttributes="Bold" FontSize="25"
+                        Clicked="btn_1_Clicked"
+                     />
+        <Button Text="Ok" Style="{StaticResource CustomButton}"
+            BackgroundColor="Purple" Clicked="Button_Clicked"/>
+    </StackLayout>
+</StackLayout>

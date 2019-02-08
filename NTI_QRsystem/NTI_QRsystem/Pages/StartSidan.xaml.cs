@@ -73,10 +73,11 @@ namespace NTI_QRsystem
                             if (!DB.CheckStudent(s))
                             {
                                 TimeSpan difference = d.Subtract(lecture.LecTime);
+                                bool _A = App.GetTotalSeconds(difference) >= 60;
                                 await DB.FullyAddInfo(new Info {LecId = lecture.Rid, Studentname = s.Username,
-                                ATime=difference});
+                                ATime=_A?difference:TimeSpan.Parse("00:00:00")});
                                 string l = "";
-                                if(App.GetTotalSeconds(difference) >= 60)
+                                if(_A)
                                 {
                                     l = "\nDu är "+App.GetTime(difference)+" sen!";
                                 }
