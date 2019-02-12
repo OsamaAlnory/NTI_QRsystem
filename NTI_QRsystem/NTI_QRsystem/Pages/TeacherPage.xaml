@@ -8,7 +8,6 @@
                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>
             <StackLayout AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0,0,1,1" Padding="20" Spacing="20">
-
                 <Button Style="{StaticResource CustomButton}" Text="Skapa Lektioner"
                     HorizontalOptions="FillAndExpand"
                         FontAttributes="Bold" Clicked="Button_Clicked" BackgroundColor="White" TextColor="Purple"/>
@@ -58,7 +57,8 @@
         <AbsoluteLayout>
             <Image x:Name="bkg" Aspect="Fill" AbsoluteLayout.LayoutFlags="All"
                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>
-            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         Padding="20">
                 <Button Text="Lägg till" Style="{StaticResource CustomButton}"
                     HorizontalOptions="FillAndExpand" BackgroundColor="Purple"
                     FontAttributes="Bold" FontSize="25" Clicked="Button_Clicked_2"/>

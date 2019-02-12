@@ -1,5 +1,4 @@
 ﻿using NTI_QRsystem.Components;
-using NTI_QRsystem.DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +9,7 @@ using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Forms.Internals;
+using NTI_QRsystem.DBK;
 
 namespace NTI_QRsystem.Pages
 {
@@ -64,32 +64,34 @@ namespace NTI_QRsystem.Pages
             await DBK.LoadLectures();
             await DBK.LoadInfos();
             var id = GetID.Default.DeviceId;
+            var D = DB.CheckMobileID(id);
             if (App.Current.Properties.ContainsKey("LoggedIn"))
             {
                 var nm = App.Current.Properties["LoggedIn"] as string;
-                Account acc = DBK.getAccountByName(nm);
-                if(acc != null && acc.isLogged)
+                Account acc = DB.getAccountByName(nm);
+                if (acc != null && acc.isLogged)
                 {
-                    OpenPage();
-                    return;
+                    if(acc.MobileID != null && acc.MobileID == id)
+                    {
+                        OpenPage();
+                        return;
+                    }
                 }
             } else
             {
-                var D = DBK.CheckMobileID(id);
-                if (D != null)
+                if (D != null && D.isLogged)
                 {
                     App.Current.Properties["LoggedIn"] = D.Username;
                     await App.Current.SavePropertiesAsync();
-                    if (!D.isLogged) {
-                        D.isLogged = true;
-                        await DBK.EditAccount(D);
-                    }
+                    //if (!D.isLogged) {
+                    //    D.isLogged = true;
+                    //    await DB.EditAccount(D);
+                    //}
                     OpenPage();
-                } else
-                {
-                    Navigation.PushAsync(new LoginPage());
+                    return;
                 }
             }
+            Navigation.PushAsync(new LoginPage());
         }
 
         public void OpenPage()

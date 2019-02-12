@@ -21,10 +21,8 @@
     <StackLayout VerticalOptions="EndAndExpand">
         <Button Text="Ta bort" IsVisible="False" x:Name="btn_1"
                         Style="{StaticResource CustomButton}" BackgroundColor="Red"
-                        FontAttributes="Bold" FontSize="25"
-                        Clicked="btn_1_Clicked"
-                     />
+                        FontSize="20" Clicked="btn_1_Clicked"/>
         <Button Text="Ok" Style="{StaticResource CustomButton}"
-            BackgroundColor="Purple" Clicked="Button_Clicked"/>
+            BackgroundColor="Purple" Clicked="Button_Clicked" FontSize="20"/>
     </StackLayout>
 </StackLayout>

@@ -91,6 +91,7 @@
     <AndroidAsset Include="Assets\loading.json" />
     <AndroidAsset Include="Assets\success.json" />
     <AndroidAsset Include="Assets\error.json" />
+    <AndroidAsset Include="Assets\no-lec.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

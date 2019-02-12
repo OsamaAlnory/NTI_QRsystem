@@ -5,8 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NTI_QRsystem.Components;
-using NTI_QRsystem.DB;
-using NTI_QRsystem.DB;
+using NTI_QRsystem.DBK;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -59,19 +58,19 @@ namespace NTI_QRsystem.Pages
                 del_button.IsEnabled = false;
                 return;
             }
-            await DBK.LoadInfos();
+            await DB.LoadInfos();
             del_button.IsEnabled = true;
             var _s = new List<Studentinfo>();
             if(lec != null)
             {
-                for (int i = 0; i < DBK.accounts.Count; i++)
+                for (int i = 0; i < DB.accounts.Count; i++)
                 {
-                    var ac = DBK.accounts[i];
+                    var ac = DB.accounts[i];
                     if (!ac.isAdmin)
                     {
                         if (ac.Class == lec.Class)
                         {
-                            var b = DBK.CheckStudent(ac, lec);
+                            var b = DB.CheckStudent(ac, lec);
                             string str = b != null ? b.ATime.ToString() : "Frånvarande";
                             _s.Add(new Studentinfo
                             {
@@ -97,7 +96,13 @@ namespace NTI_QRsystem.Pages
 
         private void Button_Clicked(object sender, EventArgs e)
         {
+            if (clicked)
+            {
+                return;
+            }
+            clicked = true;
             new Popup(new LectionCreator(), this).Show();
+            RunTimer();
         }
 
         private void del_button_Clicked(object sender, EventArgs e)

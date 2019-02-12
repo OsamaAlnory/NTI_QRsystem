@@ -1,4 +1,4 @@
-﻿using NTI_QRsystem.DB;
+﻿using NTI_QRsystem.DBK;
 using NTI_QRsystem.Pages;
 using Rg.Plugins.Popup.Animations;
 using Rg.Plugins.Popup.Extensions;
@@ -26,9 +26,9 @@ namespace NTI_QRsystem.Components
             {
                 var lst = new List<string>();
                 lst.Add("Välj en sal.");
-                for (int x = 0; x < Pages.DBK.accounts.Count; x++)
+                for (int x = 0; x < DB.accounts.Count; x++)
                 {
-                    var a = Pages.DBK.accounts[x];
+                    var a = DB.accounts[x];
                     if (a.Class == "Device" && !lst.Contains(a.Class))
                     {
                         lst.Add(a.Username);
@@ -40,9 +40,9 @@ namespace NTI_QRsystem.Components
             {
                 var lst = new List<string>();
                 lst.Add("Välj en klass.");
-                for (int x = 0; x < Pages.DBK.accounts.Count; x++)
+                for (int x = 0; x < DB.accounts.Count; x++)
                 {
-                    var a = Pages.DBK.accounts[x];
+                    var a = DB.accounts[x];
                     if (!a.isAdmin && !lst.Contains(a.Class))
                     {
                         lst.Add(a.Class);
@@ -89,7 +89,7 @@ namespace NTI_QRsystem.Components
                 if(TeacherPage.lec == null)
                 {
                     clicked = true;
-                    var l = Pages.DBK.CheckLecture(sals.SelectedItem.ToString());
+                    var l = DB.CheckLecture(sals.SelectedItem.ToString());
                     if (l == null)
                     {
                         Lecture lec = new Lecture
@@ -100,7 +100,7 @@ namespace NTI_QRsystem.Components
                             LecTime = time.Time,
                             Rid = GenerateRandomId()
                         };
-                        await Pages.DBK.FullyAddLecture(lec);
+                        await DB.FullyAddLecture(lec);
                         TeacherPage.lec = lec;
                         await Navigation.PopPopupAsync();
                         new Popup(new SuccessMessage("Du har just skapat en lektion i sal "

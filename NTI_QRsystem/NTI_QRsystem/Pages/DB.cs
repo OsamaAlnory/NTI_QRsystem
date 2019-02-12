@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using NTI_QRsystem.DB;
+using NTI_QRsystem.DBK;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NTI_QRsystem.Pages
 {
-    public class DBK
+    public class DB
     {
         private const string L = "http://qr.somee.com/api/";
         private const string AC = "Accounts";
@@ -72,10 +72,23 @@ namespace NTI_QRsystem.Pages
             return await client.DeleteAsync(L + LE + "/" + lecture.Rid);
         }
 
+        public static async Task<HttpResponseMessage> RemoveInfo(Info info)
+        {
+            HttpClient client = new HttpClient();
+            return await client.DeleteAsync(L + IN + "/" + info.ID);
+        }
+
         public static async Task<HttpResponseMessage> FullyRemoveLecture(Lecture lecture)
         {
             var b = GetLectureById(lecture.Rid);
-            if(b != null)
+            for (int x = 0; x < infos.Count; x++)
+            {
+                if(infos[x].LecId == b.Rid)
+                {
+                    await RemoveInfo(infos[x]);
+                }
+            }
+            if (b != null)
             {
                 lectures.Remove(b);
                 return await RemoveLecture(b);

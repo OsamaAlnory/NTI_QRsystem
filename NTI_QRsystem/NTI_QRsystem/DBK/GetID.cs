@@ -8,7 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 
 
-namespace NTI_QRsystem.DB
+namespace NTI_QRsystem.DBK
 {
      public class GetID
      {
