@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NTI_QRsystem.DBK
+namespace NTI_QRsystem.DB
 {
     public class ListItem
     {

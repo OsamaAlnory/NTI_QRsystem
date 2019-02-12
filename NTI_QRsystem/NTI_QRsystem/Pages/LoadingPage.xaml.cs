@@ -60,9 +60,9 @@ namespace NTI_QRsystem.Pages
                     }
                 }
             }
-            await DB.LoadAccounts();
-            await DB.LoadLectures();
-            await DB.LoadInfos();
+            await DBK.LoadAccounts();
+            await DBK.LoadLectures();
+            await DBK.LoadInfos();
             var id = GetID.Default.DeviceId;
             if (App.Current.Properties.ContainsKey("LoggedIn"))
             {
@@ -75,14 +75,14 @@ namespace NTI_QRsystem.Pages
                 }
             } else
             {
-                var D = DB.CheckMobileID(id);
+                var D = DBK.CheckMobileID(id);
                 if (D != null)
                 {
                     App.Current.Properties["LoggedIn"] = D.Username;
                     await App.Current.SavePropertiesAsync();
                     if (!D.isLogged) {
                         D.isLogged = true;
-                        await DB.EditAccount(D);
+                        await DBK.EditAccount(D);
                     }
                     OpenPage();
                 } else
@@ -106,10 +106,10 @@ namespace NTI_QRsystem.Pages
         private void WaitAndOpen(string lg)
         {
             Device.StartTimer(TimeSpan.FromSeconds(2), () => {
-                _a = DB.getAccountByName(lg);
+                _a = DBK.getAccountByName(lg);
                 if (_a.isAdmin)
                 {
-                    if (DB.IsDevice(_a))
+                    if (DBK.IsDevice(_a))
                     {
                         Navigation.PushAsync(new QRScreen());
                     }

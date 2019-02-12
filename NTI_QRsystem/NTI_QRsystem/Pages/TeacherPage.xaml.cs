@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NTI_QRsystem.Components;
 using NTI_QRsystem.DB;
+using NTI_QRsystem.DB;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -26,7 +27,7 @@ namespace NTI_QRsystem.Pages
             InitializeComponent();
             background5.Source = App.getImage("bg");
             bkg.Source = App.getImage("bg");
-            lec = DB.GetLectureByTeacher(LoadingPage._a);
+            lec = DBK.GetLectureByTeacher(LoadingPage._a);
             Update();
             Timer();
             Schema();
