@@ -1,4 +1,5 @@
 ﻿using Android.OS;
+using Foundation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 
 
-namespace NTI_QRsystem.DBK
+namespace NTI_QRsystem.DB
 {
      public class GetID
      {
@@ -35,7 +36,7 @@ namespace NTI_QRsystem.DBK
         /// Gets a device unique identifier depending on the platform
         /// </summary>
         /// <returns>string representing the unique id</returns>
-        private string GetDeviceIdInternal()
+        public string GetDeviceIdInternal()
         {
             var id = default(string);
             var a = Device.OS;

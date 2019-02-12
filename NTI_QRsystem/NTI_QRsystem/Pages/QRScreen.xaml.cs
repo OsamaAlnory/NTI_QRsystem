@@ -42,9 +42,9 @@ namespace NTI_QRsystem.Pages
 
         private async Task A()
         {
-            await DB.LoadInfos();
-            await DB.LoadLectures();
-            var lec = DB.GetLecByDevice(LoadingPage._a);
+            await DBK.LoadInfos();
+            await DBK.LoadLectures();
+            var lec = DBK.GetLecByDevice(LoadingPage._a);
             if(lec != null)
             {
                 lec.Extra = App.GetTime(DateTime.Now.TimeOfDay);

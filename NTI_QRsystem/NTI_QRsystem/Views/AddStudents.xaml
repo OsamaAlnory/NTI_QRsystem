@@ -1,12 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:obj="clr-namespace:NTI_QRsystem"
              x:Class="NTI_QRsystem.Views.AddStudents">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Add Students Page"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <AbsoluteLayout>
+            <Image x:Name="image1" Aspect="Fill" AbsoluteLayout.LayoutFlags="All"
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+            <StackLayout AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0,0,1,1" Padding="20">
+
+                <Label Text="Lägga till Elev!" HorizontalOptions="CenterAndExpand"  
+                       TextColor="White" FontSize="27" FontAttributes="Bold" Margin="20,20,20,20"/>
+
+                <Frame Padding="0" CornerRadius="20" Margin="0,20,0,0">
+                    <obj:IEntry Placeholder="Användarnamn" HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center" x:Name="usnm" PlaceholderColor="Gray"/>
+                </Frame>
+
+
+                <Frame Padding="0" CornerRadius="20">
+                    <obj:IEntry Placeholder="Lösenord" HorizontalOptions="FillAndExpand"
+                     HorizontalTextAlignment="Center" x:Name="uspassword" IsPassword="True"
+                                PlaceholderColor="Gray"/>
+                </Frame>
+
+
+
+                <Button Style="{StaticResource CustomButton}" Text="Lägg Till"
+                    HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"
+                        FontAttributes="Bold"  BackgroundColor="White" TextColor="Black" Clicked="Button_Clicked"/>
+            </StackLayout>
+
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

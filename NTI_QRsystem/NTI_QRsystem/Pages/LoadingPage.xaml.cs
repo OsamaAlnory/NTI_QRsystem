@@ -1,5 +1,5 @@
 ﻿using NTI_QRsystem.Components;
-using NTI_QRsystem.DBK;
+using NTI_QRsystem.DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;

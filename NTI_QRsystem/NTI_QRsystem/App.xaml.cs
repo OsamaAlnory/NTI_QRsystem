@@ -1,4 +1,4 @@
-﻿using NTI_QRsystem.DBK;
+﻿using NTI_QRsystem.DB;
 using NTI_QRsystem.Pages;
 using Plugin.SimpleAudioPlayer;
 using System;

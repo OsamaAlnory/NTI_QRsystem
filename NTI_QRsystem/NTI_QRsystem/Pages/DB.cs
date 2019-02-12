@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using NTI_QRsystem.DBK;
+using NTI_QRsystem.DB;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NTI_QRsystem.Pages
 {
-    public class DB
+    public class DBK
     {
         private const string L = "http://qr.somee.com/api/";
         private const string AC = "Accounts";
@@ -17,6 +17,8 @@ namespace NTI_QRsystem.Pages
         public static List<Account> accounts = new List<Account>();
         public static List<Lecture> lectures = new List<Lecture>();
         public static List<Info> infos = new List<Info>();
+
+
 
         public static async Task RegisterInfo(Account student, Lecture lecture)
         {
