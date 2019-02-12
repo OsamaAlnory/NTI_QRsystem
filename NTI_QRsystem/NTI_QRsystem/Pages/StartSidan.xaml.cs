@@ -1,5 +1,5 @@
 ﻿using NTI_QRsystem.Components;
-using NTI_QRsystem.DB;
+using NTI_QRsystem.DBK;
 using NTI_QRsystem.Pages;
 using System;
 using System.Collections.Generic;
@@ -57,9 +57,9 @@ namespace NTI_QRsystem
             var c1 = f[0];
             TimeSpan d = TimeSpan.Parse(App.GetTime(DateTime.Now.TimeOfDay));
             bool found = false;
-            for(int x = 0; x < Pages.DBK.lectures.Count; x++)
+            for(int x = 0; x < DB.lectures.Count; x++)
             {
-                Lecture lecture = Pages.DBK.lectures[x];
+                Lecture lecture = DB.lectures[x];
                 if(lecture.Rid == c1)
                 {
                     found = true;
@@ -69,8 +69,8 @@ namespace NTI_QRsystem
                         var tt = App.GetTotalSeconds(d.Subtract(clsstime));
                         if (tt < App.REFRESH_TIME*2)
                         {
-                             await Pages.DBK.LoadInfos();
-                            if (!Pages.DBK.CheckStudent(s))
+                             await DB.LoadInfos();
+                            if (!DB.CheckStudent(s))
                             {
                                 TimeSpan difference = App.GetTotalSeconds(d) > App.GetTotalSeconds(lecture.LecTime)
                                     ? d.Subtract(lecture.LecTime) : TimeSpan.Parse("00:00:00");

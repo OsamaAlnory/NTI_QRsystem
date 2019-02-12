@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NTI_QRsystem.DB
+namespace NTI_QRsystem.DBK
 {
     public class Info
     {

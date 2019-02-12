@@ -1,5 +1,4 @@
-﻿using NTI_QRsystem.DB;
-using NTI_QRsystem.Pages;
+﻿using NTI_QRsystem.Pages;
 using Plugin.SimpleAudioPlayer;
 using System;
 using System.Collections.Generic;
@@ -31,9 +30,6 @@ namespace NTI_QRsystem
             images.Add("bg", loadImage("bg.png"));
             images.Add("bg2", loadImage("bg2.JPG"));
             RegisterSound("success", "scan_success.wav");
-            //App.Current.Properties["LoggedIn"] = "Yosef";
-            //App.Current.SavePropertiesAsync();
-            //MainPage = new NavigationPage(new LoginPage());
             MainPage = new NavigationPage(new LoadingPage());
         }
 

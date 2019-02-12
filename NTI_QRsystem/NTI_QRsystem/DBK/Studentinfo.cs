@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace NTI_QRsystem.DB
+namespace NTI_QRsystem.DBK
 {
    public class Studentinfo
     {
