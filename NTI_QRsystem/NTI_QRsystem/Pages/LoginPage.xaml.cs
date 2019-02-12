@@ -56,6 +56,11 @@ namespace NTI_QRsystem.Pages
                     Account acc = DB.accounts[x];
                     if (acc.Username == t1 && acc.Password == t2)
                     {
+                        if (!acc.isLogged)
+                        {
+                            Log(acc, id);
+                            return;
+                        }
                         if(acc.MobileID == null)
                         {
                             Log(acc, id);

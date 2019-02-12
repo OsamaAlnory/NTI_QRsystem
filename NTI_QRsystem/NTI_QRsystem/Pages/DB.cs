@@ -70,10 +70,23 @@ namespace NTI_QRsystem.Pages
             return await client.DeleteAsync(L + LE + "/" + lecture.Rid);
         }
 
+        public static async Task<HttpResponseMessage> RemoveInfo(Info info)
+        {
+            HttpClient client = new HttpClient();
+            return await client.DeleteAsync(L + IN + "/" + info.ID);
+        }
+
         public static async Task<HttpResponseMessage> FullyRemoveLecture(Lecture lecture)
         {
             var b = GetLectureById(lecture.Rid);
-            if(b != null)
+            for (int x = 0; x < infos.Count; x++)
+            {
+                if(infos[x].LecId == b.Rid)
+                {
+                    await RemoveInfo(infos[x]);
+                }
+            }
+            if (b != null)
             {
                 lectures.Remove(b);
                 return await RemoveLecture(b);

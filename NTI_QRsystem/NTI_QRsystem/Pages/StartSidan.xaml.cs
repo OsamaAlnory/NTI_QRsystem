@@ -72,7 +72,8 @@ namespace NTI_QRsystem
                              await DB.LoadInfos();
                             if (!DB.CheckStudent(s))
                             {
-                                TimeSpan difference = d.Subtract(lecture.LecTime);
+                                TimeSpan difference = App.GetTotalSeconds(d) > App.GetTotalSeconds(lecture.LecTime)
+                                    ? d.Subtract(lecture.LecTime) : TimeSpan.Parse("00:00:00");
                                 bool _A = App.GetTotalSeconds(difference) >= 60;
                                 await DB.FullyAddInfo(new Info {LecId = lecture.Rid, Studentname = s.Username,
                                 ATime=_A?difference:TimeSpan.Parse("00:00:00")});
@@ -81,30 +82,39 @@ namespace NTI_QRsystem
                                 {
                                     l = "\nDu är "+App.GetTime(difference)+" sen!";
                                 }
-                                new Popup(new SuccessMessage("Du har registererat klart din närvaro!"+l), this).Show();
+                                App.PlaySound("success");
+                                Msg(new Popup(new SuccessMessage("Du har registererat klart din närvaro!"+l), this));
                             } else
                             {
-                                new Popup(new ErrorMessage("Du har redan registererat din närvaro!"), this).Show();
+                                Msg(new Popup(new ErrorMessage("Du har redan registererat din närvaro!"), this));
                             }
                         } else
                         {
                             
 
                             // Show Error / Try again //Fuskare
-                            new Popup(new ErrorMessage("Du befinner inte dig på skolan, försök inte att fuska!"), this).Show();
+                            Msg(new Popup(new ErrorMessage("Du befinner inte dig på skolan, försök inte att fuska!"), this));
                         }
                     } else
                     {
                         // Not his class, kick his ass :'(
                         
-                        new Popup(new ErrorMessage("Det här är inte din klass!"), this).Show();
+                        Msg(new Popup(new ErrorMessage("Det här är inte din klass!"), this));
                     }
                 }
             }
             if (!found)
             {
-                new Popup(new ErrorMessage("Ogiltig kod!"), TeacherPage.tp).Show();
+                Msg(new Popup(new ErrorMessage("Ogiltig kod!"), TeacherPage.tp));
             }
+        }
+
+        private void Msg(Popup p)
+        {
+            Device.StartTimer(TimeSpan.FromSeconds(1), () => {
+                p.Show();
+                return false;
+            });
         }
 
         private void OpenAbout(object s, EventArgs e)

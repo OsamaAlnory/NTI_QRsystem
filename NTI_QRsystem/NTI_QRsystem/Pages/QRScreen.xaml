@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:an="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              xmlns:qrc="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              x:Class="NTI_QRsystem.Pages.QRScreen" NavigationPage.HasNavigationBar="False">
     <AbsoluteLayout>
@@ -9,8 +10,13 @@
             <!--Loading text with animation-->
         </StackLayout>
         <StackLayout IsVisible="False" x:Name="stk" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
-                     BackgroundColor="Purple">
-            <Label Text="Ingen lektion hittades i denna sal!" FontSize="30"/>
+                     BackgroundColor="Blue" Padding="10">
+            <StackLayout VerticalOptions="CenterAndExpand" Spacing="0">
+                <Label Text="Ingen lektion hittades i denna sal!" FontSize="30"
+                   TextColor="White" HorizontalTextAlignment="Center"/>
+                <an:AnimationView Animation="no-lec.json" AutoPlay="False" Loop="True"
+             HeightRequest="200" WidthRequest="200" x:Name="an_no" Speed="0.3"/>
+            </StackLayout>
         </StackLayout>
         <StackLayout x:Name="stk_qr" IsVisible="False" AbsoluteLayout.LayoutFlags="All"
           AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="Blue">

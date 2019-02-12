@@ -96,7 +96,13 @@ namespace NTI_QRsystem.Pages
 
         private void Button_Clicked(object sender, EventArgs e)
         {
+            if (clicked)
+            {
+                return;
+            }
+            clicked = true;
             new Popup(new LectionCreator(), this).Show();
+            RunTimer();
         }
 
         private void del_button_Clicked(object sender, EventArgs e)
