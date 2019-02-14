@@ -41,7 +41,7 @@ namespace NTI_QRsystem.Components
             if(TeacherPage.lec != null)
             {
                 clicked = true;
-                await Pages.DBK.FullyRemoveLecture(TeacherPage.lec);
+                await DB.FullyRemoveLecture(TeacherPage.lec);
                 TeacherPage.lec = null;
                 await Navigation.PopPopupAsync();
                 new Popup(new SuccessMessage("Lektionen har avslutats!"), TeacherPage.tp).Show();

@@ -26,7 +26,7 @@ namespace NTI_QRsystem.Pages
             InitializeComponent();
             background5.Source = App.getImage("bg");
             bkg.Source = App.getImage("bg");
-            lec = DBK.GetLectureByTeacher(LoadingPage._a);
+            lec = DB.GetLectureByTeacher(LoadingPage._a);
             Update();
             Timer();
             Schema();

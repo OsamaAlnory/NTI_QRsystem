@@ -1,4 +1,4 @@
-﻿using NTI_QRsystem.DB;
+﻿using NTI_QRsystem.DBK;
 using NTI_QRsystem.Pages;
 using Rg.Plugins.Popup.Extensions;
 using System;
@@ -41,9 +41,9 @@ namespace NTI_QRsystem.Components
             {
                 var lst = new List<string>();
                 lst.Add("Välj en sal.");
-                for (int x = 0; x < DBK.accounts.Count; x++)
+                for (int x = 0; x < DB.accounts.Count; x++)
                 {
-                    var a = DBK.accounts[x];
+                    var a = DB.accounts[x];
                     if (a.Class == "Device" && !lst.Contains(a.Class))
                     {
                         lst.Add(a.Username);
@@ -54,9 +54,9 @@ namespace NTI_QRsystem.Components
             {
                 var lst = new List<string>();
                 lst.Add("Välj en klass.");
-                for (int x = 0; x < DBK.accounts.Count; x++)
+                for (int x = 0; x < DB.accounts.Count; x++)
                 {
-                    var a = DBK.accounts[x];
+                    var a = DB.accounts[x];
                     if (!a.isAdmin && !lst.Contains(a.Class))
                     {
                         lst.Add(a.Class);

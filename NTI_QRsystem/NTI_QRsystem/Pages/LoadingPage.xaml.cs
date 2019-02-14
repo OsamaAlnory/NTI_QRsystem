@@ -60,9 +60,12 @@ namespace NTI_QRsystem.Pages
                     }
                 }
             }
-            await DBK.LoadAccounts();
-            await DBK.LoadLectures();
-            await DBK.LoadInfos();
+            await DB.LoadAccounts();
+            await DB.LoadLectures();
+            await DB.LoadInfos();
+
+            //Navigation.PushAsync(new RectorPage());
+            //return;
             var id = GetID.Default.DeviceId;
             var D = DB.CheckMobileID(id);
             if (App.Current.Properties.ContainsKey("LoggedIn"))
@@ -108,10 +111,10 @@ namespace NTI_QRsystem.Pages
         private void WaitAndOpen(string lg)
         {
             Device.StartTimer(TimeSpan.FromSeconds(2), () => {
-                _a = DBK.getAccountByName(lg);
+                _a = DB.getAccountByName(lg);
                 if (_a.isAdmin)
                 {
-                    if (DBK.IsDevice(_a))
+                    if (DB.IsDevice(_a))
                     {
                         Navigation.PushAsync(new QRScreen());
                     }

@@ -51,7 +51,7 @@ namespace NTI_QRsystem.Pages
             else
             {
                 var id = GetID.Default.DeviceId;
-                for (int x = 0; x < DBK.accounts.Count; x++)
+                for (int x = 0; x < DB.accounts.Count; x++)
                 {
                     Account acc = DB.accounts[x];
                     if (acc.Username == t1 && acc.Password == t2)
@@ -93,7 +93,7 @@ namespace NTI_QRsystem.Pages
             await App.Current.SavePropertiesAsync();
             acc.isLogged = true;
             acc.MobileID = id;
-            await DBK.EditAccount(acc);
+            await DB.EditAccount(acc);
             LoadingPage.p.OpenPage();
             Navigation.RemovePage(this);
         }
