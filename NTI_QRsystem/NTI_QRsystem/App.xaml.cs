@@ -1,4 +1,5 @@
 ﻿using NTI_QRsystem.Pages;
+using NTI_QRsystem.Views;
 using Plugin.SimpleAudioPlayer;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,8 @@ namespace NTI_QRsystem
             images.Add("bg2", loadImage("bg2.JPG"));
             RegisterSound("success", "scan_success.wav");
             MainPage = new NavigationPage(new LoadingPage());
+
+            //MainPage = new NavigationPage(new Pages.RectorPage());
         }
 
         public static bool CheckInternetConnection()

@@ -10,33 +10,33 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Pnumber" Type="varchar" MaxLength="20" />
-          <Property Name="Class" Type="varchar" MaxLength="20" />
-          <Property Name="isAdmin" Type="bit" />
+          <Property Name="Class" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="isAdmin" Type="bit" Nullable="false" />
+          <Property Name="Pnumber" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="isLogged" Type="bit" Nullable="false" />
-          <Property Name="MobileID" Type="varchar" MaxLength="30" />
+          <Property Name="MobileID" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <EntityType Name="Info">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LecId" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="Studentname" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Studentname" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="ATime" Type="time" Precision="0" Nullable="false" />
+          <Property Name="LecId" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Lec">
           <Key>
             <PropertyRef Name="Rid" />
           </Key>
-          <Property Name="Rid" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="AdminID" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Class" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Rid" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AdminID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Class" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="LecTime" Type="time" Precision="7" Nullable="false" />
-          <Property Name="DeviceID" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="Extra" Type="char" MaxLength="50" />
+          <Property Name="DeviceID" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Extra" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityContainer Name="MSSQL400028ModelStoreContainer">
           <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
@@ -47,43 +47,43 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MSSQL400028Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MSSQL400028Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="MSSQL400028Model.Accounts" />
+          <EntitySet Name="Info" EntityType="MSSQL400028Model.Info" />
+          <EntitySet Name="Lec" EntityType="MSSQL400028Model.Lec" />
+        </EntityContainer>
         <EntityType Name="Accounts">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Class" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="isAdmin" Type="Boolean" />
-          <Property Name="Pnumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Class" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="isAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="Pnumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="isLogged" Type="Boolean" Nullable="false" />
-          <Property Name="MobileID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MobileID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Info">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Studentname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ATime" Type="Time" Precision="0" Nullable="false" />
-          <Property Name="LecId" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Studentname" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ATime" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="LecId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="MSSQL400028Entities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Accounts" EntityType="Self.Accounts" />
-          <EntitySet Name="Info" EntityType="Self.Info" />
-          <EntitySet Name="Lec" EntityType="MSSQL400028Model.Lec" />
-        </EntityContainer>
         <EntityType Name="Lec">
           <Key>
             <PropertyRef Name="Rid" />
           </Key>
-          <Property Name="Rid" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="AdminID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Class" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Rid" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AdminID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Class" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="LecTime" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="DeviceID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Extra" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="DeviceID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Extra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -97,11 +97,11 @@
                 <ScalarProperty Name="MobileID" ColumnName="MobileID" />
                 <ScalarProperty Name="isLogged" ColumnName="isLogged" />
                 <ScalarProperty Name="Pnumber" ColumnName="Pnumber" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Class" ColumnName="Class" />
                 <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -109,9 +109,9 @@
             <EntityTypeMapping TypeName="MSSQL400028Model.Info">
               <MappingFragment StoreEntitySet="Info">
                 <ScalarProperty Name="LecId" ColumnName="LecId" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Studentname" ColumnName="Studentname" />
                 <ScalarProperty Name="ATime" ColumnName="ATime" />
+                <ScalarProperty Name="Studentname" ColumnName="Studentname" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

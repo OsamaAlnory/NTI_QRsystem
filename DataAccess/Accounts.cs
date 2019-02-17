@@ -18,7 +18,7 @@ namespace DataAccess
         public string Username { get; set; }
         public string Password { get; set; }
         public string Class { get; set; }
-        public Nullable<bool> isAdmin { get; set; }
+        public bool isAdmin { get; set; }
         public string Pnumber { get; set; }
         public bool isLogged { get; set; }
         public string MobileID { get; set; }
