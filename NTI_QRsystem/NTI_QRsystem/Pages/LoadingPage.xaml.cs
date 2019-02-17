@@ -64,9 +64,9 @@ namespace NTI_QRsystem.Pages
             await DB.LoadLectures();
             await DB.LoadInfos();
 
-           // Navigation.PushAsync(new RectorPage());
-            //return;
-            var id = GetID.Default.DeviceId;
+           Navigation.PushAsync(new RectorPage());
+            return;
+            var id = GetID.Default.GetDeviceIdInternal();
             var D = DB.CheckMobileID(id);
             if (App.Current.Properties.ContainsKey("LoggedIn"))
             {

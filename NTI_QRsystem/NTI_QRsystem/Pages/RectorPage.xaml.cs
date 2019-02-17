@@ -26,7 +26,7 @@ namespace NTI_QRsystem.Pages
             menuList.Add(new MasterPageItems() { Title = "Lägga till Lärare", Icon = "setting.png", TargetType = typeof(AddTeachers) });
             menuList.Add(new MasterPageItems() { Title = "Lägga till Elerver", Icon = "home.png", TargetType = typeof(AddStudents) });
             menuList.Add(new MasterPageItems() { Title = "Redigera Konton", Icon = "help.png", TargetType = typeof(EditAccounts) });
-            menuList.Add(new MasterPageItems() { Title = "Logga Ut", Icon = "logout.png" , TargetType = typeof(Logout) });
+            
      
 
             // Setting our list to be ItemSource for ListView in RectorPage.xaml

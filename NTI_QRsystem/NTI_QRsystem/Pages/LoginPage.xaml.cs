@@ -34,6 +34,7 @@ namespace NTI_QRsystem.Pages
                     CountDown();
                 }
             }
+            
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
@@ -50,7 +51,7 @@ namespace NTI_QRsystem.Pages
             }
             else
             {
-                var id = GetID.Default.DeviceId;
+                var id = GetID.Default.GetDeviceIdInternal();
                 for (int x = 0; x < DB.accounts.Count; x++)
                 {
                     Account acc = DB.accounts[x];

@@ -16,7 +16,7 @@
           <Property Name="isAdmin" Type="bit" Nullable="false" />
           <Property Name="Pnumber" Type="nvarchar" MaxLength="20" />
           <Property Name="isLogged" Type="bit" Nullable="false" />
-          <Property Name="MobileID" Type="nvarchar" MaxLength="30" />
+          <Property Name="MobileID" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Info">
           <Key>
@@ -63,7 +63,7 @@
           <Property Name="isAdmin" Type="Boolean" Nullable="false" />
           <Property Name="Pnumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="isLogged" Type="Boolean" Nullable="false" />
-          <Property Name="MobileID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MobileID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Info">
           <Key>

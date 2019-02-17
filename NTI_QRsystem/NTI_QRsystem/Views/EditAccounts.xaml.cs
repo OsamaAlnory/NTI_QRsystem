@@ -29,6 +29,7 @@ namespace NTI_QRsystem.Views
         {
 
             f_acc.isLogged = false;
+            await DB.EditAccount(f_acc);
             Logutbtn.IsEnabled = false;
 
         }
@@ -49,10 +50,19 @@ namespace NTI_QRsystem.Views
             }
             if (_f != null)
             {
-                
+                if (_f.isAdmin)
+                {
+                    h1.IsVisible = false; h2.IsVisible = false;
+                }
+                else
+                {
+                    h1.IsVisible = true; h2.IsVisible = true;
+                }
+
+               usnm.Text = _f.Username;
                uspassword.Text = _f.Password;
-                uscs.Text = _f.Class;
-                uspnr.Text = _f.Pnumber;
+               uscs.Text = _f.Class;
+               uspnr.Text = _f.Pnumber;
                 stk.IsVisible = true;
                 Logutbtn.IsVisible = true;
                 redigbtn.IsVisible = true;
@@ -66,10 +76,35 @@ namespace NTI_QRsystem.Views
             }
             else
             {
-                await DB.EditAccount(new Account() { Username = el1, Password = el2, Class = el3,
-                Pnumber = el4, MobileID = el5});
-                new Popup(new SuccessMessage("Kontot har Lagts till "), this).Show();
+              
+                new Popup(new ErrorMessage("Kontot finns inte!"), this).Show();
             }
+        }
+
+        private async void Redigbtn_Clicked(object sender, EventArgs e)
+        {
+            string el1 = usnm.Text, el2 = uspassword.Text, el3 = uscs.Text, el4 = uspnr.Text;
+            if ( string.IsNullOrEmpty(el1) && string.IsNullOrEmpty(el2))
+            {
+                bool t = true;
+                if (!f_acc.isAdmin)
+                {
+                    if(string.IsNullOrEmpty(el3) || string.IsNullOrEmpty(el4))
+                    {
+                        t = false;
+                    }
+                }
+                if (t)
+                {
+                    f_acc.Username = el1; f_acc.Password = el2; f_acc.Class = el3; f_acc.Pnumber = el4;
+                    await DB.EditAccount(f_acc);
+                    new Popup(new SuccessMessage("Uppgifterna har ändrats!"), this).Show();
+                    return;
+                }
+            }
+            new Popup(new ErrorMessage("Fyll i alla fälten!"), this).Show();
+
+
         }
     }
 }

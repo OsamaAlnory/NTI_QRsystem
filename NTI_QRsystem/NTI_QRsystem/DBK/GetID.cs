@@ -22,34 +22,25 @@ namespace NTI_QRsystem.DBK
         }
 
         /// <summary>
-        /// Gets a device unique identifier
-        /// </summary>
-        public string DeviceId
-        {
-            get
-            {
-                return GetDeviceIdInternal();
-            }
-        }
-
-        /// <summary>
         /// Gets a device unique identifier depending on the platform
         /// </summary>
         /// <returns>string representing the unique id</returns>
         public string GetDeviceIdInternal()
         {
-            var id = default(string);
-            var a = Device.OS;
-            return Build.Serial;
-            if(a == TargetPlatform.iOS)
-            {
+           var id = default(string);
+            
+            
+             
+              
+            //Ios
                 //id = UIDevice.CurrentDevice.IdentifierForVendor.ToString();
-            } else if(a == TargetPlatform.Android)
-            {
-                //id = Android.OS.Build.Serial;
+             
+             //Android
+                 id = Build.Serial;
                 
-            }
-            //return id;
+             
+          
+            return id;
         }
     }
 }

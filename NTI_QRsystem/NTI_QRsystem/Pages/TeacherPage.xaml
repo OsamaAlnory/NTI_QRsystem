@@ -40,16 +40,13 @@
                     </AbsoluteLayout>
 
                 </Frame>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                
                     <Button VerticalOptions="EndAndExpand" Style="{StaticResource CustomButton}"
                     Text="Avsluta lektionen" FontAttributes="Bold" BackgroundColor="Red"
                     TextColor="White" IsEnabled="False" x:Name="del_button" Clicked="del_button_Clicked"
-                        HorizontalOptions="FillAndExpand"/>
-                    <Button VerticalOptions="EndAndExpand" Style="{StaticResource CustomButton}"
-                        Text="Skapa/Redigera shemat" TextColor="Black" FontAttributes="Bold"
-                        BackgroundColor="White" FontSize="9" HorizontalOptions="FillAndExpand"
-                        Clicked="Button_Clicked_1"/>
-                </StackLayout>
+                     HorizontalOptions="FillAndExpand"/>
+                     
+           
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage>

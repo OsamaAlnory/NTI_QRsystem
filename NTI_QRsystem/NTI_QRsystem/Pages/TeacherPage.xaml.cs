@@ -119,10 +119,7 @@ namespace NTI_QRsystem.Pages
                 }, null), this).Show();
         }
 
-        private void Button_Clicked_1(object sender, EventArgs e)
-        {
-            App.PlaySound("success");
-        }
+        
 
         private void sch_ItemTapped(object sender, ItemTappedEventArgs e)
         {
