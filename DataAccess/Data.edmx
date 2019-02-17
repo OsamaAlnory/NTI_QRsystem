@@ -12,11 +12,11 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Username" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Class" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Class" Type="nvarchar" MaxLength="20" />
           <Property Name="isAdmin" Type="bit" Nullable="false" />
-          <Property Name="Pnumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Pnumber" Type="nvarchar" MaxLength="20" />
           <Property Name="isLogged" Type="bit" Nullable="false" />
-          <Property Name="MobileID" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="MobileID" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="Info">
           <Key>
@@ -59,11 +59,11 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Username" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Class" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Class" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="isAdmin" Type="Boolean" Nullable="false" />
-          <Property Name="Pnumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Pnumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="isLogged" Type="Boolean" Nullable="false" />
-          <Property Name="MobileID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MobileID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Info">
           <Key>
