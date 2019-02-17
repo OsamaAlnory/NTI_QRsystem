@@ -15,10 +15,14 @@ namespace NTI_QRsystem.Components
 	public partial class ConfirmationMessage : StackLayout, PopupComponent
 	{
         bool clicked;
+        Action onAccept;
+        Action onCancel;
 
-		public ConfirmationMessage (string msg)
+		public ConfirmationMessage (string msg, Action onAccept, Action onCancel)
 		{
 			InitializeComponent ();
+            this.onAccept = onAccept;
+            this.onCancel = onCancel;
             lbl.Text = msg;
 		}
 
@@ -29,6 +33,12 @@ namespace NTI_QRsystem.Components
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            if (clicked)
+            {
+                return;
+            }
+            clicked = true;
+            onCancel?.Invoke();
             await Navigation.PopPopupAsync();
         }
 
@@ -38,16 +48,9 @@ namespace NTI_QRsystem.Components
             {
                 return;
             }
-            if(TeacherPage.lec != null)
-            {
-                clicked = true;
-                await Pages.DBK.FullyRemoveLecture(TeacherPage.lec);
-                TeacherPage.lec = null;
-                await Navigation.PopPopupAsync();
-                new Popup(new SuccessMessage("Lektionen har avslutats!"), TeacherPage.tp).Show();
-                TeacherPage.lec = null;
-                TeacherPage.tp.Update(true);
-            }
+            clicked = true;
+            onAccept?.Invoke();
+            await Navigation.PopPopupAsync();
         }
     }
 }

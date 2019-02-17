@@ -33,10 +33,7 @@ namespace NTI_QRsystem.Components
             {
                 days.Add("Välj en dag.");
             }
-            foreach(var v in d)
-            {
-                days.Add(v);
-            }
+            foreach(var v in d){days.Add(v);}
             iday.ItemsSource = days;
             {
                 var lst = new List<string>();

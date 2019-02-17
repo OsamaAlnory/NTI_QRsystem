@@ -1,4 +1,5 @@
 ﻿using NTI_QRsystem.Components;
+using NTI_QRsystem.DBK;
 using NTI_QRsystem.Pages;
 using System;
 using System.Collections.Generic;
@@ -32,9 +33,9 @@ namespace NTI_QRsystem.Views
             }
             else
             {
-                for (int i = 0; i < DBK.accounts.Count; i++)
+                for (int i = 0; i < DB.accounts.Count; i++)
                 {
-                    DB.Account accs = DBK.accounts[i];
+                    Account accs = DB.accounts[i];
                     if (accs.Username == el1)
                     {
                         new Popup(new ErrorMessage("Kontot finns Redan!"), this).Show();
@@ -43,7 +44,7 @@ namespace NTI_QRsystem.Views
                 }
                  
                  
-                await DBK.AddAccount(new DB.Account (){Username = el1, Password = el2, isAdmin = true });
+                await DB.AddAccount(new Account (){Username = el1, Password = el2, isAdmin = true });
                 new Popup(new SuccessMessage("Kontot har Lagts till "), this).Show();
 
 

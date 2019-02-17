@@ -107,7 +107,16 @@ namespace NTI_QRsystem.Pages
 
         private void del_button_Clicked(object sender, EventArgs e)
         {
-            new Popup(new ConfirmationMessage("Är du säker på att avsluta denna lektion?"), this).Show();
+            new Popup(new ConfirmationMessage("Är du säker på att avsluta denna lektion?",
+                // On Accept
+                async () => {
+                    if(lec != null)
+                    {
+                        await DB.FullyRemoveLecture(lec);lec = null;
+                        new Popup(new SuccessMessage("Lektionen har avslutats!"), tp).Show();
+                        lec = null;tp.Update(true);
+                    }
+                }, null), this).Show();
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)

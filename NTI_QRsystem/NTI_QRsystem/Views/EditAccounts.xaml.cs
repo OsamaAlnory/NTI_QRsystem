@@ -1,4 +1,5 @@
 ﻿using NTI_QRsystem.Components;
+using NTI_QRsystem.DBK;
 using NTI_QRsystem.Pages;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace NTI_QRsystem.Views
              }
             else
             {
-                await DBK.EditAccount(new DB.Account() { Username = el1, Password = el2, Class = el3,
+                await DB.EditAccount(new Account() { Username = el1, Password = el2, Class = el3,
                 Pnumber = el4, MobileID = el5});
                 new Popup(new SuccessMessage("Kontot har Lagts till "), this).Show();
             }
