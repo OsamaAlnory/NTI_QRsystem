@@ -12,13 +12,19 @@ namespace NTI_QRsystem.DBK
 {
      public class GetID
      {
-        private static GetID _Default;
-        public static GetID Default
+        //private static GetID _Default;
+        //public static GetID Default
+        //{
+        //    get
+        //    {
+        //        return _Default ?? (_Default = new _GetID());
+        //    }
+        //}
+
+        public static string Get()
         {
-            get
-            {
-                return _Default ?? (_Default = new GetID());
-            }
+            var ider = DependencyService.Get<IDGetter>();
+            return ider?.Get();
         }
 
         /// <summary>

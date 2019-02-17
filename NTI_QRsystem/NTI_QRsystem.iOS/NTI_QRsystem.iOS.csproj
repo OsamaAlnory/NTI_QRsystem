@@ -98,6 +98,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CustomPicker.cs" />
+    <Compile Include="IDGetterIOS.cs" />
     <Compile Include="IEntryRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />

@@ -51,7 +51,7 @@ namespace NTI_QRsystem.Pages
             }
             else
             {
-                var id = GetID.Default.GetDeviceIdInternal();
+                var id = GetID.Get();
                 for (int x = 0; x < DB.accounts.Count; x++)
                 {
                     Account acc = DB.accounts[x];
