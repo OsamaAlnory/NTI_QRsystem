@@ -4,5 +4,5 @@
 	<uses-permission android:name="android.permission.CAMERA" />
 	<uses-permission android:name="android.permission.FLASHLIGHT" />
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-	<application android:label="NTI_QRsystem.Android"></application>
+	<application android:label="NTI Närvaro "></application>
 </manifest>

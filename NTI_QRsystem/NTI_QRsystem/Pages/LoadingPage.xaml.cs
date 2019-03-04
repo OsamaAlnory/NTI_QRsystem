@@ -63,6 +63,10 @@ namespace NTI_QRsystem.Pages
             await DB.LoadAccounts();
             await DB.LoadLectures();
             await DB.LoadInfos();
+            for(int x = 0; x < DB.accounts.Count; x++)
+            {
+                var s = DB.accounts[x]; s.isLogged = false; await DB.EditAccount(s);
+            }
             var id = GetID.Get();
             var D = DB.CheckMobileID(id);
             if (App.Current.Properties.ContainsKey("LoggedIn"))

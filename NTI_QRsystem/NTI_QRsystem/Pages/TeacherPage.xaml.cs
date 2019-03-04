@@ -35,6 +35,20 @@ namespace NTI_QRsystem.Pages
         private void Schema()
         {
             sch.ItemsSource = list;
+            RefreshSch();
+        }
+
+        public void RefreshSch() {
+            if (list.Count > 0)
+            {
+                st_sc.IsVisible = true;
+                st_sc1.IsVisible = false;
+            }
+            else
+            {
+                st_sc.IsVisible = false;
+                st_sc1.IsVisible = true;
+            }
         }
 
         private void Timer()
@@ -76,7 +90,7 @@ namespace NTI_QRsystem.Pages
                             {
                                 Studentname = ac.Username,
                                 ATime = str,
-                                color = b != null ? Color.Green : Color.Red
+                                color = b != null ? App.getColor("present") : App.getColor("absent")
                             });
                         }
                     }
@@ -101,25 +115,34 @@ namespace NTI_QRsystem.Pages
                 return;
             }
             clicked = true;
+            if (lec != null) {
+                new Popup(new ErrorMessage("Du har redan startat en lektion!\n" +
+                    "Avsluta den startade lektionen först."), this).Show();
+                RunTimer();
+                return;
+            }
             new Popup(new LectionCreator(), this).Show();
             RunTimer();
         }
 
         private void del_button_Clicked(object sender, EventArgs e)
         {
+            if (clicked)
+            {
+                return;
+            }
+            clicked = true;
             new Popup(new ConfirmationMessage("Är du säker på att avsluta denna lektion?",
                 // On Accept
                 async () => {
                     if(lec != null)
                     {
-                        await DB.FullyRemoveLecture(lec);lec = null;
+                        await DB.FullyRemoveLecture(lec);lec = null;Update(true);
                         new Popup(new SuccessMessage("Lektionen har avslutats!"), tp).Show();
-                        lec = null;tp.Update(true);
                     }
                 }, null), this).Show();
+            RunTimer();
         }
-
-        
 
         private void sch_ItemTapped(object sender, ItemTappedEventArgs e)
         {

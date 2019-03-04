@@ -19,14 +19,14 @@
             </StackLayout>
         </StackLayout>
         <StackLayout x:Name="stk_qr" IsVisible="False" AbsoluteLayout.LayoutFlags="All"
-          AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="Blue">
+          AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="Purple">
+            <Label Text="Skanna koden nedan" TextColor="White" VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand" FontSize="30" FontAttributes="Bold"/>
             <qrc:ZXingBarcodeImageView x:Name="b" AutomationId="Elevens Data" HorizontalOptions="FillAndExpand"
               VerticalOptions="FillAndExpand" BarcodeFormat="QR_CODE"/>
-        </StackLayout>
-        <StackLayout x:Name="stk_qr1" IsVisible="False" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
-            <Label Text="Skanna koden nedan" HorizontalOptions="CenterAndExpand"/>
-            <Frame Padding="5" CornerRadius="15" BackgroundColor="White" Margin="20,20,20,20">
-                <Label x:Name="info" HorizontalOptions="CenterAndExpand"/>
+            <Frame CornerRadius="20" Padding="10" HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand">
+                <Label Text="TEK2" TextColor="Black" x:Name="info" FontSize="30" FontAttributes="Bold"/>
             </Frame>
         </StackLayout>
     </AbsoluteLayout>

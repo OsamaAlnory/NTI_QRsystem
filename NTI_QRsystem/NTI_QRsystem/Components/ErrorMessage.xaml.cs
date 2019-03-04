@@ -25,8 +25,14 @@ namespace NTI_QRsystem.Components
             return PopupType.INFO;
         }
 
+        public void OnClosed()
+        {
+            animation.Pause();
+        }
+
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            OnClosed();
             await Navigation.PopPopupAsync();
         }
     }

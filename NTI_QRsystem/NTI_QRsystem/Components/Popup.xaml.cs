@@ -15,9 +15,11 @@ namespace NTI_QRsystem.Components
     public partial class Popup : PopupPage
     {
         public PopupType type;
+        private View content;
 
         public Popup(View content, Page page)
         {
+            this.content = content;
             InitializeComponent();
             if(content is PopupComponent)
             {
@@ -46,10 +48,19 @@ namespace NTI_QRsystem.Components
             tap1.Tapped += (s, e) => {
                 try
                 {
-                    Navigation.PopPopupAsync();
+                    Run();
                 } catch { }
             };
             abs.GestureRecognizers.Add(tap1);
+        }
+
+        private async void Run()
+        {
+            if (content is PopupComponent)
+            {
+                ((PopupComponent)content).OnClosed();
+            }
+            await Navigation.PopPopupAsync();
         }
 
         protected override void OnAppearing()

@@ -19,6 +19,8 @@ namespace NTI_QRsystem
 		public StartSidan ()
 		{
 			InitializeComponent ();
+            img.Source = App.getImage("background");
+            cp.Text = "Copyright © 2019 NTIGymnasiet all rights reserved.";
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
                 Scanner();
@@ -82,8 +84,8 @@ namespace NTI_QRsystem
                                 {
                                     l = "\nDu är "+ App.GetTime(difference) +" sen!";
                                 }
-                                App.PlaySound("success");
                                 Msg(new Popup(new SuccessMessage("Du har registererat klart din närvaro!" + l), this));
+                                App.PlaySound("success");
                             } else
                             {
                                 Msg(new Popup(new ErrorMessage("Du har redan registererat din närvaro!"), this));

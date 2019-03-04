@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NTI_QRsystem.Components.ConfirmationMessage">
+             x:Class="NTI_QRsystem.Components.ConfirmationMessage" VerticalOptions="FillAndExpand"
+             HorizontalOptions="FillAndExpand">
 
     <Label x:Name="lbl" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"
            FontSize="24" TextColor="Black" HorizontalTextAlignment="Center"/>
-    <StackLayout Orientation="Horizontal">
+    <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
         <Button Text="Nej" Style="{StaticResource CustomButton}" BackgroundColor="Red"
          Clicked="Button_Clicked" HorizontalOptions="StartAndExpand" FontAttributes="Bold"/>
         <Button Text="Ja" Style="{StaticResource CustomButton}" BackgroundColor="LimeGreen"

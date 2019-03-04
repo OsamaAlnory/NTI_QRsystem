@@ -31,6 +31,11 @@ namespace NTI_QRsystem.Components
             return PopupType.INFO;
         }
 
+        public void OnClosed()
+        {
+            
+        }
+
         private async void Button_Clicked(object sender, EventArgs e)
         {
             if (clicked)

@@ -98,7 +98,7 @@ namespace NTI_QRsystem.Components
                             Class = clss.SelectedItem.ToString(),
                             DeviceID = sals.SelectedItem.ToString(),
                             LecTime = time.Time,
-                            Rid = GenerateRandomId()
+                            Rid = GenerateRandomId(), Extra=""
                         };
                         await DB.FullyAddLecture(lec);
                         TeacherPage.lec = lec;
@@ -149,6 +149,11 @@ namespace NTI_QRsystem.Components
         }
 
         public void ChangeAnimation(ScaleAnimation animation)
+        {
+            
+        }
+
+        public void OnClosed()
         {
             
         }

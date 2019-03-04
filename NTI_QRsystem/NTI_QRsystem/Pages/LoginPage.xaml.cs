@@ -14,9 +14,8 @@ namespace NTI_QRsystem.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : CarouselPage
 	{
-
-        private int fails;
-        private int timeLeft;
+        private int fails, timeLeft;
+        private bool clicked,_clicked;
 
 		public LoginPage ()
 		{
@@ -34,11 +33,24 @@ namespace NTI_QRsystem.Pages
                     CountDown();
                 }
             }
-            
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private void RunTimer()
         {
+            Device.StartTimer(TimeSpan.FromSeconds(1), () => {
+                clicked = false;
+                return false;
+            });
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            if (clicked || _clicked)
+            {
+                return;
+            }
+            clicked = true;
+            RunTimer();
             if(timeLeft > 0)
             {
                 new Popup(new ErrorMessage(_G()), this).Show();
@@ -51,6 +63,7 @@ namespace NTI_QRsystem.Pages
             }
             else
             {
+                Start();
                 var id = GetID.Get();
                 for (int x = 0; x < DB.accounts.Count; x++)
                 {
@@ -73,6 +86,7 @@ namespace NTI_QRsystem.Pages
                             } else
                             {
                                 new Popup(new ErrorMessage("Du är redan inloggad på en annan mobil!\nKontakta Rektorn"), this).Show();
+                                Stop();
                             }
                         }
                         return;
@@ -84,12 +98,15 @@ namespace NTI_QRsystem.Pages
                     timeLeft = fails < 7 ? (fails-2) * 60 : 60*5;
                 }
                 CountDown();
+                Stop();
                 new Popup(new ErrorMessage("Fel användarnamn eller lösenord!"), this).Show();
             }
         }
 
         private async void Log(Account acc, string id)
         {
+            Stop();
+            _clicked = true;
             App.Current.Properties["LoggedIn"] = acc.Username;
             await App.Current.SavePropertiesAsync();
             acc.isLogged = true;
@@ -97,6 +114,18 @@ namespace NTI_QRsystem.Pages
             await DB.EditAccount(acc);
             LoadingPage.p.OpenPage();
             Navigation.RemovePage(this);
+        }
+
+        private void Start()
+        {
+            an.IsVisible = true;
+            an.Play();
+        }
+
+        private void Stop()
+        {
+            an.IsVisible = false;
+            an.Pause();
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)
@@ -130,5 +159,9 @@ namespace NTI_QRsystem.Pages
             return "Du måste vänta " + i +" "+min+" innan du kan logga in igen!";
         }
 
+        private void Button_Clicked_2(object sender, EventArgs e)
+        {
+            CurrentPage = this.Children[2];
+        }
     }
 }
