@@ -135,6 +135,7 @@ namespace NTI_QRsystem.Components
             }
             Navigation.PopPopupAsync();
             TeacherPage.RefreshData();
+            TeacherPage.tp.RefreshSch();
         }
 
         private void btn_1_Clicked(object sender, EventArgs e)
@@ -146,6 +147,7 @@ namespace NTI_QRsystem.Components
                 TeacherPage.tp.DisableButton();
                 Navigation.PopPopupAsync();
                 TeacherPage.RefreshData();
+                TeacherPage.tp.RefreshSch();
             }
         }
 
@@ -162,5 +164,9 @@ namespace NTI_QRsystem.Components
             return -1;
         }
 
+        public void OnClosed()
+        {
+            
+        }
     }
 }

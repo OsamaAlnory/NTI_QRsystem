@@ -112,6 +112,7 @@
     <BundleResource Include="Resources\qr_scan.json" />
     <BundleResource Include="Resources\success.json" />
     <BundleResource Include="Resources\no-lec.json" />
+    <BundleResource Include="Resources\loading1.json" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

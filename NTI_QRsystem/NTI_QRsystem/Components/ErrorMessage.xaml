@@ -6,11 +6,9 @@
              HorizontalOptions="FillAndExpand"
              VerticalOptions="FillAndExpand">
     <an:AnimationView Animation="error.json" AutoPlay="True" WidthRequest="50"
-     HeightRequest="50" Speed="1.5"/>
+     HeightRequest="50" Speed="1.6" x:Name="animation"/>
     <Label x:Name="lbl" HorizontalOptions="CenterAndExpand" FontSize="16"
            HorizontalTextAlignment="Center"/>
     <Button Style="{StaticResource CustomButton}" BackgroundColor="Red"
             VerticalOptions="EndAndExpand" Text="Avbryt" Clicked="Button_Clicked"/>
-    
-    
 </StackLayout>

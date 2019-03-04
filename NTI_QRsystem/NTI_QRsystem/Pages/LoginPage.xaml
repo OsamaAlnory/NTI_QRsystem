@@ -77,7 +77,8 @@
 
                         <Button Style="{StaticResource CustomButton}" Text="Komma igång"
                         HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"
-                        FontAttributes="Bold" BackgroundColor="Purple" TextColor="White" Grid.Row="6"/>
+                        FontAttributes="Bold" BackgroundColor="Purple" TextColor="White" Grid.Row="6"
+                        Clicked="Button_Clicked_2"/>
                     </Grid>
                 </Frame>
             </Grid>
@@ -102,6 +103,8 @@
                     <obj:IEntry Placeholder="Lösenord" HorizontalOptions="FillAndExpand"
                      HorizontalTextAlignment="Center" x:Name="password" IsPassword="True"/>
                 </Frame>
+                <forms:AnimationView AutoPlay="False" x:Name="an" IsVisible="False"
+                 Loop="True" Animation="loading1.json" HeightRequest="50" WidthRequest="50"/>
                 <Label x:Name="lbl_time" HorizontalOptions="CenterAndExpand"
                        TextColor="Red" IsVisible="False" HorizontalTextAlignment="Center"/>
                 <Button Style="{StaticResource CustomButton}" Text="Logga in"

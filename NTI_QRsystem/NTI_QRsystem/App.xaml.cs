@@ -20,10 +20,11 @@ namespace NTI_QRsystem
         public static Dictionary<string, ISimpleAudioPlayer> sounds = new Dictionary<string, ISimpleAudioPlayer>();
         public const int QR_SIZE = 1000;
         private const string PATH = "NTI_QRsystem";
-        public const int REFRESH_TIME = 3;
+        public const int REFRESH_TIME = 5;
         public const int FAKE_REFRESH_TIME = 800;
         public static Color UNCLICKED = Color.Green;
         public const string R_NAME = "Rector";
+        private static Dictionary<string, Color> COLORS = new Dictionary<string, Color>();
 
         public App()
         {
@@ -32,9 +33,16 @@ namespace NTI_QRsystem
             images.Add("bg", loadImage("bg.png"));
             images.Add("bg2", loadImage("bg2.JPG"));
             RegisterSound("success", "scan_success.wav");
+            COLORS.Add("absent", Color.Red);
+            COLORS.Add("present", Color.Lime);
             MainPage = new NavigationPage(new LoadingPage());
 
             //MainPage = new NavigationPage(new Pages.RectorPage());
+        }
+
+        public static Color getColor(string key)
+        {
+            return key != null && COLORS.ContainsKey(key) ? COLORS[key] : Color.Default;
         }
 
         public static bool CheckInternetConnection()

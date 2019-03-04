@@ -5,7 +5,7 @@
              x:Class="NTI_QRsystem.Components.SuccessMessage" HorizontalOptions="FillAndExpand"
              VerticalOptions="FillAndExpand">
     <an:AnimationView Animation="success.json" AutoPlay="True" HeightRequest="50"
-                      WidthRequest="50"/>
+     WidthRequest="50" x:Name="animation"/>
     <Label x:Name="lbl" HorizontalOptions="CenterAndExpand" FontSize="16"
            HorizontalTextAlignment="Center"/>
 

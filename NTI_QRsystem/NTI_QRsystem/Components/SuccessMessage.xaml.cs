@@ -13,12 +13,10 @@ namespace NTI_QRsystem.Components
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SuccessMessage : StackLayout, PopupComponent
 	{
-		public SuccessMessage ( string message)
+		public SuccessMessage (string message)
 		{
-
 			InitializeComponent ();
             lbl.Text = message;
-
 		}
 
         public PopupType GetPopupType()
@@ -26,8 +24,14 @@ namespace NTI_QRsystem.Components
             return PopupType.INFO;
         }
 
+        public void OnClosed()
+        {
+            animation.Pause();
+        }
+
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            OnClosed();
             await Navigation.PopPopupAsync();
         }
     }

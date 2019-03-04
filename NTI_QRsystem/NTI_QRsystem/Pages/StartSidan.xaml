@@ -1,12 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:obj="clr-namespace:NTI_QRsystem"
              x:Class="NTI_QRsystem.StartSidan" NavigationPage.HasNavigationBar="False">
-    <ContentPage.Content>
-        <StackLayout Padding="20">
-            <Button Style="{StaticResource CustomButton}" Text="Skanna" BackgroundColor="Purple"
-                    Clicked="Button_Clicked"></Button>
+    <AbsoluteLayout>
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
+               x:Name="img" Aspect="Fill"/>
+        <StackLayout Padding="10" AbsoluteLayout.LayoutFlags="All"
+                     AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <StackLayout Padding="20" HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand">
+                <Label Text="NTI Närvaro" HorizontalOptions="CenterAndExpand" FontSize="30"
+                   TextColor="White" FontAttributes="Bold" Margin="0,30,0,0"/>
+                <Button Style="{StaticResource CustomButton}" Text="Skanna" BackgroundColor="White"
+                    Clicked="Button_Clicked" VerticalOptions="CenterAndExpand" FontAttributes="Bold"
+                     FontSize="30" TextColor="Purple"/>
+            </StackLayout>
+            <Label x:Name="cp" VerticalOptions="EndAndExpand"
+                   TextColor="White" FontSize="16" FontAttributes="Bold"/>
         </StackLayout>
-    </ContentPage.Content>
+    </AbsoluteLayout>
 </ContentPage>
