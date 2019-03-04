@@ -4,6 +4,9 @@
               xmlns:obj="clr-namespace:NTI_QRsystem"
              x:Class="NTI_QRsystem.Views.EditAccounts">
     <ContentPage.Content>
+        <ScrollView>
+            
+       
         <AbsoluteLayout>
             <Image x:Name="image1" Aspect="Fill" AbsoluteLayout.LayoutFlags="All"
                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>
@@ -69,5 +72,6 @@
             
            
         </AbsoluteLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

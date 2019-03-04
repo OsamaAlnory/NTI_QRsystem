@@ -22,37 +22,25 @@ namespace NTI_QRsystem.Views
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            string el1 = usnm.Text, el2 = uspassword.Text;
-           
-
-
-           
-            if (el1 == null && el2 == null)
+            var el1 = usnm.Text; var el2 = uspassword.Text;
+             
+            if ( el1 != null  && el2 != null)
             {
-                new Popup(new ErrorMessage("Fyll i alla fälten!"), this).Show();
+                if (DB.getAccountByName(el1) == null)
+                {
+                    await DB.AddAccount(new Account() { Username = el1, Password = el2, isAdmin = true });
+                    new Popup(new SuccessMessage("Kontot har Lagts till "), this).Show();
+                }
+                else
+                {
+                     
+                  new Popup(new ErrorMessage("Kontot finns Redan!"), this).Show();
+                    
+                }
             }
             else
             {
-                for (int i = 0; i < DB.accounts.Count; i++)
-                {
-                    Account accs = DB.accounts[i];
-                    if (accs.Username == el1)
-                    {
-                        new Popup(new ErrorMessage("Kontot finns Redan!"), this).Show();
-                        return;
-                    }
-                }
-                 
-                 
-                await DB.AddAccount(new Account (){Username = el1, Password = el2, isAdmin = true });
-                new Popup(new SuccessMessage("Kontot har Lagts till "), this).Show();
-
-
-
-
-
-
-
+                new Popup(new ErrorMessage("Fyll i alla fälten!"), this).Show();
             }
         }
     }

@@ -29,6 +29,7 @@ namespace NTI_QRsystem.Pages
                 if (App.CheckInternetConnection())
                 {
                     load();
+                   
                 }
                 else
                 {
@@ -111,14 +112,21 @@ namespace NTI_QRsystem.Pages
                 _a = DB.getAccountByName(lg);
                 if (_a.isAdmin)
                 {
-                    if (DB.IsDevice(_a))
+                    if(_a.Username == App.R_NAME)
                     {
-                        Navigation.PushAsync(new QRScreen());
-                    }
-                    else
+                        Navigation.PushAsync(new RectorPage());
+                    } else
                     {
-                        Navigation.PushAsync(new TeacherPage());
+                        if (DB.IsDevice(_a))
+                        {
+                            Navigation.PushAsync(new QRScreen());
+                        }
+                        else
+                        {
+                            Navigation.PushAsync(new TeacherPage());
+                        }
                     }
+                    
                 }
                 else
                 {

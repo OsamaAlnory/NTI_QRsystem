@@ -23,12 +23,12 @@ namespace NTI_QRsystem.Views
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            string el1 = usnm.Text, el2 = uspassword.Text;
+            string el1 = usnm.Text, el2 = uspassword.Text, el3 = uscs.Text, el4 = prnr.Text;
 
 
 
 
-            if (el1 == null && el2 == null)
+            if ( string.IsNullOrEmpty(el1) || string.IsNullOrEmpty(el2) || string.IsNullOrEmpty(el3) || string.IsNullOrEmpty(el4))
             {
                 new Popup(new ErrorMessage("Fyll i alla fälten!"), this).Show();
             }
@@ -36,8 +36,8 @@ namespace NTI_QRsystem.Views
             {
                 for (int i = 0; i < DB.accounts.Count; i++)
                 {
-                    Account accs = DB.accounts[i];
-                    if (accs.Username == el1)
+                    var accs = DB.accounts[i];
+                    if (accs.Username == el1 || accs.Pnumber == el4)
                     {
                         new Popup(new ErrorMessage("Kontot finns Redan!"), this).Show();
                         return;
@@ -45,7 +45,7 @@ namespace NTI_QRsystem.Views
                 }
 
 
-                await DB.AddAccount(new Account() { Username = el1, Password = el2, isAdmin = false });
+                await DB.AddAccount(new Account() { Username = el1, Password = el2, Class = el3, Pnumber = el4, isAdmin = false });
                 new Popup(new SuccessMessage("Kontot har Lagts till "), this).Show();
 
             }

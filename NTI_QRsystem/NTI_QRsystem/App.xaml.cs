@@ -23,6 +23,7 @@ namespace NTI_QRsystem
         public const int REFRESH_TIME = 3;
         public const int FAKE_REFRESH_TIME = 800;
         public static Color UNCLICKED = Color.Green;
+        public const string R_NAME = "Rector";
 
         public App()
         {
@@ -41,6 +42,7 @@ namespace NTI_QRsystem
             string CheckUrl = "http://google.com";
             try
             {
+                
                 HttpWebRequest iNetRequest = (HttpWebRequest)WebRequest.Create(CheckUrl);
                 iNetRequest.Timeout = 8000;
                 WebResponse iNetResponse = iNetRequest.GetResponse();

@@ -37,20 +37,18 @@ namespace NTI_QRsystem.Views
         private async void SearchBar_SearchButtonPressed(object sender, EventArgs e)
         {
             string el1 = usnm.Text, el2 = uspassword.Text, el3 = uscs.Text, el4 = uspnr.Text;
-            Account _f = null;
             for (int i = 0; i < DB.accounts.Count; i++)
             {
                 var _ax = DB.accounts[i];
                 if (src.Text == _ax.Username)
                 {
-                    _f = _ax;
                     f_acc = _ax;
                      break;
-                 }
+                }
             }
-            if (_f != null)
+            if (f_acc != null)
             {
-                if (_f.isAdmin)
+                if (f_acc.isAdmin)
                 {
                     h1.IsVisible = false; h2.IsVisible = false;
                 }
@@ -59,14 +57,14 @@ namespace NTI_QRsystem.Views
                     h1.IsVisible = true; h2.IsVisible = true;
                 }
 
-               usnm.Text = _f.Username;
-               uspassword.Text = _f.Password;
-               uscs.Text = _f.Class;
-               uspnr.Text = _f.Pnumber;
-                stk.IsVisible = true;
-                Logutbtn.IsVisible = true;
-                redigbtn.IsVisible = true;
-                if (_f.isLogged)
+               usnm.Text = f_acc.Username;
+               uspassword.Text = f_acc.Password;
+               uscs.Text = f_acc.Class;
+               uspnr.Text = f_acc.Pnumber;
+               stk.IsVisible = true;
+               Logutbtn.IsVisible = true;
+               redigbtn.IsVisible = true;
+                if (f_acc.isLogged)
                 {
                     Logutbtn.IsEnabled = true;
                 } else
@@ -84,25 +82,46 @@ namespace NTI_QRsystem.Views
         private async void Redigbtn_Clicked(object sender, EventArgs e)
         {
             string el1 = usnm.Text, el2 = uspassword.Text, el3 = uscs.Text, el4 = uspnr.Text;
-            if ( string.IsNullOrEmpty(el1) && string.IsNullOrEmpty(el2))
+            if (f_acc.isAdmin)
             {
-                bool t = true;
-                if (!f_acc.isAdmin)
+                if (string.IsNullOrEmpty(el1) && string.IsNullOrEmpty(el2))
                 {
-                    if(string.IsNullOrEmpty(el3) || string.IsNullOrEmpty(el4))
-                    {
-                        t = false;
-                    }
+                    h1.IsVisible = false; h2.IsVisible = false;
+                    new Popup(new ErrorMessage("Fyll i alla fälten!"), this).Show();
                 }
-                if (t)
+                else
                 {
-                    f_acc.Username = el1; f_acc.Password = el2; f_acc.Class = el3; f_acc.Pnumber = el4;
+                    f_acc.Username = el1; f_acc.Password = el2;
                     await DB.EditAccount(f_acc);
                     new Popup(new SuccessMessage("Uppgifterna har ändrats!"), this).Show();
-                    return;
+
                 }
+               
+                
             }
-            new Popup(new ErrorMessage("Fyll i alla fälten!"), this).Show();
+            else
+            {
+                
+                if (!f_acc.isAdmin)
+                {
+                    if (string.IsNullOrEmpty(el1) && string.IsNullOrEmpty(el2) && string.IsNullOrEmpty(el3) && string.IsNullOrEmpty(el4))
+                    {
+                       
+                        new Popup(new ErrorMessage("Fyll i alla fälten!"), this).Show();
+                        return;
+
+                    }
+                    else
+                    {
+                        h1.IsVisible = true; h2.IsVisible = true;
+                        f_acc.Username = el1; f_acc.Password = el2; f_acc.Class = el3; f_acc.Pnumber = el4;
+                        await DB.EditAccount(f_acc);
+                        new Popup(new SuccessMessage("Uppgifterna har ändrats!"), this).Show();
+                    }
+                }
+                return;
+            }
+           
 
 
         }

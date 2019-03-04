@@ -25,6 +25,16 @@
                                 PlaceholderColor="Gray"/>
                 </Frame>
 
+                <Frame Padding="0" CornerRadius="20" Margin="0,20,0,0">
+                    <obj:IEntry Placeholder="Klass" HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center" x:Name="uscs" PlaceholderColor="Gray"/>
+                </Frame>
+
+                <Frame Padding="0" CornerRadius="20" Margin="0,20,0,0">
+                    <obj:IEntry Placeholder="Personnummer" HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center" x:Name="prnr" PlaceholderColor="Gray"/>
+                </Frame>
+
 
 
                 <Button Style="{StaticResource CustomButton}" Text="Lägg Till"

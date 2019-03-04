@@ -42,7 +42,7 @@ namespace NTI_QRsystem.DBK
                 //id = UIDevice.CurrentDevice.IdentifierForVendor.ToString();
              
              //Android
-                 id = Build.Serial;
+                // id = Build.Serial;
                 
              
           

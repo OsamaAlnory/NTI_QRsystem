@@ -28,6 +28,7 @@ namespace NTI_QRsystem.Pages
                 b.BarcodeValue = code+" "+random.Next(99);
                 l.Text = b.BarcodeValue;
                 return true;
+               
             });
             Device.StartTimer(TimeSpan.FromSeconds(App.REFRESH_TIME), () => {
                 A();
@@ -61,6 +62,7 @@ namespace NTI_QRsystem.Pages
                 stk_qr1.IsVisible = false;
                 stk.IsVisible = true;
                 an_no.Play();
+                
             }
         }
     }
