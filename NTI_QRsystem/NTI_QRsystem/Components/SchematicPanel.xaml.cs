@@ -15,7 +15,7 @@ namespace NTI_QRsystem.Components
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SchematicPanel : StackLayout, PopupComponent
 	{
-        public static string[] d = { "Lördag","Söndag","Mondag","Tisdag","Onsdag","Torsdag",
+        public static string[] d = { "Lördag","Söndag","Måndag","Tisdag","Onsdag","Torsdag",
         "Fredag"};
         private ListItem item;
 

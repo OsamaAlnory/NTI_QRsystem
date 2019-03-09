@@ -28,23 +28,23 @@
                 
                 
                 <StackLayout Padding="20" x:Name="stk" IsVisible="False" Spacing="20">
-                    <Frame Padding="0" CornerRadius="20">
+                    <Frame Padding="0" CornerRadius="20" IsClippedToBounds="True">
                         <obj:IEntry Placeholder="Användarnamn" HorizontalOptions="FillAndExpand"
                                 HorizontalTextAlignment="Center" x:Name="usnm" PlaceholderColor="Gray"/>
                     </Frame>
 
-                    <Frame Padding="0" CornerRadius="20">
+                    <Frame Padding="0" CornerRadius="20" IsClippedToBounds="True">
                         <obj:IEntry Placeholder="Lösenord" HorizontalOptions="FillAndExpand"
                      HorizontalTextAlignment="Center" x:Name="uspassword" IsPassword="False"
                                 PlaceholderColor="Gray"/>
                     </Frame>
 
-                    <Frame Padding="0" CornerRadius="20" x:Name="h1">
+                    <Frame Padding="0" CornerRadius="20" x:Name="h1" IsClippedToBounds="True">
                         <obj:IEntry Placeholder="Klass" HorizontalOptions="FillAndExpand"
                                 HorizontalTextAlignment="Center" x:Name="uscs" PlaceholderColor="Gray"/>
                     </Frame>
 
-                    <Frame Padding="0" CornerRadius="20" x:Name="h2">
+                    <Frame Padding="0" CornerRadius="20" x:Name="h2" IsClippedToBounds="True">
                         <obj:IEntry Placeholder="Personnnummer" HorizontalOptions="FillAndExpand"
                      HorizontalTextAlignment="Center" x:Name="uspnr" IsPassword="True"
                                 PlaceholderColor="Gray"/>

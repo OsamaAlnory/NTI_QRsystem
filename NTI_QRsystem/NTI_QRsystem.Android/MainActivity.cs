@@ -14,7 +14,7 @@ using NTI_QRsystem.Droid;
  
 namespace NTI_QRsystem.Droid
 {
-    [Activity(Label = "NTI Närvaro", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, 
+    [Activity(Label = "NTI Närvaro", Icon = "@mipmap/icons", Theme = "@style/MainTheme", MainLauncher = false, 
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
         ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
@@ -29,7 +29,8 @@ namespace NTI_QRsystem.Droid
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
 
             Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
-        
+            App.ScreenHeight = (int)(Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density);
+            App.ScreenWidth = (int)(Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             
             LoadApplication(new App());

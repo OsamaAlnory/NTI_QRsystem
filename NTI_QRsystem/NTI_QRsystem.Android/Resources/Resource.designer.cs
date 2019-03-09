@@ -2961,94 +2961,91 @@ namespace NTI_QRsystem.Droid
 			public const int ic_vol_type_tv_light = 2130837773;
 			
 			// aapt resource value: 0x7f02010e
-			public const int logout = 2130837774;
+			public const int mr_button_connected_dark = 2130837774;
 			
 			// aapt resource value: 0x7f02010f
-			public const int mr_button_connected_dark = 2130837775;
+			public const int mr_button_connected_light = 2130837775;
 			
 			// aapt resource value: 0x7f020110
-			public const int mr_button_connected_light = 2130837776;
+			public const int mr_button_connecting_dark = 2130837776;
 			
 			// aapt resource value: 0x7f020111
-			public const int mr_button_connecting_dark = 2130837777;
+			public const int mr_button_connecting_light = 2130837777;
 			
 			// aapt resource value: 0x7f020112
-			public const int mr_button_connecting_light = 2130837778;
+			public const int mr_button_dark = 2130837778;
 			
 			// aapt resource value: 0x7f020113
-			public const int mr_button_dark = 2130837779;
+			public const int mr_button_light = 2130837779;
 			
 			// aapt resource value: 0x7f020114
-			public const int mr_button_light = 2130837780;
+			public const int mr_dialog_close_dark = 2130837780;
 			
 			// aapt resource value: 0x7f020115
-			public const int mr_dialog_close_dark = 2130837781;
+			public const int mr_dialog_close_light = 2130837781;
 			
 			// aapt resource value: 0x7f020116
-			public const int mr_dialog_close_light = 2130837782;
+			public const int mr_dialog_material_background_dark = 2130837782;
 			
 			// aapt resource value: 0x7f020117
-			public const int mr_dialog_material_background_dark = 2130837783;
+			public const int mr_dialog_material_background_light = 2130837783;
 			
 			// aapt resource value: 0x7f020118
-			public const int mr_dialog_material_background_light = 2130837784;
+			public const int mr_group_collapse = 2130837784;
 			
 			// aapt resource value: 0x7f020119
-			public const int mr_group_collapse = 2130837785;
+			public const int mr_group_expand = 2130837785;
 			
 			// aapt resource value: 0x7f02011a
-			public const int mr_group_expand = 2130837786;
+			public const int mr_media_pause_dark = 2130837786;
 			
 			// aapt resource value: 0x7f02011b
-			public const int mr_media_pause_dark = 2130837787;
+			public const int mr_media_pause_light = 2130837787;
 			
 			// aapt resource value: 0x7f02011c
-			public const int mr_media_pause_light = 2130837788;
+			public const int mr_media_play_dark = 2130837788;
 			
 			// aapt resource value: 0x7f02011d
-			public const int mr_media_play_dark = 2130837789;
+			public const int mr_media_play_light = 2130837789;
 			
 			// aapt resource value: 0x7f02011e
-			public const int mr_media_play_light = 2130837790;
+			public const int mr_media_stop_dark = 2130837790;
 			
 			// aapt resource value: 0x7f02011f
-			public const int mr_media_stop_dark = 2130837791;
+			public const int mr_media_stop_light = 2130837791;
 			
 			// aapt resource value: 0x7f020120
-			public const int mr_media_stop_light = 2130837792;
+			public const int mr_vol_type_audiotrack_dark = 2130837792;
 			
 			// aapt resource value: 0x7f020121
-			public const int mr_vol_type_audiotrack_dark = 2130837793;
+			public const int mr_vol_type_audiotrack_light = 2130837793;
 			
 			// aapt resource value: 0x7f020122
-			public const int mr_vol_type_audiotrack_light = 2130837794;
+			public const int navigation_empty_icon = 2130837794;
 			
 			// aapt resource value: 0x7f020123
-			public const int navigation_empty_icon = 2130837795;
+			public const int notification_action_background = 2130837795;
 			
 			// aapt resource value: 0x7f020124
-			public const int notification_action_background = 2130837796;
+			public const int notification_bg = 2130837796;
 			
 			// aapt resource value: 0x7f020125
-			public const int notification_bg = 2130837797;
+			public const int notification_bg_low = 2130837797;
 			
 			// aapt resource value: 0x7f020126
-			public const int notification_bg_low = 2130837798;
+			public const int notification_bg_low_normal = 2130837798;
 			
 			// aapt resource value: 0x7f020127
-			public const int notification_bg_low_normal = 2130837799;
+			public const int notification_bg_low_pressed = 2130837799;
 			
 			// aapt resource value: 0x7f020128
-			public const int notification_bg_low_pressed = 2130837800;
+			public const int notification_bg_normal = 2130837800;
 			
 			// aapt resource value: 0x7f020129
-			public const int notification_bg_normal = 2130837801;
+			public const int notification_bg_normal_pressed = 2130837801;
 			
 			// aapt resource value: 0x7f02012a
-			public const int notification_bg_normal_pressed = 2130837802;
-			
-			// aapt resource value: 0x7f02012b
-			public const int notification_icon_background = 2130837803;
+			public const int notification_icon_background = 2130837802;
 			
 			// aapt resource value: 0x7f020131
 			public const int notification_template_icon_bg = 2130837809;
@@ -3056,14 +3053,17 @@ namespace NTI_QRsystem.Droid
 			// aapt resource value: 0x7f020132
 			public const int notification_template_icon_low_bg = 2130837810;
 			
+			// aapt resource value: 0x7f02012b
+			public const int notification_tile_bg = 2130837803;
+			
 			// aapt resource value: 0x7f02012c
-			public const int notification_tile_bg = 2130837804;
+			public const int notify_panel_notification_icon_bg = 2130837804;
 			
 			// aapt resource value: 0x7f02012d
-			public const int notify_panel_notification_icon_bg = 2130837805;
+			public const int setting = 2130837805;
 			
 			// aapt resource value: 0x7f02012e
-			public const int setting = 2130837806;
+			public const int Splash_image = 2130837806;
 			
 			// aapt resource value: 0x7f02012f
 			public const int tooltip_frame_dark = 2130837807;
@@ -4025,7 +4025,10 @@ namespace NTI_QRsystem.Droid
 			public const int icon_round = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int launcher_foreground = 2130903042;
+			public const int icons = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int launcher_foreground = 2130903043;
 			
 			static Mipmap()
 			{
@@ -4254,8 +4257,8 @@ namespace NTI_QRsystem.Droid
 			// aapt resource value: 0x7f0c016e
 			public const int Animation_Design_BottomSheetDialog = 2131493230;
 			
-			// aapt resource value: 0x7f0c0191
-			public const int AppCompatDialogStyle = 2131493265;
+			// aapt resource value: 0x7f0c0192
+			public const int AppCompatDialogStyle = 2131493266;
 			
 			// aapt resource value: 0x7f0c00a9
 			public const int Base_AlertDialog_AppCompat = 2131493033;
@@ -4758,11 +4761,11 @@ namespace NTI_QRsystem.Droid
 			// aapt resource value: 0x7f0c000e
 			public const int CardView_Light = 2131492878;
 			
-			// aapt resource value: 0x7f0c018f
-			public const int MainTheme = 2131493263;
-			
 			// aapt resource value: 0x7f0c0190
-			public const int MainTheme_Base = 2131493264;
+			public const int MainTheme = 2131493264;
+			
+			// aapt resource value: 0x7f0c0191
+			public const int MainTheme_Base = 2131493265;
 			
 			// aapt resource value: 0x7f0c002d
 			public const int Platform_AppCompat = 2131492909;
@@ -5153,6 +5156,9 @@ namespace NTI_QRsystem.Droid
 			
 			// aapt resource value: 0x7f0c0006
 			public const int Theme_MediaRouter_LightControlPanel = 2131492870;
+			
+			// aapt resource value: 0x7f0c018f
+			public const int Theme_Splash = 2131493263;
 			
 			// aapt resource value: 0x7f0c0116
 			public const int ThemeOverlay_AppCompat = 2131493142;
