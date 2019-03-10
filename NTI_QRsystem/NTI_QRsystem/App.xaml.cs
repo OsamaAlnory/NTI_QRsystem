@@ -35,6 +35,7 @@ namespace NTI_QRsystem
             RegisterSound("success", "scan_success.wav");
             COLORS.Add("absent", Color.Red);
             COLORS.Add("present", Color.Lime);
+            COLORS.Add("purple", Color.Purple);
             MainPage = new NavigationPage(new LoadingPage());
 
             //MainPage = new NavigationPage(new Pages.RectorPage());
