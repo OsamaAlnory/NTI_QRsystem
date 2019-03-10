@@ -18,6 +18,13 @@ namespace NTI_QRsystem.Views
 		{
 			InitializeComponent ();
             image1.Source = App.getImage("bg");
+            Calc(usnm); Calc(uspassword);
+        }
+
+        private void Calc(View e)
+        {
+            e.HeightRequest = App.ScreenHeight / 16;
+            e.Margin = new Thickness(App.ScreenWidth / 30, 0, App.ScreenWidth / 30, 0);
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

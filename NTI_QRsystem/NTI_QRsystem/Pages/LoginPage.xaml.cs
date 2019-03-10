@@ -33,6 +33,13 @@ namespace NTI_QRsystem.Pages
                     CountDown();
                 }
             }
+            Calc(username); Calc(password);
+        }
+
+        private void Calc(View e)
+        {
+            e.HeightRequest = App.ScreenHeight / 16;
+            e.Margin = new Thickness(App.ScreenWidth / 30, 0, App.ScreenWidth / 30, 0);
         }
 
         private void RunTimer()

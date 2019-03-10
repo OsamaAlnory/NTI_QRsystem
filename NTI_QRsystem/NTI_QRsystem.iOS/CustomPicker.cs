@@ -24,7 +24,7 @@ namespace NTI_QRsystem.iOS
 
                 Control.BorderStyle = UITextBorderStyle.None;
                 Control.Layer.CornerRadius = 10;
-                Control.TextColor = UIColor.White;
+                Control.TextColor = UIColor.Black;
 
             }
         }

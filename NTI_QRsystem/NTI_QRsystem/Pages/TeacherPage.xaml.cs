@@ -158,7 +158,7 @@ namespace NTI_QRsystem.Pages
                     return;
                 }
             }
-            _item.ItemColor = Color.Blue;
+            _item.ItemColor = App.CLICKED;
             RefreshList(_item);
             lastClicked = _item;
             btn_r.IsEnabled = true;

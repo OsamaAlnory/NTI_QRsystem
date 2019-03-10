@@ -95,11 +95,11 @@
                 AbsoluteLayout.LayoutBounds="0,0,1,1" Padding="20" Spacing="12">
                 <Label Text="Inloggning" HorizontalOptions="CenterAndExpand"
                        TextColor="White" FontSize="30" FontAttributes="Bold"/>
-                <Frame Padding="0" CornerRadius="20" Margin="0,20,0,0">
+                <Frame Padding="0" CornerRadius="20" Margin="0,20,0,0" IsClippedToBounds="True">
                     <obj:IEntry Placeholder="Namn" HorizontalOptions="FillAndExpand"
                                 HorizontalTextAlignment="Center" x:Name="username"/>
                 </Frame>
-                <Frame Padding="0" CornerRadius="20">
+                <Frame Padding="0" CornerRadius="20" IsClippedToBounds="True">
                     <obj:IEntry Placeholder="Lösenord" HorizontalOptions="FillAndExpand"
                      HorizontalTextAlignment="Center" x:Name="password" IsPassword="True"/>
                 </Frame>

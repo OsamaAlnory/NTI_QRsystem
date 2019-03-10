@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NTI_QRsystem.Pages.TeacherPage" NavigationPage.HasNavigationBar="False">
-    <ContentPage Title="Lektion">
+             x:Class="NTI_QRsystem.Pages.TeacherPage" NavigationPage.HasNavigationBar="False"
+            BarTextColor="Black" BarBackgroundColor="White">
+    <ContentPage Title="Lektion" Icon="lec.png">
         <AbsoluteLayout>
             <Image x:Name="background5" Aspect="Fill" AbsoluteLayout.LayoutFlags="All"
                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>
@@ -45,7 +46,7 @@
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage>
-    <ContentPage Title="Mitt schema">
+    <ContentPage Title="Mitt schema" Icon="edit.png">
         <AbsoluteLayout>
             <Image x:Name="bkg" Aspect="Fill" AbsoluteLayout.LayoutFlags="All"
                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>

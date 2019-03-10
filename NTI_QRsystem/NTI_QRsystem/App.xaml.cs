@@ -23,8 +23,11 @@ namespace NTI_QRsystem
         public const int REFRESH_TIME = 5;
         public const int FAKE_REFRESH_TIME = 800;
         public static Color UNCLICKED = Color.Green;
+        public static Color CLICKED = Color.Blue;
         public const string R_NAME = "Rector";
         private static Dictionary<string, Color> COLORS = new Dictionary<string, Color>();
+        public static int ScreenWidth;
+        public static int ScreenHeight;
 
         public App()
         {

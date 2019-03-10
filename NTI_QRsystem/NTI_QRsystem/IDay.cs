@@ -16,7 +16,7 @@ namespace NTI_QRsystem
             } else if(t == "söndag")
             {
                 return DayOfWeek.Sunday;
-            } else if(t == "mondag")
+            } else if(t == "måndag")
             {
                 return DayOfWeek.Monday;
             } else if(t == "tisdag")
