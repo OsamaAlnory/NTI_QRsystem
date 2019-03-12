@@ -18,6 +18,7 @@ namespace NTI_QRsystem.Pages
 	{
         public static Account _a;
         public static LoadingPage p;
+        public static bool A = false;
 
         public LoadingPage ()
 		{
@@ -25,24 +26,37 @@ namespace NTI_QRsystem.Pages
 			InitializeComponent ();
             backgrounds1.Source = App.getImage("bg");
             Device.StartTimer(TimeSpan.FromSeconds(1), () => {
-                an.Play();
-                if (App.CheckInternetConnection())
-                {
-                    load();
-                   
-                }
-                else
-                {
-                    an.Pause();
-                    an.IsVisible = false;
-                    new Popup(new ErrorMessage("Se till att din mobil är ansluten till internet."), this).Show();
-                }
+                A = true;
+                Check();
                 return false;
             });
 		}
 
+        public void Check()
+        {
+            an.IsVisible = true;
+            an.Play();
+            if (App.CheckInternetConnection())
+            {
+                load();
+            }
+            else
+            {
+                an.Pause();
+                an.IsVisible = false;
+                new Popup(new RetryPopup("Se till att din mobil är ansluten till internet."
+                    , () => {
+                        Device.StartTimer(TimeSpan.FromSeconds(1), () => {
+                            Check();
+                            return false;
+                        });
+                    }), this).Show();
+            }
+        }
+
         private async void load()
         {
+            A = false;
             if(App.Current.Properties.ContainsKey("Schema"))
             {
                 var _zx = (App.Current.Properties["Schema"] as string).Split(';');
@@ -64,6 +78,14 @@ namespace NTI_QRsystem.Pages
             await DB.LoadAccounts();
             await DB.LoadLectures();
             await DB.LoadInfos();
+            for(int x = 0; x < DB.infos.Count; x++)
+            {
+                var _ = DB.infos[x];
+                if(DB.GetLectureById(_.LecId) == null)
+                {
+                    await DB.RemoveInfo(_);
+                }
+            }
             for(int x = 0; x < DB.accounts.Count; x++)
             {
                 var s = DB.accounts[x]; s.isLogged = false; await DB.EditAccount(s);

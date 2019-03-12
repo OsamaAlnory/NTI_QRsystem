@@ -20,7 +20,8 @@ namespace NTI_QRsystem
         public static Dictionary<string, ISimpleAudioPlayer> sounds = new Dictionary<string, ISimpleAudioPlayer>();
         public const int QR_SIZE = 1000;
         private const string PATH = "NTI_QRsystem";
-        public const int REFRESH_TIME = 5;
+        public const int REFRESH_TIME = 3;
+        public const int CHECK_TIME = 10;
         public const int FAKE_REFRESH_TIME = 800;
         public static Color UNCLICKED = Color.Green;
         public static Color CLICKED = Color.Blue;
@@ -128,17 +129,41 @@ namespace NTI_QRsystem
 
         protected override void OnStart()
         {
+            Device.StartTimer(TimeSpan.FromSeconds(3), () =>
+            {
+                if (LoadingPage.A)
+                {
+                    LoadingPage.p.Check();
+                }
+                return false;
+            });
             // Handle when your app starts
         }
 
         protected override void OnSleep()
         {
             // Handle when your app sleeps
+            Device.StartTimer(TimeSpan.FromSeconds(3), () =>
+            {
+                if (LoadingPage.A)
+                {
+                    LoadingPage.p.Check();
+                }
+                return false;
+            });
         }
 
         protected override void OnResume()
         {
             // Handle when your app resumes
+            Device.StartTimer(TimeSpan.FromSeconds(3), () =>
+            {
+                if (LoadingPage.A)
+                {
+                    LoadingPage.p.Check();
+                }
+                return false;
+            });
         }
     }
 }

@@ -9,9 +9,8 @@ using Android.OS;
 using static Android.Media.Audiofx.BassBoost;
 using Xamarin.Forms;
 using NTI_QRsystem.Droid;
- 
+using Plugin.CurrentActivity;
 
- 
 namespace NTI_QRsystem.Droid
 {
     [Activity(Label = "NTI Närvaro", Icon = "@mipmap/icons", Theme = "@style/MainTheme", MainLauncher = false, 
@@ -19,6 +18,8 @@ namespace NTI_QRsystem.Droid
         ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        private static App app;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -29,11 +30,14 @@ namespace NTI_QRsystem.Droid
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
 
             Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
             App.ScreenHeight = (int)(Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density);
             App.ScreenWidth = (int)(Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            
-            LoadApplication(new App());
+            if (app == null) {
+                app = new App();
+            }
+            LoadApplication(app);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)

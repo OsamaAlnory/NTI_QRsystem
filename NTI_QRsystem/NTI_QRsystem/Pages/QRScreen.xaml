@@ -5,11 +5,7 @@
              xmlns:qrc="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              x:Class="NTI_QRsystem.Pages.QRScreen" NavigationPage.HasNavigationBar="False">
     <AbsoluteLayout>
-        <StackLayout IsVisible="True" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
-            <Label x:Name="l" HorizontalOptions="CenterAndExpand"/>
-            <!--Loading text with animation-->
-        </StackLayout>
-        <StackLayout IsVisible="False" x:Name="stk" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
+        <StackLayout IsVisible="True" x:Name="stk" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
                      BackgroundColor="Blue" Padding="10">
             <StackLayout VerticalOptions="CenterAndExpand" Spacing="0">
                 <Label Text="Ingen lektion hittades i denna sal!" FontSize="30"

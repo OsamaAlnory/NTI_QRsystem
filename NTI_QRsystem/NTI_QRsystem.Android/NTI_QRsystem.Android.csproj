@@ -80,6 +80,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Brightness_Android.cs" />
     <Compile Include="CustomPicker.cs" />
     <Compile Include="IDGetterAndroid.cs" />
     <Compile Include="IEntryRenderer.cs" />

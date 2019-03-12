@@ -69,7 +69,7 @@ namespace NTI_QRsystem
                     {
                         TimeSpan clsstime = TimeSpan.Parse(f[1]);
                         var tt = App.GetTotalSeconds(d.Subtract(clsstime));
-                        if (tt < App.REFRESH_TIME*2)
+                        if (tt < App.CHECK_TIME)
                         {
                              await DB.LoadInfos();
                             if (!DB.CheckStudent(s))

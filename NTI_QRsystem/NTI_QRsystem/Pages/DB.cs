@@ -74,6 +74,10 @@ namespace NTI_QRsystem.Pages
 
         public static async Task<HttpResponseMessage> RemoveInfo(Info info)
         {
+            if (infos.Contains(info))
+            {
+                infos.Remove(info);
+            }
             HttpClient client = new HttpClient();
             return await client.DeleteAsync(L + IN + "/" + info.ID);
         }
