@@ -70,8 +70,7 @@
                             BackgroundColor="Silver"/>
 
                         <Grid Grid.Row="4">
-                            <Label Text="KÄRA ELEV ditt enda uppgift är att logga in för att skanna qr-koden som finns 
-                                         på Ipaden vid din Lektion sal för att ditt närvaro ska registeras automatiskt!" FontSize="Large" VerticalOptions="CenterAndExpand"
+                            <Label x:Name="labila" FontSize="Large" VerticalOptions="CenterAndExpand"
                                  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextColor="Black"/>
                         </Grid>
 

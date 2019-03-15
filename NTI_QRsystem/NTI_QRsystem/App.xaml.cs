@@ -21,7 +21,7 @@ namespace NTI_QRsystem
         public const int QR_SIZE = 1000;
         private const string PATH = "NTI_QRsystem";
         public const int REFRESH_TIME = 3;
-        public const int CHECK_TIME = 10;
+        public const int CHECK_TIME = 30;
         public const int FAKE_REFRESH_TIME = 800;
         public static Color UNCLICKED = Color.Green;
         public static Color CLICKED = Color.Blue;
@@ -41,8 +41,6 @@ namespace NTI_QRsystem
             COLORS.Add("present", Color.Lime);
             COLORS.Add("purple", Color.Purple);
             MainPage = new NavigationPage(new LoadingPage());
-
-            //MainPage = new NavigationPage(new Pages.RectorPage());
         }
 
         public static Color getColor(string key)
@@ -127,16 +125,24 @@ namespace NTI_QRsystem
             return Math.Abs(t.Hours * 3600 + t.Minutes * 60 + t.Seconds);
         }
 
+        public static string GetStringedTime(TimeSpan t)
+        {
+            var _ = "";
+            _ += t.Hours > 0 ? t.Hours+"t" : "";
+            _ += t.Minutes > 0 ?_!=""?" "+t.Minutes+"s":t.Minutes+"s":"";
+            return _;
+        }
+
         protected override void OnStart()
         {
-            Device.StartTimer(TimeSpan.FromSeconds(3), () =>
-            {
-                if (LoadingPage.A)
-                {
-                    LoadingPage.p.Check();
-                }
-                return false;
-            });
+            //Device.StartTimer(TimeSpan.FromSeconds(3), () =>
+            //{
+            //    if (LoadingPage.A)
+            //    {
+            //        LoadingPage.p.Check();
+            //    }
+            //    return false;
+            //});
             // Handle when your app starts
         }
 

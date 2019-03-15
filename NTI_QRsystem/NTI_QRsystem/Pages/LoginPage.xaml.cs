@@ -34,6 +34,12 @@ namespace NTI_QRsystem.Pages
                 }
             }
             Calc(username); Calc(password);
+            labila.Text = "Kära användare.\n\nDin uppgift som elev är att" +
+                " genom denna app, få din närvaro registrerats. Så snart du loggar in på ditt" +
+                " givna konto, öppnas läsaren automatiskt. Du ska läsa av koden som står" +
+                " på appareten på den sal du har lektionen i.\n\n" +
+                "Som lärare, får du skapa lektioner samt ett eget" +
+                " schema.";
         }
 
         private void Calc(View e)
