@@ -21,7 +21,7 @@ namespace NTI_QRsystem
         public const int QR_SIZE = 1000;
         private const string PATH = "NTI_QRsystem";
         public const int REFRESH_TIME = 3;
-        public const int CHECK_TIME = 30;
+        public const int CHECK_TIME = 60;
         public const int FAKE_REFRESH_TIME = 800;
         public static Color UNCLICKED = Color.Green;
         public static Color CLICKED = Color.Blue;
