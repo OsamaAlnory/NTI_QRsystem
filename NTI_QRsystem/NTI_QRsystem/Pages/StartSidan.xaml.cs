@@ -16,11 +16,12 @@ namespace NTI_QRsystem
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class StartSidan : ContentPage
 	{
+        DateTime time = DateTime.Today;
 		public StartSidan ()
 		{
 			InitializeComponent ();
             img.Source = App.getImage("background");
-            cp.Text = "Copyright © 2019 NTIGymnasiet all rights reserved.";
+            cp.Text = "NTI-Gymnasiet© " + "Helsingborg " + time.ToString("yyy") + "\nSkapades av: ©Osama Alnori Och Mohanad Oweidat"; ;
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
                 Scanner();

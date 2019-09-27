@@ -10,7 +10,7 @@ namespace NTI_QRsystem.Pages
 {
     public class DB
     {
-        private const string L = "http://qr.somee.com/api/";
+        private const string L = "http://www.sc.somee.com/api/";
         private const string AC = "Accounts";
         private const string IN = "Info";
         private const string LE = "Lec";

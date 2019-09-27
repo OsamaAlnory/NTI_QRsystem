@@ -16,7 +16,7 @@
                      FontSize="30" TextColor="Purple"/>
             </StackLayout>
             <Label x:Name="cp" VerticalOptions="EndAndExpand"
-                   TextColor="White" FontSize="16" FontAttributes="Bold"/>
+                   TextColor="White" FontSize="13" FontAttributes="Bold"/>
         </StackLayout>
     </AbsoluteLayout>
 </ContentPage>

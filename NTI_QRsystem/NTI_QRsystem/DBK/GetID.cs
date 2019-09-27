@@ -1,16 +1,9 @@
-﻿using Android.OS;
-using Foundation;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using UIKit;
-using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration;
+﻿using Xamarin.Forms;
 
 
 namespace NTI_QRsystem.DBK
 {
-     public class GetID
+    public class GetID
      {
         //private static GetID _Default;
         //public static GetID Default

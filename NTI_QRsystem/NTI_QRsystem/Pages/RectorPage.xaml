@@ -15,7 +15,7 @@
              <Image x:Name="masterbg" Aspect="AspectFill"/>
             <StackLayout Padding="0,20,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                         <Image x:Name="profile" Aspect="AspectFill" WidthRequest="85" HeightRequest="85"/>
-                        <Label Text="Suzane Alkabrand" TextColor="White" FontSize="Large"/>
+                        <Label Text="Susanne Alkbrand" TextColor="White" FontSize="Large"/>
                     </StackLayout>
                 </Grid>
                 <StackLayout Margin="20,20,20,0" Grid.Row="1" Spacing="15">
